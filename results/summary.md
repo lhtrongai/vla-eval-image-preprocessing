@@ -2,11 +2,11 @@
 
 Every cell changes one step of the evaluation image pipeline and runs the 10 tasks x 50 stored initial states of LIBERO-Spatial. Episodes are paired with the model's reference cell by (task, initial state); the initial-state hashes match the reference in all 500 pairs of every cell.
 
-- Models: OpenVLA-7B (`openvla/openvla-7b-finetuned-libero-spatial`, sdpa attention) and OpenVLA-OFT (`moojink/openvla-7b-oft-finetuned-libero-spatial`).
+- Models: OpenVLA-7B (`openvla/openvla-7b-finetuned-libero-spatial`, sdpa attention) and OpenVLA-OFT (`moojink/openvla-7b-oft-finetuned-libero-spatial`). Both were fine-tuned with random crops of 90% of the image area, and both evaluation scripts take the matching center crop (OpenVLA README, OpenVLA-OFT LIBERO.md).
 - Stack: MuJoCo 3.3.7, robosuite 1.4.1, torch 2.8.0+cu128, one RTX PRO 4500 per cell, step budget 220 policy steps plus 10 settle steps.
 - Reference cells: OpenVLA-7B ran on 6 October 2026, OFT on 3 and 5 October 2026 (initial states 0-19 and 20-49, the original evaluation script). Variant cells and the identical reruns ran on 28-29 October 2026, OFT again as two runs (0-19, 20-49).
 - Variants: `jpeg_off` skips the JPEG round trip; `crop_off` skips the center crop of the evaluation script; `bilinear` replaces the Lanczos resize with bilinear (JPEG round trip and antialias kept); `render224` renders the cameras at 224x224 instead of 256x256; `rerun` repeats the reference unchanged.
-- Primary comparison, fixed before any run: JPEG round trip off on OpenVLA-7B. A pilot on initial states 0-19 found 17.5% of episodes changing outcome, so the rule fixed beforehand reports the one-sided 95% upper bound on the loss at 500 pairs. The other seven variant comparisons are secondary, Holm-adjusted.
+- Primary comparison, fixed before any run: JPEG round trip off on OpenVLA-7B, with 3 points as the smallest loss that matters. A pilot on initial states 0-19 found 17.5% of episodes changing outcome, so the rule fixed beforehand reports the one-sided 95% upper bound on the loss at 500 pairs. The other seven variant comparisons are secondary, Holm-adjusted.
 
 Produced by `python scripts/paired_stats.py` (bootstrap: 20,000 draws over paired episodes, seed 20261029):
 
@@ -36,9 +36,21 @@ Flips per task:
   openvla7b_spatial_rerun: [0, 2, 0, 0, 0, 0, 0, 1, 0, 0]
 
 Reading:
-- Turning the JPEG round trip off costs OpenVLA-7B less than 3.6 points on LIBERO-Spatial (one-sided 95% bound; estimate -0.8), although 74 of 500 episodes change outcome, in both directions.
-- No secondary comparison passes 0.05 after Holm. The closest is the center crop on OpenVLA-OFT (-2.4 points, Holm p 0.053), with 10 of its 18 changed episodes in task 5; OFT was trained with random 90% crops, so turning the crop off at evaluation is a train/test mismatch.
-- The center-crop cost on OpenVLA-7B (-1.0 points, loss interval [-2.6, +4.6]) is consistent with the about 3 points reported by vla-eval but not distinguishable from zero.
+- Turning the JPEG round trip off changes OpenVLA-7B by -0.8 points, with a one-sided 95% upper bound of 3.6 points on the loss. The bound is above the 3 points fixed beforehand, so a 3-point loss is not ruled out: the result does not show that the JPEG step can be skipped. 74 of 500 episodes change outcome, in both directions (39 lost, 35 gained).
+- No secondary comparison passes 0.05 after Holm. The closest is the center crop on OpenVLA-OFT (-2.4 points, Holm p 0.053). 9 of its 15 lost episodes are in task 5 (black bowl on the ramekin), where crop off succeeds in 40 of 50 episodes against 45-48 for the other OFT pipelines; without task 5 it loses 6 and gains 2 (McNemar p 0.29). Turning the crop off is a train/test mismatch for both models, and OpenVLA-7B shows no detectable effect from it.
+- The center-crop cost on OpenVLA-7B (-1.0 points, loss interval [-2.6, +4.6], upper bound 4.0) is consistent with the about 3 points reported by vla-eval but not distinguishable from zero.
 - Noise floor: the identical rerun changes 3 of 500 OpenVLA-7B episodes (run on another day and pod than the reference) and none of the OFT episodes.
 
 Image steps were checked before the runs on a LIBERO-Spatial frame: the rewritten resize reproduces the official step pixel for pixel; the bilinear variant changes the policy input by 0.76 grey levels on average and rendering at 224 by 1.84 (`scripts/check_image_variants.py`).
+
+## Exploratory checks after the lock
+
+Not registered beforehand, no new runs. `python scripts/post_lock_checks.py` prints every number below.
+
+- Fragile episodes. Over the five OpenVLA-7B pipelines (reference and four variants), 296 episodes always succeed, 15 always fail and 189 (38%) change; 60 of the 75 reference failures succeed under at least one variant. OpenVLA-OFT: 470, 1 and 29, with 13 of the 29 in task 5.
+- The flips do not belong to one image step. Every pair of OpenVLA-7B pipelines differs in 74-99 episodes, any two variants flip the same episodes 2.5-3 times as often as chance (33-40 shared against 12-15 expected), and no variant differs from another (McNemar p 0.23 or more).
+- The reference cell is a little lucky. On initial states 0-19 all four OpenVLA-7B variants score above it (163-168 against 161), on states 20-49 all four score below it (251-260 against 264); it sits 4.5 episodes above the mean of the other four pipelines.
+- Not an edge effect of the step budget: the episodes a variant loses had succeeded at a median of 123-128 of 230 env steps in the reference, and cutting the budget to 120-180 steps does not reduce the flips.
+- Trajectories. The runs are nearly deterministic (the identical OpenVLA-7B rerun repeats 497 of 500 outcomes and the exact success step in 415 of 423), yet under any variant almost every OpenVLA-7B trajectory changes: among episodes that succeed in both, only 3-5% succeed at the same step (median difference 5-8 steps). OpenVLA-OFT keeps 9-35% (median difference 1-3 steps). Flip rates cannot compare the two models' sensitivity, because they depend on the success level (85% against 99%); these step differences can.
+- OpenVLA-OFT with the crop off is below every other OFT pipeline (against bilinear: 2 gained, 15 lost, McNemar p 0.002, uncorrected), the only candidate for a real effect here, but it rests on one task.
+- Consequence for comparing scores: given its number of flips, a pipeline change with no systematic effect still moves a 500-episode LIBERO-Spatial score within about ±3.4 to ±3.8 points (95%) for OpenVLA-7B and ±1.0 to ±1.7 for OpenVLA-OFT. Score gaps of that size between two evaluation pipelines are not evidence that the pipelines differ.
