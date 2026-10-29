@@ -1,0 +1,67 @@
+{
+  "argv": [
+    "--model_family",
+    "openvla",
+    "--pretrained_checkpoint",
+    "openvla/openvla-7b-finetuned-libero-spatial",
+    "--task_suite_name",
+    "libero_spatial",
+    "--center_crop",
+    "True",
+    "--num_trials_per_task",
+    "50",
+    "--seed",
+    "7"
+  ],
+  "suite": "libero_spatial",
+  "checkpoint": "openvla/openvla-7b-finetuned-libero-spatial",
+  "seed": "7",
+  "env_seed": 0,
+  "attn_implementation": "sdpa",
+  "image_pipeline": {
+    "jpeg_roundtrip": "off",
+    "center_crop": "True",
+    "save_policy_inputs": true
+  },
+  "openvla_commit": "c8f03f48af692657d3060c19588038c7220e9af9",
+  "versions": {
+    "torch": "2.8.0+cu128",
+    "mujoco": "3.3.7",
+    "robosuite": "1.4.1",
+    "numpy": "1.26.4",
+    "gymnasium": null,
+    "transformers": "4.40.1",
+    "tensorflow": "2.16.2"
+  },
+  "libero_package": "/workspace/LIBERO/libero/libero",
+  "textures": {
+    "assets_dir": "/workspace/LIBERO/libero/libero/assets",
+    "files": {
+      "textures/light-gray-floor-tile.png": {
+        "sha1": "8a9382967918924988e5f8b79fd2a563c11dea3d",
+        "srgb_tag": true
+      },
+      "textures/tile_grigia_caldera_porcelain_floor.png": {
+        "sha1": "8a9382967918924988e5f8b79fd2a563c11dea3d",
+        "srgb_tag": true
+      },
+      "stable_hope_objects/salad_dressing/texture_map.png": {
+        "sha1": "3f4f37845ba70af0688ad5620c2b5a6954f6c983",
+        "srgb_tag": true
+      },
+      "stable_hope_objects/new_salad_dressing/texture_map.png": {
+        "sha1": "3f4f37845ba70af0688ad5620c2b5a6954f6c983",
+        "srgb_tag": true
+      }
+    },
+    "srgb_tagged_files": 4
+  },
+  "start_time": "2026-10-28 23:47:02",
+  "host": "8a886698e346",
+  "runpod_pod_id": "a3ad8uzopqtqub",
+  "gpu": "NVIDIA RTX PRO 4500 Blackwell",
+  "gpu_driver": "595.91.07",
+  "cpu": "AMD EPYC 7663 56-Core Processor",
+  "mujoco_gl": "egl",
+  "checkpoint_snapshot": "/workspace/hf_cache/hub/models--openvla--openvla-7b-finetuned-libero-spatial/snapshots/962318cec55ac10993ff0f5f43eda9a270b4c873"
+}

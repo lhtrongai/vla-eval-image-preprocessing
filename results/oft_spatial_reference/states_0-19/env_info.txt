@@ -1,0 +1,9 @@
+Sat Oct  3 07:29:55 UTC 2026
+torch 2.8.0+cu128 12.8 NVIDIA RTX PRO 4500 Blackwell
+transformers /workspace/venvs/oft/lib/python3.12/site-packages/transformers/__init__.py
+mujoco 3.3.7
+openvla-oft e4287e94541f459edc4feabc4e181f537cd569a8
+LIBERO 8f1084e3132a39270c3a13ebe37270a43ece2a01
+287:    _supports_flash_attn_2: bool = True
+312:    def _supports_sdpa(self) -> bool:
+314:        return self.language_model._supports_sdpa
