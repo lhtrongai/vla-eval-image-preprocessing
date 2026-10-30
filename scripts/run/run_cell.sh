@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Image-pipeline cell on LIBERO-Spatial, all 500 stored initial states (one cell per pod).
-# Same as pod_chain.sh, plus: variant cells (bilinear, render224) and every OFT cell use the variant copy of the scripts;
+# Reference-pipeline cells (jpeg_off, crop_off, rerun on OpenVLA-7B) use the libero-vla-eval scripts unchanged;
+# variant cells (bilinear, render224) and every OFT cell use the variant copy of the scripts (this repository's scripts/);
 # OFT cells run initial states 0-19 and 20-49 as two runs, like the OFT reference cell they are paired with.
 # Usage: run_cell.sh <pod label> <deadline "YYYY-MM-DD HH:MM" ICT> <cell spec>...
 # Cell spec: <model>:<cell name>:<JPEG_ROUNDTRIP>:<center crop True|False>[:<bilinear|render224>]

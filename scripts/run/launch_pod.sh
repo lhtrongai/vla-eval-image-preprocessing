@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One pod, one cell (v2: variant and OFT cells, checked before they start): set up the pod, then start the cell and its watchdog in tmux windows of session "night".
+# One pod, one cell (variant and OFT cells are checked before they start): set up the pod, then start the cell and its watchdog in tmux windows of session "night".
 # Usage (inside tmux session night): launch_pod.sh <pod label> <deadline "YYYY-MM-DD HH:MM" ICT> <cell spec>
 export TZ=ICT-7
 source /workspace/.prompt.sh 2>/dev/null
