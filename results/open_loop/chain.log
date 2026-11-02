@@ -1,0 +1,9 @@
+2026-11-01 23:20:11 start --model openvla7b --mode first --states 0-49
+2026-11-01 23:56:16 end rc=0 --model openvla7b --mode first --states 0-49
+2026-11-01 23:56:17 start --model oft --mode first --states 0-49
+2026-11-02 00:25:51 end rc=0 --model oft --mode first --states 0-49
+2026-11-02 00:25:51 start --model oft --mode traj --states 0-9 --every 1
+2026-11-02 00:54:18 end rc=0 --model oft --mode traj --states 0-9 --every 1
+2026-11-02 00:54:18 start --model openvla7b --mode traj --states 0-4 --every 4
+2026-11-02 02:02:31 end rc=0 --model openvla7b --mode traj --states 0-4 --every 4
+2026-11-02 02:02:33 chain finished

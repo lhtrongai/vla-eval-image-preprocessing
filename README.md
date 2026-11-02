@@ -83,6 +83,28 @@ python run_oft_libero_logged.py --pretrained_checkpoint moojink/openvla-7b-oft-f
 
 `scripts/run/` holds the scripts that ran one cell per cloud GPU instance (setup, run, watchdog). They assume the folder layout of that machine (`/workspace/...`) and are kept as a record of how the cells were run, not as a general launcher.
 
+## Open-loop action check (exploratory)
+
+Closed-loop success flips once trajectories diverge, so it cannot show what a step does to the policy itself. `scripts/open_loop_actions.py` gives each policy identical observations through every pipeline (reference, the same input again, `jpeg_off`, `crop_off`, `bilinear`, `render224`) and records the predicted actions; only the reference action is executed. Observations: the first frame of all 500 initial states, and frames along the reference rollouts (OpenVLA-7B: every fourth query of initial states 0-4; OpenVLA-OFT: every query of initial states 0-9). The 224 frame comes from a second environment that gets the same actions and the same random draw for the fixture placement. Run on 1-2 November 2026 on one RTX PRO 4500; the run log is `results/open_loop/chain.log`.
+
+Both models are measured in OpenVLA-7B action bins (each dimension scaled to [-1, 1] by the 1st and 99th percentiles of the training actions, 256 bins; OpenVLA-OFT: mean over its chunk of 8 actions). Arm dimensions only. Share of observations whose arm action changes / mean change in bins (`results/open_loop/summary.json`, written by `scripts/summarize_open_loop.py`):
+
+| Pipeline | OpenVLA-7B, first frames (500) | OpenVLA-7B, along rollouts (1713) | OpenVLA-OFT, first frames (500) | OpenVLA-OFT, along rollouts (1326) |
+|---|---|---|---|---|
+| same input again | 0% / 0.0 | 0% / 0.0 | 0% / 0.0 | 0% / 0.0 |
+| `jpeg_off` | 29% / 3.3 | 35% / 4.1 | 99% / 0.9 | 84% / 0.5 |
+| `crop_off` | 95% / 14.4 | 91% / 14.0 | 100% / 10.1 | 100% / 5.6 |
+| `bilinear` | 54% / 6.9 | 55% / 7.0 | 100% / 2.4 | 97% / 0.9 |
+| `render224` | 78% / 11.8 | 66% / 8.6 | 100% / 1.3 | 97% / 0.8 |
+
+For OpenVLA-OFT a change above half a bin counts. The reference rollouts repeat the closed-loop cells (outcome and final step) in 50 of 50 OpenVLA-7B and 99 of 100 OpenVLA-OFT episodes.
+
+- Every step changes the output. OpenVLA-7B switches between distant action bins; OpenVLA-OFT shifts by about one bin or less under the three mild steps, and by about ten bins without the crop, the one step with a candidate closed-loop effect on it.
+- Near-tied OpenVLA-7B tokens (top-1 minus top-2 logit below 2) are changed by at least one variant in 93% of first frames, confident ones (8 or more) in 65%.
+- A changed first action does not predict a flip: with JPEG off, 14% of the episodes whose first OpenVLA-7B action changed flip in the closed loop, against 15% of the others.
+
+The per-observation records (`actions_*.jsonl`) stay on the run volume; `python scripts/analyze_open_loop.py <dir> results` and `python scripts/summarize_open_loop.py <dir> results` recompute the tables from them.
+
 ## Repository layout
 
 | Path | Contents |
@@ -94,6 +116,8 @@ python run_oft_libero_logged.py --pretrained_checkpoint moojink/openvla-7b-oft-f
 | `scripts/post_lock_checks.py` | Exploratory checks made after the results were fixed. |
 | `results/<model>_spatial_<cell>/` | Per-episode records (`episodes.jsonl`) and run metadata (`run_meta.json`) of each cell. The OpenVLA-OFT reference cell holds the logs of the original script instead. |
 | `results/summary.md` | Output of `paired_stats.py` with the reading of the results. |
+| `scripts/open_loop_actions.py`, `scripts/analyze_open_loop.py`, `scripts/summarize_open_loop.py` | Open-loop action check: query every pipeline on identical observations, then summarize. |
+| `results/open_loop/` | Summary of the open-loop check (`summary.json`) and its run log. |
 
 ## License
 
