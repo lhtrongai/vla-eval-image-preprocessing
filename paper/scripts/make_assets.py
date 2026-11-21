@@ -116,6 +116,7 @@ for mt in pat.finditer(out):
                    lo=float(mt.group(7)), hi=float(mt.group(8)), lost=int(mt.group(9)), gained=int(mt.group(10)),
                    p=float(mt.group(11)), holm=None if mt.group(12) == "-" else float(mt.group(12)),
                    ub=float(mt.group(13)))
+stat.pop("oft_spatial_crop_off_cpu_control", None)  # the CPU control is reported separately (CpuCtrl* macros), not as a variant
 assert len(stat) == 10, out
 for m in MODELS:
     ref = succ[f"{m}_spatial_reference"]

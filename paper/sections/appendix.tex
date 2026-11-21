@@ -9,13 +9,7 @@ Table~\ref{tab:cells} lists the \NCells{} cells with the date each one started a
 \subsection{CPU control of the OpenVLA-OFT crop-off cell}
 \label{app:cpucontrol}
 
-% CPU-CONTROL: this subsection is written when the rerun of the OpenVLA-OFT crop-off cell on the CPU of the other
-% OpenVLA-OFT cells is in (results/oft_spatial_crop_off_cpu_control, read by scripts/make_assets.py, macros CpuCtrl*).
-% Reading rule fixed before the rerun: (a) if its per-episode outcomes repeat the original cell, or differ by no more
-% than the A/A floor of OpenVLA-OFT on this stack, the original cell stays the result, this subsection reports the
-% rerun as a CPU check, and the CPU caveats in the abstract and in Sections setup, results and discussion are removed;
-% (b) otherwise both runs are reported, the result stays exploratory, and the text states that it depends on the CPU.
-The OpenVLA-OFT crop-off cell ran on an \CpuOftCrop{} host, while every other OpenVLA-OFT harness cell ran on an \CpuMain. A rerun of this cell on an \CpuMain{} host, with the same split of initial states, is planned as a control; its result will be reported here.
+The OpenVLA-OFT crop-off cell ran on an \CpuOftCrop{} host, while every other OpenVLA-OFT harness cell ran on an \CpuMain. We reran it on an \CpuCtrlCpu{} host, with the same split of initial states and the same configuration. The rerun succeeds on \CpuCtrlK{} of \NPairs{} episodes, and its outcome is the same as the original cell on \CpuCtrlSame{} of \NPairs{} initial states, which is the floor of the identical OpenVLA-OFT rerun on this stack. Against the reference cell it loses \CpuCtrlLost{} and gains \CpuCtrlGained{} episodes ($p = \CpuCtrlP$), as the original cell does. The host CPU therefore does not account for the result of the crop step on OpenVLA-OFT, and the original cell stays the reported result; the effect remains exploratory for the reasons given in Section~\ref{sec:effects}.
 
 \section{Image-level measurements}
 \label{app:eda}
