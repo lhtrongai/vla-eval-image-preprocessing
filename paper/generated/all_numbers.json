@@ -1,0 +1,1407 @@
+{
+ "numbers": {
+  "SevRefK": "425",
+  "SevRefPct": "85.0",
+  "SevRefLo": "81.6",
+  "SevRefHi": "87.9",
+  "SevRerunK": "424",
+  "SevRerunPct": "84.8",
+  "SevRerunDiff": "$-$0.2",
+  "SevRerunLo": "$-$1.0",
+  "SevRerunHi": "+0.4",
+  "SevRerunLost": "2",
+  "SevRerunGained": "1",
+  "SevRerunFlips": "3",
+  "SevRerunP": "1.00",
+  "SevRerunUB": "0.8",
+  "SevRerunBand": "0.7",
+  "SevRerunFlipPct": "0.6",
+  "SevJpegK": "421",
+  "SevJpegPct": "84.2",
+  "SevJpegDiff": "$-$0.8",
+  "SevJpegLo": "$-$4.2",
+  "SevJpegHi": "+2.6",
+  "SevJpegLost": "39",
+  "SevJpegGained": "35",
+  "SevJpegFlips": "74",
+  "SevJpegP": "0.73",
+  "SevJpegUB": "3.6",
+  "SevJpegBand": "3.4",
+  "SevJpegFlipPct": "14.8",
+  "SevCropK": "420",
+  "SevCropPct": "84.0",
+  "SevCropDiff": "$-$1.0",
+  "SevCropLo": "$-$4.6",
+  "SevCropHi": "+2.6",
+  "SevCropLost": "43",
+  "SevCropGained": "38",
+  "SevCropFlips": "81",
+  "SevCropP": "0.66",
+  "SevCropUB": "4.0",
+  "SevCropBand": "3.5",
+  "SevCropFlipPct": "16.2",
+  "SevCropHolm": "1.00",
+  "SevBilK": "414",
+  "SevBilPct": "82.8",
+  "SevBilDiff": "$-$2.2",
+  "SevBilLo": "$-$5.8",
+  "SevBilHi": "+1.4",
+  "SevBilLost": "47",
+  "SevBilGained": "36",
+  "SevBilFlips": "83",
+  "SevBilP": "0.27",
+  "SevBilUB": "5.2",
+  "SevBilBand": "3.6",
+  "SevBilFlipPct": "16.6",
+  "SevBilHolm": "1.00",
+  "SevRendK": "427",
+  "SevRendPct": "85.4",
+  "SevRendDiff": "+0.4",
+  "SevRendLo": "$-$3.4",
+  "SevRendHi": "+4.2",
+  "SevRendLost": "45",
+  "SevRendGained": "47",
+  "SevRendFlips": "92",
+  "SevRendP": "0.92",
+  "SevRendUB": "2.8",
+  "SevRendBand": "3.8",
+  "SevRendFlipPct": "18.4",
+  "SevRendHolm": "1.00",
+  "OftRefK": "495",
+  "OftRefPct": "99.0",
+  "OftRefLo": "97.7",
+  "OftRefHi": "99.6",
+  "OftRerunK": "495",
+  "OftRerunPct": "99.0",
+  "OftRerunDiff": "0.0",
+  "OftRerunLo": "0.0",
+  "OftRerunHi": "0.0",
+  "OftRerunLost": "0",
+  "OftRerunGained": "0",
+  "OftRerunFlips": "0",
+  "OftRerunP": "1.00",
+  "OftRerunUB": "0.0",
+  "OftRerunBand": "0.0",
+  "OftRerunFlipPct": "0.0",
+  "OftJpegK": "491",
+  "OftJpegPct": "98.2",
+  "OftJpegDiff": "$-$0.8",
+  "OftJpegLo": "$-$2.0",
+  "OftJpegHi": "+0.4",
+  "OftJpegLost": "7",
+  "OftJpegGained": "3",
+  "OftJpegFlips": "10",
+  "OftJpegP": "0.34",
+  "OftJpegUB": "1.8",
+  "OftJpegBand": "1.2",
+  "OftJpegFlipPct": "2.0",
+  "OftJpegHolm": "1.00",
+  "OftCropK": "483",
+  "OftCropPct": "96.6",
+  "OftCropDiff": "$-$2.4",
+  "OftCropLo": "$-$4.0",
+  "OftCropHi": "$-$0.8",
+  "OftCropLost": "15",
+  "OftCropGained": "3",
+  "OftCropFlips": "18",
+  "OftCropP": "0.008",
+  "OftCropUB": "3.8",
+  "OftCropBand": "1.7",
+  "OftCropFlipPct": "3.6",
+  "OftCropHolm": "0.053",
+  "OftBilK": "496",
+  "OftBilPct": "99.2",
+  "OftBilDiff": "+0.2",
+  "OftBilLo": "$-$0.8",
+  "OftBilHi": "+1.2",
+  "OftBilLost": "3",
+  "OftBilGained": "4",
+  "OftBilFlips": "7",
+  "OftBilP": "1.00",
+  "OftBilUB": "0.6",
+  "OftBilBand": "1.0",
+  "OftBilFlipPct": "1.4",
+  "OftBilHolm": "1.00",
+  "OftRendK": "491",
+  "OftRendPct": "98.2",
+  "OftRendDiff": "$-$0.8",
+  "OftRendLo": "$-$2.0",
+  "OftRendHi": "+0.4",
+  "OftRendLost": "7",
+  "OftRendGained": "3",
+  "OftRendFlips": "10",
+  "OftRendP": "0.34",
+  "OftRendUB": "1.8",
+  "OftRendBand": "1.2",
+  "OftRendFlipPct": "2.0",
+  "OftRendHolm": "1.00",
+  "SevFlipsMin": "74",
+  "SevFlipsMax": "92",
+  "OftFlipsMin": "7",
+  "OftFlipsMax": "18",
+  "SevBandMin": "3.4",
+  "SevBandMax": "3.8",
+  "OftBandMin": "1.0",
+  "OftBandMax": "1.7",
+  "SevFlipPctMin": "14.8",
+  "SevFlipPctMax": "18.4",
+  "SevVarMinPct": "82.8",
+  "SevVarMaxPct": "85.4",
+  "OftVarMinPct": "96.6",
+  "OftVarMaxPct": "99.2",
+  "PilotLost": "14",
+  "PilotGained": "21",
+  "PilotFlips": "35",
+  "PilotDisc": "17.5",
+  "PilotDiff": "+3.5",
+  "PowerPilot": "32",
+  "PairsForEighty": "1,600",
+  "DiscThreshold": "5.35",
+  "PowerFinal": "37",
+  "FinalDisc": "14.8",
+  "PilotF": "87.5",
+  "PilotSD": "9.4",
+  "PilotBandEp": "18.3",
+  "PilotTwoSD": "18.7",
+  "PilotBandPts": "3.7",
+  "FinalSD": "8.6",
+  "FinalBandEp": "16.9",
+  "PilotMaxDiffVsFinal": "1",
+  "PilotDate": "12 October",
+  "SevAlways": "296",
+  "SevNever": "15",
+  "SevChange": "189",
+  "SevChangePct": "38",
+  "SevRescued": "60",
+  "SevRefFail": "75",
+  "OftAlways": "470",
+  "OftNever": "1",
+  "OftChange": "29",
+  "OftChangeTaskFive": "13",
+  "SevOverlapMin": "33",
+  "SevOverlapMax": "40",
+  "SevChanceMin": "12.0",
+  "SevChanceMax": "15.3",
+  "SevOverlapRatioMin": "2.5",
+  "SevOverlapRatioMax": "2.9",
+  "SevVVpMin": "0.23",
+  "SevVVfMin": "85",
+  "SevVVfMax": "99",
+  "SevSplitRefA": "161",
+  "SevSplitRefB": "264",
+  "SevSplitVarAMin": "163",
+  "SevSplitVarAMax": "168",
+  "SevSplitVarBMin": "251",
+  "SevSplitVarBMax": "260",
+  "SevSameStepMin": "3",
+  "SevSameStepMax": "5",
+  "SevStepDiffMin": "5",
+  "SevStepDiffMax": "8",
+  "OftSameStepMin": "9",
+  "OftSameStepMax": "35",
+  "OftStepDiffMin": "1",
+  "OftStepDiffMax": "3",
+  "RerunSameStep": "415",
+  "RerunBoth": "423",
+  "SuccStepMedian": "116",
+  "SuccStepQone": "102",
+  "SuccStepQthree": "130",
+  "BudgetOneTwenty": "87",
+  "BudgetOneFifty": "90",
+  "BudgetOneEighty": "81",
+  "BudgetRefOneTwenty": "247",
+  "BudgetRefOneFifty": "398",
+  "BudgetRefOneEighty": "419",
+  "OftCropNoFiveLost": "6",
+  "OftCropNoFiveGained": "2",
+  "OftCropNoFiveP": "0.29",
+  "OftCropTaskFiveLost": "9",
+  "OftTaskFiveCrop": "40",
+  "OftTaskFiveOthersMin": "45",
+  "OftTaskFiveOthersMax": "48",
+  "OftCropVsBilLost": "15",
+  "OftCropVsBilGained": "2",
+  "OftCropVsBilP": "0.002",
+  "AblPairedLo": "$-$4.2",
+  "AblPairedHi": "+2.6",
+  "AblPairedUB": "3.6",
+  "AblUnpairedLo": "$-$5.4",
+  "AblUnpairedHi": "+3.8",
+  "AblUnpairedUB": "4.6",
+  "AblPairedW": "6.8",
+  "AblUnpairedW": "9.2",
+  "AblFirstDiff": "+3.5",
+  "AblFirstLo": "$-$2.5",
+  "AblFirstHi": "+9.5",
+  "AblFirstUB": "1.5",
+  "AblFirstLost": "14",
+  "AblFirstGained": "21",
+  "AblFirstW": "12.0",
+  "AblLooMin": "$-$1.6",
+  "AblLooMax": "$-$0.2",
+  "VeK": "433",
+  "VePct": "86.6",
+  "VeOnlyTheirs": "44",
+  "VeOnlyOurs": "36",
+  "VeFlips": "80",
+  "VeP": "0.43",
+  "VeBand": "3.5",
+  "VeGap": "1.6",
+  "VeCommit": "69d3d70",
+  "VeCellsMin": "80",
+  "VeCellsMax": "89",
+  "VeFirstFlips": "37",
+  "MujocoOldK": "161",
+  "MujocoNewK": "140",
+  "MujocoOldTaskFive": "17",
+  "MujocoNewTaskFive": "0",
+  "OftNewTaskFive": "0/20",
+  "OftOldTaskFive": "20/20",
+  "GpuMadMean": "1.33",
+  "GpuMadMin": "1.27",
+  "GpuMadMax": "1.38",
+  "GpuBilMean": "0.73",
+  "CpuPreMean": "1.35",
+  "GpuSameMean": "1.32",
+  "EdaFrames": "50",
+  "EdaStates": "5",
+  "EdaJpeg": "1.26",
+  "EdaBil": "0.64",
+  "EdaRend": "1.76",
+  "EdaCrop": "8.3",
+  "EdaGray": "6.25",
+  "EdaGrayRatio": "5.0",
+  "EdaCthree": "4.60",
+  "EdaCone": "3.44",
+  "EdaCfive": "7.65",
+  "EdaCthreeRatio": "3.7",
+  "EdaJpegChanged": "96",
+  "GpuHours": "31",
+  "Episodes": "6,000",
+  "SideCrop": "0.949",
+  "Zoom": "5.1",
+  "Border": "5.7",
+  "FramePixelsChanged": "96",
+  "FrameMaxDiff": "38",
+  "FrameMeanDiff": "1.36",
+  "OlSevFirstN": "500",
+  "OlSevFirstEpisodes": "500",
+  "OlSevFirstAgainChanged": "0",
+  "OlSevFirstAgainMean": "0.0",
+  "OlSevFirstAgainMedmax": "0",
+  "OlSevFirstJpegChanged": "29",
+  "OlSevFirstJpegMean": "3.3",
+  "OlSevFirstJpegMedmax": "0",
+  "OlSevFirstCropChanged": "95",
+  "OlSevFirstCropMean": "14.4",
+  "OlSevFirstCropMedmax": "36",
+  "OlSevFirstBilChanged": "54",
+  "OlSevFirstBilMean": "6.9",
+  "OlSevFirstBilMedmax": "6",
+  "OlSevFirstRendChanged": "78",
+  "OlSevFirstRendMean": "11.8",
+  "OlSevFirstRendMedmax": "28",
+  "OlSevFirstMarginLow": "93",
+  "OlSevFirstMarginHigh": "65",
+  "OlSevFirstMarginLowShare": "24",
+  "OlSevFirstMarginHighShare": "39",
+  "OlSevFirstJpegFlipIfChanged": "14",
+  "OlSevFirstJpegFlipIfSame": "15",
+  "OlSevFirstJpegNChanged": "144",
+  "OlSevFirstCropFlipIfChanged": "16",
+  "OlSevFirstCropFlipIfSame": "26",
+  "OlSevFirstCropNChanged": "477",
+  "OlSevFirstBilFlipIfChanged": "17",
+  "OlSevFirstBilFlipIfSame": "17",
+  "OlSevFirstBilNChanged": "270",
+  "OlSevFirstRendFlipIfChanged": "17",
+  "OlSevFirstRendFlipIfSame": "25",
+  "OlSevFirstRendNChanged": "390",
+  "OlSevTrajN": "1713",
+  "OlSevTrajEpisodes": "50",
+  "OlSevTrajAgainChanged": "0",
+  "OlSevTrajAgainMean": "0.0",
+  "OlSevTrajAgainMedmax": "0",
+  "OlSevTrajJpegChanged": "35",
+  "OlSevTrajJpegMean": "4.1",
+  "OlSevTrajJpegMedmax": "0",
+  "OlSevTrajCropChanged": "91",
+  "OlSevTrajCropMean": "14.0",
+  "OlSevTrajCropMedmax": "33",
+  "OlSevTrajBilChanged": "55",
+  "OlSevTrajBilMean": "7.0",
+  "OlSevTrajBilMedmax": "6",
+  "OlSevTrajRendChanged": "66",
+  "OlSevTrajRendMean": "8.6",
+  "OlSevTrajRendMedmax": "14",
+  "OlSevTrajMarginLow": "94",
+  "OlSevTrajMarginHigh": "48",
+  "OlSevTrajMarginLowShare": "29",
+  "OlSevTrajMarginHighShare": "31",
+  "OlSevTrajRepro": "50",
+  "OlSevTrajReproN": "50",
+  "OlOftFirstN": "500",
+  "OlOftFirstEpisodes": "500",
+  "OlOftFirstAgainChanged": "0",
+  "OlOftFirstAgainMean": "0.0",
+  "OlOftFirstAgainMedmax": "0.0",
+  "OlOftFirstJpegChanged": "99",
+  "OlOftFirstJpegMean": "0.9",
+  "OlOftFirstJpegMedmax": "1.7",
+  "OlOftFirstCropChanged": "100",
+  "OlOftFirstCropMean": "10.1",
+  "OlOftFirstCropMedmax": "21.4",
+  "OlOftFirstBilChanged": "100",
+  "OlOftFirstBilMean": "2.4",
+  "OlOftFirstBilMedmax": "5.1",
+  "OlOftFirstRendChanged": "100",
+  "OlOftFirstRendMean": "1.3",
+  "OlOftFirstRendMedmax": "2.4",
+  "OlOftFirstJpegFlipIfChanged": "2",
+  "OlOftFirstJpegFlipIfSame": "0",
+  "OlOftFirstJpegNChanged": "493",
+  "OlOftFirstCropFlipIfChanged": "4",
+  "OlOftFirstCropFlipIfSame": "-",
+  "OlOftFirstCropNChanged": "500",
+  "OlOftFirstBilFlipIfChanged": "1",
+  "OlOftFirstBilFlipIfSame": "-",
+  "OlOftFirstBilNChanged": "500",
+  "OlOftFirstRendFlipIfChanged": "2",
+  "OlOftFirstRendFlipIfSame": "-",
+  "OlOftFirstRendNChanged": "500",
+  "OlOftTrajN": "1326",
+  "OlOftTrajEpisodes": "100",
+  "OlOftTrajAgainChanged": "0",
+  "OlOftTrajAgainMean": "0.0",
+  "OlOftTrajAgainMedmax": "0.0",
+  "OlOftTrajJpegChanged": "84",
+  "OlOftTrajJpegMean": "0.5",
+  "OlOftTrajJpegMedmax": "0.8",
+  "OlOftTrajCropChanged": "100",
+  "OlOftTrajCropMean": "5.6",
+  "OlOftTrajCropMedmax": "9.4",
+  "OlOftTrajBilChanged": "97",
+  "OlOftTrajBilMean": "0.9",
+  "OlOftTrajBilMedmax": "1.4",
+  "OlOftTrajRendChanged": "97",
+  "OlOftTrajRendMean": "0.8",
+  "OlOftTrajRendMedmax": "1.4",
+  "OlOftTrajRepro": "99",
+  "OlOftTrajReproN": "100",
+  "NTasks": "10",
+  "NStates": "50",
+  "NPairs": "500",
+  "NCells": "12",
+  "NVariants": "4",
+  "NSecondary": "7",
+  "RenderRes": "256",
+  "InputRes": "224",
+  "CropAreaPct": "90",
+  "JpegQuality": "95",
+  "DctBlock": "8",
+  "SettleSteps": "10",
+  "MaxSteps": "230",
+  "PolicySteps": "220",
+  "Bins": "256",
+  "Chunk": "8",
+  "BootDraws": "20,000",
+  "ThresholdPts": "3",
+  "ThresholdEp": "15",
+  "Zval": "1.96",
+  "AlphaPct": "95",
+  "PowerTarget": "80",
+  "PctLo": "1st",
+  "PctHi": "99th",
+  "MarginLow": "2",
+  "MarginHigh": "8",
+  "OlStride": "fourth",
+  "OlSevStates": "5",
+  "OlOftStates": "10",
+  "PilotStates": "20",
+  "PilotPairs": "200",
+  "SplitA": "0-19",
+  "SplitB": "20-49",
+  "BudgetA": "180",
+  "BudgetB": "150",
+  "BudgetC": "120",
+  "Seed": "7",
+  "EnvSeed": "0",
+  "TaskFive": "5",
+  "TaskFour": "4",
+  "TaskNine": "9",
+  "RotationDeg": "180",
+  "MujocoNewVersion": "3.13.0",
+  "MujocoVersion": "3.3.7",
+  "TotalEpisodes": "6,000",
+  "RuleDate": "6 October",
+  "Year": "2026",
+  "SevTokenDims": "6",
+  "VarCompare": "6",
+  "LooAnalyses": "10",
+  "TaskMinSev": "32",
+  "TaskMaxSev": "49",
+  "TaskMinOft": "48",
+  "TaskMaxOft": "50",
+  "FirstRunDate": "3 October",
+  "LastRunDate": "29 October",
+  "SevRefDate": "6 October",
+  "SevRerunDate": "28 October",
+  "RerunGapDays": "22",
+  "OftRerunDate": "29 October",
+  "OftRefDates": "3 and 5 October",
+  "OlDates": "1 and 2 November",
+  "OftRefVsPub": "1.4",
+  "SevRerunSame": "497",
+  "OftRerunSame": "500",
+  "OftRendMadMin": "1.40",
+  "OftRendMadMax": "1.52",
+  "SceneCells": "10",
+  "GpuName": "NVIDIA RTX PRO 4500 Blackwell",
+  "CpuMain": "EPYC 7663",
+  "CpuOftCrop": "EPYC 7763",
+  "CpuSevRend": "EPYC 7443",
+  "StableGapPts": "5.0",
+  "CpuControlStatus": "pending",
+  "PilotCells": "seven",
+  "ExtOpenvlaSpatial": "84.7",
+  "ExtOpenvlaSpatialSe": "0.9",
+  "ExtOpenvlaSeeds": "three",
+  "ExtOpenvlaLoraRank": "32",
+  "ExtOpenvlaDemosDropped": "68",
+  "ExtOpenvlaDemos": "500",
+  "ExtOftSpatial": "97.6",
+  "ExtOftAverage": "97.1",
+  "ExtOftStepsLo": "50,000",
+  "ExtOftStepsHi": "150,000",
+  "ExtJiangSigPct": "19.8",
+  "ExtJiangCpuTasks": "10",
+  "ExtJiangCpuPixelTasks": "5",
+  "ExtVeCropPts": "3",
+  "ExtVeLiberoAvg": "76.2",
+  "ExtVeNotesNone": "71.0",
+  "ExtVeNotesAll": "76.2",
+  "ExtVeSpatial": "86.6",
+  "ExtVeJpegQuality": "75",
+  "ExtRoboscopeSelfLo": "93.6",
+  "ExtRoboscopeSelfHi": "95.0",
+  "ExtLiRerunPct": "4",
+  "ExtCtrlOftSame": "0",
+  "ExtCtrlUnivlaOtherGpu": "4",
+  "ExtCtrlSampledLo": "6.7",
+  "ExtCtrlSampledHi": "15.0",
+  "ExtCtrlAxes": "six",
+  "ExtCtrlFlipNull": "29.0",
+  "ExtCtrlFlipMax": "34.5",
+  "ExtPlusFrom": "95",
+  "ExtPlusTo": "30",
+  "ExtPlusFactors": "seven",
+  "ExtProFrom": "90",
+  "ExtProTo": "0",
+  "ExtStableSevLo": "3",
+  "ExtStableSevHi": "5",
+  "ExtStableCorruptions": "19",
+  "ExtStableClean": "80.0",
+  "ExtStableJpegThree": "72.4",
+  "ExtStableOftClean": "92.6",
+  "ExtStrongTypes": "28",
+  "ExtXieInstrLo": "61",
+  "ExtXieInstrHi": "64"
+ },
+ "stat": {
+  "oft_spatial_bilinear": {
+   "k": 496,
+   "wlo": 98.0,
+   "whi": 99.7,
+   "diff": 0.2,
+   "lo": -0.8,
+   "hi": 1.2,
+   "lost": 3,
+   "gained": 4,
+   "p": 1.0,
+   "holm": 1.0,
+   "ub": 0.6,
+   "flips": 7,
+   "band": 1.0371154563472456,
+   "lost_task": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0,
+    0,
+    0,
+    1
+   ],
+   "gained_task": [
+    0,
+    0,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "oft_spatial_crop_off": {
+   "k": 483,
+   "wlo": 94.6,
+   "whi": 97.9,
+   "diff": -2.4,
+   "lo": -4.0,
+   "hi": -0.8,
+   "lost": 15,
+   "gained": 3,
+   "p": 0.00754,
+   "holm": 0.0528,
+   "ub": 3.8,
+   "flips": 18,
+   "band": 1.6630845892196133,
+   "lost_task": [
+    0,
+    2,
+    0,
+    1,
+    0,
+    9,
+    0,
+    1,
+    0,
+    2
+   ],
+   "gained_task": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "oft_spatial_jpeg_off": {
+   "k": 491,
+   "wlo": 96.6,
+   "whi": 99.1,
+   "diff": -0.8,
+   "lo": -2.0,
+   "hi": 0.4,
+   "lost": 7,
+   "gained": 3,
+   "p": 0.344,
+   "holm": 1.0,
+   "ub": 1.8,
+   "flips": 10,
+   "band": 1.2395900646091231,
+   "lost_task": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    4,
+    0,
+    0,
+    0,
+    2
+   ],
+   "gained_task": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "oft_spatial_render224": {
+   "k": 491,
+   "wlo": 96.6,
+   "whi": 99.1,
+   "diff": -0.8,
+   "lo": -2.0,
+   "hi": 0.4,
+   "lost": 7,
+   "gained": 3,
+   "p": 0.344,
+   "holm": 1.0,
+   "ub": 1.8,
+   "flips": 10,
+   "band": 1.2395900646091231,
+   "lost_task": [
+    0,
+    0,
+    2,
+    1,
+    1,
+    2,
+    0,
+    0,
+    0,
+    1
+   ],
+   "gained_task": [
+    0,
+    0,
+    1,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "oft_spatial_rerun": {
+   "k": 495,
+   "wlo": 97.7,
+   "whi": 99.6,
+   "diff": 0.0,
+   "lo": -0.0,
+   "hi": -0.0,
+   "lost": 0,
+   "gained": 0,
+   "p": 1.0,
+   "holm": null,
+   "ub": 0.0,
+   "flips": 0,
+   "band": 0.0,
+   "lost_task": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "gained_task": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  },
+  "openvla7b_spatial_bilinear": {
+   "k": 414,
+   "wlo": 79.2,
+   "whi": 85.9,
+   "diff": -2.2,
+   "lo": -5.8,
+   "hi": 1.4,
+   "lost": 47,
+   "gained": 36,
+   "p": 0.272,
+   "holm": 1.0,
+   "ub": 5.2,
+   "flips": 83,
+   "band": 3.5712243397334333,
+   "lost_task": [
+    3,
+    1,
+    3,
+    5,
+    6,
+    7,
+    6,
+    3,
+    5,
+    8
+   ],
+   "gained_task": [
+    5,
+    4,
+    2,
+    2,
+    3,
+    1,
+    1,
+    5,
+    6,
+    7
+   ]
+  },
+  "openvla7b_spatial_crop_off": {
+   "k": 420,
+   "wlo": 80.5,
+   "whi": 87.0,
+   "diff": -1.0,
+   "lo": -4.6,
+   "hi": 2.6,
+   "lost": 43,
+   "gained": 38,
+   "p": 0.657,
+   "holm": 1.0,
+   "ub": 4.0,
+   "flips": 81,
+   "band": 3.5279351721720973,
+   "lost_task": [
+    2,
+    5,
+    5,
+    2,
+    9,
+    3,
+    2,
+    4,
+    2,
+    9
+   ],
+   "gained_task": [
+    4,
+    4,
+    4,
+    2,
+    6,
+    2,
+    1,
+    3,
+    4,
+    8
+   ]
+  },
+  "openvla7b_spatial_jpeg_off": {
+   "k": 421,
+   "wlo": 80.7,
+   "whi": 87.1,
+   "diff": -0.8,
+   "lo": -4.2,
+   "hi": 2.6,
+   "lost": 39,
+   "gained": 35,
+   "p": 0.728,
+   "holm": null,
+   "ub": 3.6,
+   "flips": 74,
+   "band": 3.3720495413404903,
+   "lost_task": [
+    2,
+    4,
+    5,
+    2,
+    7,
+    2,
+    3,
+    3,
+    7,
+    4
+   ],
+   "gained_task": [
+    3,
+    5,
+    2,
+    1,
+    6,
+    3,
+    1,
+    3,
+    4,
+    7
+   ]
+  },
+  "openvla7b_spatial_render224": {
+   "k": 427,
+   "wlo": 82.0,
+   "whi": 88.2,
+   "diff": 0.4,
+   "lo": -3.4,
+   "hi": 4.2,
+   "lost": 45,
+   "gained": 47,
+   "p": 0.917,
+   "holm": 1.0,
+   "ub": 2.8,
+   "flips": 92,
+   "band": 3.7598628246459174,
+   "lost_task": [
+    4,
+    5,
+    4,
+    3,
+    7,
+    6,
+    2,
+    4,
+    5,
+    5
+   ],
+   "gained_task": [
+    4,
+    5,
+    4,
+    2,
+    6,
+    3,
+    1,
+    5,
+    8,
+    9
+   ]
+  },
+  "openvla7b_spatial_rerun": {
+   "k": 424,
+   "wlo": 81.4,
+   "whi": 87.7,
+   "diff": -0.2,
+   "lo": -1.0,
+   "hi": 0.4,
+   "lost": 2,
+   "gained": 1,
+   "p": 1.0,
+   "holm": null,
+   "ub": 0.8,
+   "flips": 3,
+   "band": 0.6789514404457029,
+   "lost_task": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "gained_task": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  }
+ },
+ "expl": {
+  "openvla7b": {
+   "always": 296,
+   "never": 15,
+   "change": 189,
+   "change_task": [
+    13,
+    18,
+    18,
+    12,
+    30,
+    18,
+    12,
+    15,
+    23,
+    30
+   ],
+   "ref_fail_rescued": 60,
+   "ref_fail": 75,
+   "overlap": [
+    [
+     35,
+     11.988
+    ],
+    [
+     34,
+     12.284
+    ],
+    [
+     40,
+     13.616
+    ],
+    [
+     33,
+     13.446
+    ],
+    [
+     39,
+     14.904
+    ],
+    [
+     38,
+     15.272
+    ]
+   ],
+   "pvv": [
+    [
+     85,
+     1.0
+    ],
+    [
+     89,
+     0.5250147872924269
+    ],
+    [
+     86,
+     0.5900356111485574
+    ],
+    [
+     98,
+     0.613734467630139
+    ],
+    [
+     95,
+     0.5383940262921683
+    ],
+    [
+     99,
+     0.22762615711004705
+    ]
+   ],
+   "split": {
+    "reference": [
+     161,
+     264
+    ],
+    "jpeg_off": [
+     168,
+     253
+    ],
+    "crop_off": [
+     168,
+     252
+    ],
+    "bilinear": [
+     163,
+     251
+    ],
+    "render224": [
+     167,
+     260
+    ]
+   }
+  },
+  "oft": {
+   "always": 470,
+   "never": 1,
+   "change": 29,
+   "change_task": [
+    0,
+    2,
+    3,
+    3,
+    2,
+    13,
+    0,
+    1,
+    0,
+    5
+   ],
+   "ref_fail_rescued": 4,
+   "ref_fail": 5,
+   "overlap": [
+    [
+     5,
+     0.36
+    ],
+    [
+     5,
+     0.14
+    ],
+    [
+     3,
+     0.2
+    ],
+    [
+     4,
+     0.252
+    ],
+    [
+     5,
+     0.36
+    ],
+    [
+     4,
+     0.14
+    ]
+   ],
+   "pvv": [
+    [
+     18,
+     0.09625244140625
+    ],
+    [
+     7,
+     0.125
+    ],
+    [
+     14,
+     1.0
+    ],
+    [
+     17,
+     0.002349853515625
+    ],
+    [
+     18,
+     0.09625244140625
+    ],
+    [
+     9,
+     0.1796875
+    ]
+   ],
+   "split": {
+    "reference": [
+     198,
+     297
+    ],
+    "jpeg_off": [
+     196,
+     295
+    ],
+    "crop_off": [
+     196,
+     287
+    ],
+    "bilinear": [
+     199,
+     297
+    ],
+    "render224": [
+     199,
+     292
+    ]
+   }
+  }
+ },
+ "budget": {
+  "120": {
+   "jpeg_off": 87,
+   "crop_off": 109,
+   "bilinear": 86,
+   "render224": 98,
+   "ref": 247
+  },
+  "150": {
+   "jpeg_off": 90,
+   "crop_off": 113,
+   "bilinear": 96,
+   "render224": 95,
+   "ref": 398
+  },
+  "180": {
+   "jpeg_off": 81,
+   "crop_off": 87,
+   "bilinear": 85,
+   "render224": 90,
+   "ref": 419
+  },
+  "230": {
+   "jpeg_off": 74,
+   "crop_off": 81,
+   "bilinear": 83,
+   "render224": 92,
+   "ref": 425
+  }
+ },
+ "same_step": {
+  "jpeg_off": [
+   0.05181347150259067,
+   5.0,
+   386
+  ],
+  "crop_off": [
+   0.031413612565445025,
+   7.5,
+   382
+  ],
+  "bilinear": [
+   0.0291005291005291,
+   6.0,
+   378
+  ],
+  "render224": [
+   0.03684210526315789,
+   6.0,
+   380
+  ]
+ },
+ "abl": {
+  "paired": [
+   -4.2,
+   2.6,
+   3.5999999999999996
+  ],
+  "unpaired": [
+   -5.3999999999999915,
+   3.799999999999983,
+   4.6000000000000085
+  ],
+  "first200": [
+   3.499999999999992,
+   -2.5,
+   9.5,
+   1.5,
+   14,
+   21
+  ],
+  "loo": [
+   -1.5555555555555545,
+   -0.22222222222221255
+  ]
+ },
+ "pilot": {
+  "openvla_reference": {
+   "k": 161,
+   "diff_vs_final": 0
+  },
+  "openvla_rerun": {
+   "k": 161,
+   "diff_vs_final": 0
+  },
+  "openvla_jpeg_off": {
+   "k": 168,
+   "diff_vs_final": 0
+  },
+  "openvla_crop_off": {
+   "k": 167,
+   "diff_vs_final": 1
+  },
+  "oft_reference": {
+   "k": 198,
+   "diff_vs_final": 0
+  },
+  "oft_rerun": {
+   "k": 198,
+   "diff_vs_final": 0
+  },
+  "oft_jpeg_off": {
+   "k": 196,
+   "diff_vs_final": 0
+  }
+ },
+ "ve_cells": {
+  "reference": 80,
+  "rerun": 81,
+  "jpeg_off": 84,
+  "crop_off": 85,
+  "bilinear": 89,
+  "render224": 82
+ },
+ "edas": {
+  "bilinear": {
+   "mad": 0.6444314678996598,
+   "p99": 7.5,
+   "changed": 0.39927016900510204,
+   "min": 0.5909797512755102,
+   "max": 0.7042277848639455
+  },
+  "jpeg_off": {
+   "mad": 1.257414168792517,
+   "p99": 6.44,
+   "changed": 0.9631325733418368,
+   "min": 1.2082403273809523,
+   "max": 1.3044483418367347
+  },
+  "render224": {
+   "mad": 1.756096407312925,
+   "p99": 17.34,
+   "changed": 0.7903914221938776,
+   "min": 1.6092753507653061,
+   "max": 1.8962053571428572
+  },
+  "crop_off": {
+   "mad": 8.330122236394558,
+   "p99": 101.9,
+   "changed": 0.8815122767857143,
+   "min": 7.7391050170068025,
+   "max": 8.957755367772108
+  },
+  "grayscale": {
+   "mad": 6.25283522002551,
+   "p99": 24.1,
+   "changed": 0.9513899075255101,
+   "min": 6.084024234693878,
+   "max": 6.437234268707483
+  },
+  "imagenetc_jpeg_s1": {
+   "mad": 3.4416972257653056,
+   "p99": 18.1,
+   "changed": 0.993169244260204,
+   "min": 3.3082084396258504,
+   "max": 3.5890864158163267
+  },
+  "imagenetc_jpeg_s2": {
+   "mad": 4.263720105229591,
+   "p99": 20.8,
+   "changed": 0.9967083864795918,
+   "min": 4.111527423469388,
+   "max": 4.40618356717687
+  },
+  "imagenetc_jpeg_s3": {
+   "mad": 4.598962186437075,
+   "p99": 22.75460000000021,
+   "changed": 0.996901307397959,
+   "min": 4.448713860544218,
+   "max": 4.741357089710885
+  },
+  "imagenetc_jpeg_s4": {
+   "mad": 5.0254590508078225,
+   "p99": 27.16,
+   "changed": 0.9967821269132652,
+   "min": 4.840375212585034,
+   "max": 5.19749149659864
+  },
+  "imagenetc_jpeg_s5": {
+   "mad": 7.647344945790817,
+   "p99": 32.33460000000021,
+   "changed": 0.9970408163265305,
+   "min": 7.49293819090136,
+   "max": 7.856179581207483
+  }
+ },
+ "runlog": [
+  [
+   "openvla7b",
+   "reference",
+   [
+    "06/10"
+   ],
+   5.174261111111111,
+   []
+  ],
+  [
+   "openvla7b",
+   "rerun",
+   [
+    "28/10"
+   ],
+   4.579083333333333,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "openvla7b",
+   "jpeg_off",
+   [
+    "28/10"
+   ],
+   4.5406555555555554,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "openvla7b",
+   "crop_off",
+   [
+    "28/10"
+   ],
+   4.649769444444444,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "openvla7b",
+   "bilinear",
+   [
+    "29/10"
+   ],
+   4.74475,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "openvla7b",
+   "render224",
+   [
+    "29/10"
+   ],
+   4.185075,
+   [
+    "AMD EPYC 7443 24-Core Processor"
+   ]
+  ],
+  [
+   "oft",
+   "reference",
+   [
+    "03/10",
+    "05/10"
+   ],
+   null,
+   []
+  ],
+  [
+   "oft",
+   "rerun",
+   [
+    "29/10"
+   ],
+   0.6731833333333334,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "oft",
+   "jpeg_off",
+   [
+    "29/10"
+   ],
+   0.6557361111111112,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "oft",
+   "crop_off",
+   [
+    "29/10"
+   ],
+   0.7081194444444444,
+   [
+    "AMD EPYC 7763 64-Core Processor"
+   ]
+  ],
+  [
+   "oft",
+   "bilinear",
+   [
+    "29/10"
+   ],
+   0.6469944444444444,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ],
+  [
+   "oft",
+   "render224",
+   [
+    "29/10"
+   ],
+   0.6632555555555555,
+   [
+    "AMD EPYC 7663 56-Core Processor"
+   ]
+  ]
+ ]
+}

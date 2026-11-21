@@ -1,0 +1,4183 @@
+{
+  "benchmark": "LIBEROBenchmark_libero_spatial",
+  "mode": "sync",
+  "harness_version": "0.0.4.dev77+g200502524.d20260401",
+  "created_at": "2026-04-04T17:29:06.182166+00:00",
+  "tasks": [
+    {
+      "task": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 86.428,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.927,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 78.072,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 81,
+          "elapsed_sec": 80.628,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 92.88,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 70,
+          "elapsed_sec": 69.89,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 89.482,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 156,
+          "elapsed_sec": 158.41,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 78.115,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 100.101,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 61,
+          "elapsed_sec": 60.887,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 73,
+          "elapsed_sec": 72.676,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 75,
+          "elapsed_sec": 75.002,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 64,
+          "elapsed_sec": 63.531,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 81,
+          "elapsed_sec": 93.543,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 80,
+          "elapsed_sec": 78.838,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 90.959,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 84.729,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 70,
+          "elapsed_sec": 69.698,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 85.265,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 79,
+          "elapsed_sec": 90.267,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 74,
+          "elapsed_sec": 73.219,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 87.383,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 133,
+          "elapsed_sec": 131.183,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 215.01,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 78.195,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 90.71,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 89,
+          "elapsed_sec": 87.45,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 97.9,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 81.863,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 70,
+          "elapsed_sec": 70.165,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 67,
+          "elapsed_sec": 67.394,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 79,
+          "elapsed_sec": 92.642,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 216.282,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 69,
+          "elapsed_sec": 68.907,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 84.546,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 86.032,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 167,
+          "elapsed_sec": 164.923,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 79,
+          "elapsed_sec": 93.31,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 104.149,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 80,
+          "elapsed_sec": 79.509,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 77.451,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 82.064,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 81,
+          "elapsed_sec": 80.894,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 77,
+          "elapsed_sec": 91.423,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 70,
+          "elapsed_sec": 70.528,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 68,
+          "elapsed_sec": 68.452,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 98.39,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 73,
+          "elapsed_sec": 72.404,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 214.416,
+          "episode_id": 47
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 93.32,
+      "mean_success": 0.94
+    },
+    {
+      "task": "pick up the black bowl from table center and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.252,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 92.398,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 120,
+          "elapsed_sec": 114.178,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 97.949,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 98.916,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 120.656,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.523,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 115.504,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 95.848,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 101.852,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 83.148,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 106.715,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 112.113,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 89,
+          "elapsed_sec": 85.306,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 90.736,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 97.586,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 96.181,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 107.576,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 95.174,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.025,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 94.156,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 82.303,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 92.698,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 96.332,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 178,
+          "elapsed_sec": 170.819,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.185,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 89.834,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 107.24,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 80,
+          "elapsed_sec": 76.996,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 112.4,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 93.652,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 107.297,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.431,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 96,
+          "elapsed_sec": 91.763,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 95.459,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 109.576,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 89,
+          "elapsed_sec": 86.114,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 98.294,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 98.298,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 94.132,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 105.73,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 95.481,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 104.755,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 100.383,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 87.689,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 112.087,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.125,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.453,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 83.499,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.567,
+          "episode_id": 43
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 112.84,
+      "mean_success": 0.92
+    },
+    {
+      "task": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 139,
+          "elapsed_sec": 133.529,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 114.507,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.854,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 123.443,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 112.844,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 107.565,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 115.431,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.279,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 136,
+          "elapsed_sec": 132.326,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 213.168,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 119.681,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 119.3,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 122.252,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 116.675,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 118.625,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 211.476,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 212.675,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 108,
+          "elapsed_sec": 104.428,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 130,
+          "elapsed_sec": 124.907,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.497,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.251,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 110.656,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 114.061,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 137,
+          "elapsed_sec": 133.918,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 211.582,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 121.475,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 212.126,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 136,
+          "elapsed_sec": 131.781,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 213.809,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 116.915,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 128,
+          "elapsed_sec": 122.921,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 122.468,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 142,
+          "elapsed_sec": 138.269,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 144,
+          "elapsed_sec": 138.93,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 136,
+          "elapsed_sec": 133.282,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.428,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 111.298,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.617,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 139,
+          "elapsed_sec": 133.11,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 133,
+          "elapsed_sec": 126.959,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 138,
+          "elapsed_sec": 133.73,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 119,
+          "elapsed_sec": 114.62,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 213.061,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 112.191,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 115.554,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 111.536,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 213.166,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 125,
+          "elapsed_sec": 120.728,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 135,
+          "elapsed_sec": 128.687,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.895,
+          "episode_id": 47
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 154.26,
+      "mean_success": 0.7
+    },
+    {
+      "task": "pick up the black bowl next to the cookie box and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.508,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 100.821,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 108.74,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 108,
+          "elapsed_sec": 103.087,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 104.472,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.147,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.69,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 96.507,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 142,
+          "elapsed_sec": 134.691,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.034,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 165,
+          "elapsed_sec": 157.992,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.065,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 101.098,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 107.749,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 92.782,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 110.935,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 100.708,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 109.384,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 106.944,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 108.744,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 100.246,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 106.986,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 108.039,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 109.102,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.101,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 112.838,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 90.327,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 96,
+          "elapsed_sec": 92.795,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 119,
+          "elapsed_sec": 113.786,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.837,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 106.661,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 98.222,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 98.993,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 104.232,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 100.742,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 126,
+          "elapsed_sec": 120.159,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 103.883,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.957,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.752,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 134,
+          "elapsed_sec": 125.907,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 105.69,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 99.631,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 111.151,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 119,
+          "elapsed_sec": 113.002,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 94.291,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 113.283,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 94.872,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 109.436,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 132,
+          "elapsed_sec": 125.91,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 95.681,
+          "episode_id": 43
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 113.26,
+      "mean_success": 0.98
+    },
+    {
+      "task": "pick up the black bowl next to the plate and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 125,
+          "elapsed_sec": 121.201,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 108.637,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 162,
+          "elapsed_sec": 152.536,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 93,
+          "elapsed_sec": 88.611,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 106.583,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.045,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.451,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.993,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.223,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.353,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 97.43,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.945,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 82.656,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.825,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.752,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 92,
+          "elapsed_sec": 88.404,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 97.44,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.036,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.142,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.613,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 103.166,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 88.212,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 101.539,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 95,
+          "elapsed_sec": 90.859,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 76,
+          "elapsed_sec": 74.465,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 207.871,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.803,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 173,
+          "elapsed_sec": 165.601,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 81.959,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 94.405,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 90.463,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 140,
+          "elapsed_sec": 133.842,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 97.812,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 93,
+          "elapsed_sec": 89.414,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 96.453,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.422,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.901,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.37,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 89.05,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 83.56,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 80.834,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 99.013,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 87.181,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 87.542,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 97.274,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 90.427,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 101.307,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.632,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 98.962,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.326,
+          "episode_id": 47
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 124.82,
+      "mean_success": 0.8
+    },
+    {
+      "task": "pick up the black bowl next to the ramekin and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 113.222,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 111.277,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 100.759,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 104.502,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 100.821,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 105.546,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 108.392,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 95.506,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 106.939,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 81.976,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 100.986,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 106.982,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 113.466,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 101.57,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 111.205,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 108.433,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 110.149,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 101.915,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 108.452,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 102.431,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 113.343,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 101.63,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 100.155,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 109.718,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 104.815,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 98.684,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 120,
+          "elapsed_sec": 119.758,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 129,
+          "elapsed_sec": 128.269,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 114.959,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 103.501,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 108.946,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 111.64,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 107.503,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 108.448,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 112.809,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 106,
+          "elapsed_sec": 102.011,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 99,
+          "elapsed_sec": 94.458,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.927,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 128,
+          "elapsed_sec": 126.435,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 105,
+          "elapsed_sec": 104.125,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 105.034,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 96.016,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 116.345,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.69,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 103.162,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 212.867,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 101,
+          "elapsed_sec": 97.874,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 106.881,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 125,
+          "elapsed_sec": 118.318,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 107.185,
+          "episode_id": 45
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 111.86,
+      "mean_success": 0.98
+    },
+    {
+      "task": "pick up the black bowl on the cookie box and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 80.27,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 82.458,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 75.046,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 73,
+          "elapsed_sec": 69.736,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 81.289,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 86.361,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 79,
+          "elapsed_sec": 77.268,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 78.085,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 75.791,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.912,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 79.344,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 81.933,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.399,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 79.376,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 80.977,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 80.985,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 85.995,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 185,
+          "elapsed_sec": 174.735,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 82.115,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 79.017,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 83.569,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 80,
+          "elapsed_sec": 77.369,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 100,
+          "elapsed_sec": 96.041,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 80.792,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 84.973,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 96,
+          "elapsed_sec": 92.759,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 81,
+          "elapsed_sec": 78.339,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.338,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 104.461,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 81.16,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.898,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.237,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 76,
+          "elapsed_sec": 73.327,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 78.487,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 80.904,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 105.487,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 84.406,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 207.789,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 80.955,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 82.283,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 80.734,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 79.701,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 78.982,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.185,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 85,
+          "elapsed_sec": 82.119,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 80.325,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 78,
+          "elapsed_sec": 74.963,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 77,
+          "elapsed_sec": 74.641,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 89,
+          "elapsed_sec": 85.07,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 84,
+          "elapsed_sec": 81.446,
+          "episode_id": 49
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 100.72,
+      "mean_success": 0.9
+    },
+    {
+      "task": "pick up the black bowl on the ramekin and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 94.494,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 130,
+          "elapsed_sec": 123.846,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 207.7,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.206,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 82.292,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 89,
+          "elapsed_sec": 84.885,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 104.954,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 130,
+          "elapsed_sec": 124.843,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 94,
+          "elapsed_sec": 90.418,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 83.88,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 83.201,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 87.442,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 98.705,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 108,
+          "elapsed_sec": 103.852,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 110.217,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 207.259,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 108,
+          "elapsed_sec": 102.237,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 93.163,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 83.883,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 99.851,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 110,
+          "elapsed_sec": 105.394,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 86.159,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 104.708,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 98.693,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 90,
+          "elapsed_sec": 87.46,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 84.549,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 82,
+          "elapsed_sec": 80.909,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 83.873,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 95.049,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 102,
+          "elapsed_sec": 98.033,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 93,
+          "elapsed_sec": 90.052,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 102.073,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 97,
+          "elapsed_sec": 94.657,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 82.262,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 99.714,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 100.009,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 98,
+          "elapsed_sec": 93.306,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 83.282,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 86,
+          "elapsed_sec": 84.569,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 112.683,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 119,
+          "elapsed_sec": 114.444,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 86.911,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 87.273,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 180,
+          "elapsed_sec": 171.913,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 92,
+          "elapsed_sec": 90.266,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 83,
+          "elapsed_sec": 79.209,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.592,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 87,
+          "elapsed_sec": 84.893,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 91,
+          "elapsed_sec": 86.557,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 88,
+          "elapsed_sec": 85.169,
+          "episode_id": 45
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 106.56,
+      "mean_success": 0.94
+    },
+    {
+      "task": "pick up the black bowl on the stove and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 131,
+          "elapsed_sec": 126.163,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.936,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 154,
+          "elapsed_sec": 146.634,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 108,
+          "elapsed_sec": 103.52,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 120.25,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.2,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 112.48,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 131,
+          "elapsed_sec": 125.795,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 117.747,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 132,
+          "elapsed_sec": 126.71,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.073,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.933,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 104,
+          "elapsed_sec": 102.04,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 118.905,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 140,
+          "elapsed_sec": 133.625,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 127,
+          "elapsed_sec": 121.479,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 120,
+          "elapsed_sec": 114.904,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.38,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 109.749,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.487,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 145,
+          "elapsed_sec": 138.622,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 107.384,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 110.322,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 113.216,
+          "episode_id": 45
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 112.16,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 110.439,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 122,
+          "elapsed_sec": 117.743,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 111.434,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 110.562,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 140,
+          "elapsed_sec": 133.704,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 211.096,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 187,
+          "elapsed_sec": 178.735,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 126,
+          "elapsed_sec": 120.067,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 128,
+          "elapsed_sec": 120.847,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 113,
+          "elapsed_sec": 108.644,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 108.287,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 171,
+          "elapsed_sec": 163.003,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 119.4,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 108.397,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 125,
+          "elapsed_sec": 119.836,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 112.619,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 153,
+          "elapsed_sec": 145.657,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 112,
+          "elapsed_sec": 106.564,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 120,
+          "elapsed_sec": 116.695,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.695,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.454,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 144,
+          "elapsed_sec": 137.827,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 117.29,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.334,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.464,
+          "episode_id": 49
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 147.0,
+      "mean_success": 0.78
+    },
+    {
+      "task": "pick up the black bowl on the wooden cabinet and place it on the plate",
+      "episodes": [
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 210.271,
+          "episode_id": 6
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 141,
+          "elapsed_sec": 135.073,
+          "episode_id": 14
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 107.509,
+          "episode_id": 22
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 101.121,
+          "episode_id": 30
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 99.528,
+          "episode_id": 38
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 89.813,
+          "episode_id": 46
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 129,
+          "elapsed_sec": 125.515,
+          "episode_id": 7
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 115,
+          "elapsed_sec": 96.58,
+          "episode_id": 15
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 111,
+          "elapsed_sec": 93.712,
+          "episode_id": 23
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 96.559,
+          "episode_id": 31
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 86.516,
+          "episode_id": 39
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 119,
+          "elapsed_sec": 57.658,
+          "episode_id": 47
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 122,
+          "elapsed_sec": 119.206,
+          "episode_id": 0
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 124,
+          "elapsed_sec": 106.292,
+          "episode_id": 8
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 86.701,
+          "episode_id": 16
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 180.312,
+          "episode_id": 24
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 107,
+          "elapsed_sec": 59.685,
+          "episode_id": 32
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 75.905,
+          "episode_id": 40
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 27.258,
+          "episode_id": 48
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 147,
+          "elapsed_sec": 141.796,
+          "episode_id": 1
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 118.459,
+          "episode_id": 9
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 132,
+          "elapsed_sec": 126.577,
+          "episode_id": 17
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.366,
+          "episode_id": 25
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 130,
+          "elapsed_sec": 122.015,
+          "episode_id": 33
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 183.046,
+          "episode_id": 41
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 171.38,
+          "episode_id": 49
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 114.67,
+          "episode_id": 2
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 209.44,
+          "episode_id": 10
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 211.383,
+          "episode_id": 18
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 103,
+          "elapsed_sec": 91.844,
+          "episode_id": 26
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 109,
+          "elapsed_sec": 92.029,
+          "episode_id": 34
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 183.94,
+          "episode_id": 42
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 118,
+          "elapsed_sec": 115.444,
+          "episode_id": 3
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 108.595,
+          "episode_id": 11
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 183.056,
+          "episode_id": 19
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 156.174,
+          "episode_id": 27
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 51.513,
+          "episode_id": 35
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 123,
+          "elapsed_sec": 34.163,
+          "episode_id": 43
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 116,
+          "elapsed_sec": 112.513,
+          "episode_id": 4
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 208.815,
+          "episode_id": 12
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 121,
+          "elapsed_sec": 115.515,
+          "episode_id": 20
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 125,
+          "elapsed_sec": 119.593,
+          "episode_id": 28
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 138,
+          "elapsed_sec": 133.041,
+          "episode_id": 36
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 117,
+          "elapsed_sec": 113.717,
+          "episode_id": 44
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 114,
+          "elapsed_sec": 111.786,
+          "episode_id": 5
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 120,
+          "elapsed_sec": 116.152,
+          "episode_id": 13
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 187.567,
+          "episode_id": 21
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 130,
+          "elapsed_sec": 109.699,
+          "episode_id": 29
+        },
+        {
+          "metrics": {
+            "success": true
+          },
+          "steps": 131,
+          "elapsed_sec": 104.199,
+          "episode_id": 37
+        },
+        {
+          "metrics": {
+            "success": false
+          },
+          "steps": 220,
+          "elapsed_sec": 98.812,
+          "episode_id": 45
+        }
+      ],
+      "num_episodes": 50,
+      "avg_steps": 148.58,
+      "mean_success": 0.72
+    }
+  ],
+  "config": {
+    "benchmark": "vla_eval.benchmarks.libero.benchmark:LIBEROBenchmark",
+    "mode": "sync",
+    "name": null,
+    "subname": "libero_spatial",
+    "episodes_per_task": 50,
+    "max_steps": null,
+    "max_tasks": null,
+    "tasks": null,
+    "params": {
+      "suite": "libero_spatial",
+      "seed": 7,
+      "num_steps_wait": 10
+    },
+    "hz": 10.0,
+    "hold_policy": "repeat_last",
+    "throughput_mode": false,
+    "paced": true,
+    "wait_first_action": false
+  },
+  "merge_info": {
+    "num_shards": 8,
+    "shards_found": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "shards_missing": [],
+    "total_episodes": 500
+  },
+  "server_info": {
+    "harness_version": "0.0.4.dev77+g200502524.d20260401",
+    "protocol_version": 1,
+    "model_server": "OpenVLAModelServer",
+    "capabilities": {},
+    "observation_params": {
+      "env_seed": 0
+    },
+    "action_spec": {
+      "position": {
+        "name": "position",
+        "dims": 3,
+        "format": "delta_xyz",
+        "range": [
+          -1,
+          1
+        ]
+      },
+      "rotation": {
+        "name": "rotation",
+        "dims": 3,
+        "format": "axis_angle",
+        "range": [
+          -3.15,
+          3.15
+        ]
+      },
+      "gripper": {
+        "name": "gripper",
+        "dims": 1,
+        "format": "binary_close_positive",
+        "range": [
+          -1,
+          1
+        ]
+      }
+    },
+    "observation_spec": {
+      "image": {
+        "name": "image",
+        "dims": 0,
+        "format": "rgb_hwc_uint8"
+      },
+      "language": {
+        "name": "language",
+        "dims": 0,
+        "format": "language"
+      }
+    }
+  },
+  "shard_harness_version": "0.0.4.dev77+g200502524.d20260404",
+  "shard_created_at": {
+    "first": "2026-04-04T17:20:15.066381+00:00",
+    "last": "2026-04-04T17:28:48.967473+00:00"
+  },
+  "seed": 7,
+  "metric_keys": {
+    "success": "mean"
+  },
+  "mean_success": 0.866
+}

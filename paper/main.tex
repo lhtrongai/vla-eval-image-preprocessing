@@ -1,0 +1,59 @@
+\documentclass[10pt]{article}
+% Two builds from one source, with the official TMLR style file unchanged:
+%   main.tex      anonymous submission (\usepackage{tmlr})
+%   preprint.tex  defines \PreprintBuild and inputs this file (\usepackage[preprint]{tmlr}, author named)
+\ifdefined\PreprintBuild
+  \usepackage[preprint]{tmlr}
+\else
+  \usepackage{tmlr}
+\fi
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\input{generated/numbers}
+\newcommand{\pizero}{$\pi_0$}
+\newcommand{\pifive}{$\pi_{0.5}$}
+
+\title{Per-Step Effects of Evaluation Image Preprocessing on Two OpenVLA Policies in LIBERO-Spatial}
+
+\ifdefined\PreprintBuild
+  \input{author_preprint}
+\else
+  % Anonymous build: no author, no link to any version that names the author, no PDF metadata that identifies it.
+  \author{Anonymous authors}
+  % Link to the anonymous mirror of the results repository; the final URL is set before submission.
+  \newcommand{\RepoURL}{\url{https://anonymous.4open.science/r/ANONYMOUS-MIRROR}}
+  \newcommand{\HarnessNote}{}
+  \hypersetup{pdfauthor={}, pdfcreator={}, pdfproducer={}}
+  \pdfinfoomitdate=1
+  \pdftrailerid{}
+  \pdfsuppressptexinfo=-1
+\fi
+\hypersetup{pdftitle={Per-Step Effects of Evaluation Image Preprocessing on Two OpenVLA Policies in LIBERO-Spatial}}
+
+\begin{document}
+
+\maketitle
+
+\input{sections/abstract}
+\input{sections/intro}
+\input{sections/related}
+\input{sections/method}
+\input{sections/setup}
+\input{sections/results}
+\input{sections/discussion}
+
+\bibliography{refs}
+\bibliographystyle{tmlr}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

@@ -1,0 +1,218 @@
+{
+ "_about": "Numbers reported by other work and quoted in the paper. Each entry: the value as printed in the source, the citation key in refs.bib and where in the source it appears. scripts/make_assets.py writes them to generated/numbers.tex with the prefix Ext.",
+ "OpenvlaSpatial": {
+  "value": "84.7",
+  "cite": "openvla",
+  "where": "Appendix E, LIBERO-Spatial success, mean over three seeds of 500 episodes"
+ },
+ "OpenvlaSpatialSe": {
+  "value": "0.9",
+  "cite": "openvla",
+  "where": "Appendix E, standard error of the same mean"
+ },
+ "OpenvlaSeeds": {
+  "value": "three",
+  "cite": "openvla",
+  "where": "Appendix E, number of evaluation seeds"
+ },
+ "OpenvlaLoraRank": {
+  "value": "32",
+  "cite": "openvla",
+  "where": "Appendix E, LoRA rank of the LIBERO fine-tuning"
+ },
+ "OpenvlaDemosDropped": {
+  "value": "68",
+  "cite": "openvla",
+  "where": "Appendix E, failed LIBERO-Spatial demonstrations removed"
+ },
+ "OpenvlaDemos": {
+  "value": "500",
+  "cite": "openvla",
+  "where": "Appendix E, LIBERO-Spatial demonstrations before filtering"
+ },
+ "OftSpatial": {
+  "value": "97.6",
+  "cite": "oft",
+  "where": "LIBERO results table, LIBERO-Spatial"
+ },
+ "OftAverage": {
+  "value": "97.1",
+  "cite": "oft",
+  "where": "LIBERO results table, average over the four suites"
+ },
+ "OftStepsLo": {
+  "value": "50,000",
+  "cite": "oft",
+  "where": "fine-tuning details, gradient steps per suite (lower end)"
+ },
+ "OftStepsHi": {
+  "value": "150,000",
+  "cite": "oft",
+  "where": "fine-tuning details, gradient steps per suite (upper end)"
+ },
+ "JiangSigPct": {
+  "value": "19.8",
+  "cite": "jiang2026bench",
+  "where": "share of state-of-the-art claims on LIBERO that are provably significant"
+ },
+ "JiangCpuTasks": {
+  "value": "10",
+  "cite": "jiang2026bench",
+  "where": "Appendix B, Table 10: tasks whose simulator state diverges after a CPU change with the GPU type fixed (OpenVLA-OFT)"
+ },
+ "JiangCpuPixelTasks": {
+  "value": "5",
+  "cite": "jiang2026bench",
+  "where": "Appendix B, Table 10: tasks where the divergence reaches pixels and actions"
+ },
+ "VeCropPts": {
+  "value": "3",
+  "cite": "vlaeval",
+  "where": "Section III-B, approximate cost of the undocumented center crop"
+ },
+ "VeLiberoAvg": {
+  "value": "76.2",
+  "cite": "vlaeval",
+  "where": "Table II, OpenVLA LIBERO average"
+ },
+ "VeNotesNone": {
+  "value": "71.0",
+  "cite": "vlaevalrepo",
+  "where": "docs/reproductions/openvla.md, LIBERO average before the four steps"
+ },
+ "VeNotesAll": {
+  "value": "76.2",
+  "cite": "vlaevalrepo",
+  "where": "docs/reproductions/openvla.md, LIBERO average with the four steps"
+ },
+ "VeSpatial": {
+  "value": "86.6",
+  "cite": "vlaevalrepo",
+  "where": "docs/reproductions/openvla.md and the per-episode results, OpenVLA LIBERO-Spatial"
+ },
+ "VeJpegQuality": {
+  "value": "75",
+  "cite": "pillow",
+  "where": "Pillow documentation, default JPEG quality used by Image.save"
+ },
+ "RoboscopeSelfLo": {
+  "value": "93.6",
+  "cite": "roboscope",
+  "where": "Table 8, per-episode agreement of two vla-eval runs (lower end)"
+ },
+ "RoboscopeSelfHi": {
+  "value": "95.0",
+  "cite": "roboscope",
+  "where": "Table 8, per-episode agreement of two vla-eval runs (upper end)"
+ },
+ "LiRerunPct": {
+  "value": "4",
+  "cite": "li2026paraphrase",
+  "where": "Section 4.1, share of the 500 OpenVLA-OFT episodes that differ between two runs of one configuration"
+ },
+ "CtrlOftSame": {
+  "value": "0",
+  "cite": "liberoctrlrepo",
+  "where": "README, Reproducibility: OpenVLA-OFT episodes of 500 that differ on the same GPU"
+ },
+ "CtrlUnivlaOtherGpu": {
+  "value": "4",
+  "cite": "liberoctrlrepo",
+  "where": "README, Reproducibility: UniVLA episodes of 500 that differ on another GPU"
+ },
+ "CtrlSampledLo": {
+  "value": "6.7",
+  "cite": "liberoctrlrepo",
+  "where": "README, Reproducibility: per-rollout flip rate of a sampling policy (SmolVLA)"
+ },
+ "CtrlSampledHi": {
+  "value": "15.0",
+  "cite": "liberoctrlrepo",
+  "where": "README, Reproducibility: per-rollout flip rate of a sampling policy (pi0.5)"
+ },
+ "CtrlAxes": {
+  "value": "six",
+  "cite": "liberoctrl",
+  "where": "abstract, number of perturbation axes"
+ },
+ "CtrlFlipNull": {
+  "value": "29.0",
+  "cite": "liberoctrl",
+  "where": "results and Table 1: largest share of matched states that change outcome in a condition whose net difference is not distinguishable from zero"
+ },
+ "CtrlFlipMax": {
+  "value": "34.5",
+  "cite": "liberoctrl",
+  "where": "results and Table 1: largest share of matched states that change outcome in any condition"
+ },
+ "PlusFrom": {
+  "value": "95",
+  "cite": "liberoplus",
+  "where": "abstract, clean success"
+ },
+ "PlusTo": {
+  "value": "30",
+  "cite": "liberoplus",
+  "where": "abstract, success under modest perturbations falls below this value"
+ },
+ "PlusFactors": {
+  "value": "seven",
+  "cite": "liberoplus",
+  "where": "number of perturbation factors"
+ },
+ "ProFrom": {
+  "value": "90",
+  "cite": "liberopro",
+  "where": "abstract, standard LIBERO success above this value"
+ },
+ "ProTo": {
+  "value": "0",
+  "cite": "liberopro",
+  "where": "abstract, success under the perturbations"
+ },
+ "StableSevLo": {
+  "value": "3",
+  "cite": "stablevla",
+  "where": "ImageNet-C severities used (lower end)"
+ },
+ "StableSevHi": {
+  "value": "5",
+  "cite": "stablevla",
+  "where": "ImageNet-C severities used (upper end)"
+ },
+ "StableCorruptions": {
+  "value": "19",
+  "cite": "stablevla",
+  "where": "number of ImageNet-C corruptions"
+ },
+ "StableClean": {
+  "value": "80.0",
+  "cite": "stablevla",
+  "where": "Appendix B.2, Table 8: OpenVLA, LIBERO-Spatial, clean images"
+ },
+ "StableJpegThree": {
+  "value": "72.4",
+  "cite": "stablevla",
+  "where": "Appendix B.2, Table 8: OpenVLA, LIBERO-Spatial, JPEG severity 3"
+ },
+ "StableOftClean": {
+  "value": "92.6",
+  "cite": "stablevla",
+  "where": "Appendix B.2, Table 9: OpenVLA-OFT, LIBERO-Spatial, clean images"
+ },
+ "StrongTypes": {
+  "value": "28",
+  "cite": "strongvla",
+  "where": "number of textual and visual perturbation types"
+ },
+ "XieInstrLo": {
+  "value": "61",
+  "cite": "xie2026language",
+  "where": "OpenVLA-OFT success on LIBERO-Spatial with an unreadable instruction (lower end)"
+ },
+ "XieInstrHi": {
+  "value": "64",
+  "cite": "xie2026language",
+  "where": "OpenVLA-OFT success on LIBERO-Spatial with an unreadable instruction (upper end)"
+ }
+}

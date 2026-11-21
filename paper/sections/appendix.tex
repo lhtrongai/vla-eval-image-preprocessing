@@ -1,0 +1,51 @@
+\section{Run log and setup}
+\label{app:runlog}
+
+Table~\ref{tab:cells} lists the \NCells{} cells with the date each one started and its host CPU, and Table~\ref{tab:setup} lists the software and hardware, read from the metadata that every cell records.
+
+\input{generated/table_cells}
+\input{generated/table_setup}
+
+\subsection{CPU control of the OpenVLA-OFT crop-off cell}
+\label{app:cpucontrol}
+
+% CPU-CONTROL: this subsection is written when the rerun of the OpenVLA-OFT crop-off cell on the CPU of the other
+% OpenVLA-OFT cells is in (results/oft_spatial_crop_off_cpu_control, read by scripts/make_assets.py, macros CpuCtrl*).
+% Reading rule fixed before the rerun: (a) if its per-episode outcomes repeat the original cell, or differ by no more
+% than the A/A floor of OpenVLA-OFT on this stack, the original cell stays the result, this subsection reports the
+% rerun as a CPU check, and the CPU caveats in the abstract and in Sections setup, results and discussion are removed;
+% (b) otherwise both runs are reported, the result stays exploratory, and the text states that it depends on the CPU.
+The OpenVLA-OFT crop-off cell ran on an \CpuOftCrop{} host, while every other OpenVLA-OFT harness cell ran on an \CpuMain. A rerun of this cell on an \CpuMain{} host, with the same split of initial states, is planned as a control; its result will be reported here.
+
+\section{Image-level measurements}
+\label{app:eda}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/data.pdf}
+\caption{Data of the reference cells (\NPairs{} episodes per model). (a) Successes per task. (b) Number of environment steps at which successful OpenVLA-7B episodes end; failures always run to the limit of \MaxSteps{} (\SettleSteps{} settle steps plus \PolicySteps{} policy steps). (c) Mean absolute change that the JPEG round trip makes to the first resized input of each of the \NPairs{} OpenVLA-7B episodes, rendered on the GPU.}
+\label{fig:data}
+\end{figure}
+
+\paragraph{Outcomes.} Figure~\ref{fig:data}a shows the success of the reference cells per task. OpenVLA-7B ranges from \TaskMinSev{} to \TaskMaxSev{} of \NStates, with task \TaskNine{} (bowl on the wooden cabinet) and task \TaskFour{} (bowl in the top drawer) the hardest, while OpenVLA-OFT succeeds on \TaskMinOft{} to \TaskMaxOft{} in every task. Successful OpenVLA-7B episodes end after a median of \SuccStepMedian{} environment steps (interquartile range \SuccStepQone-\SuccStepQthree), well before the limit of \MaxSteps{} at which every failure ends (Figure~\ref{fig:data}b), so a failed episode is one in which the policy does not finish, not one that runs out of time just before success.
+
+\paragraph{Size of the image changes.} On the GPU-rendered first frame of all \NPairs{} episodes, the JPEG round trip changes the resized image by \GpuMadMean{} intensity levels on average (range \GpuMadMin{} to \GpuMadMax, Figure~\ref{fig:data}c), and the bilinear kernel changes it by \GpuBilMean. The change is almost the same in every scene. To compare all steps on the final policy input, we rendered the first frame of the first \EdaStates{} initial states of every task on a CPU (\EdaFrames{} frames) and passed each through the official code with and without each change (Table~\ref{tab:eda}). On those frames the JPEG change before the crop is \CpuPreMean{} levels against \GpuSameMean{} for the same states on the GPU, so the CPU frames are representative. The bilinear kernel, the JPEG round trip and rendering at \InputRes{} change the policy input by \EdaBil, \EdaJpeg{} and \EdaRend{} levels on average; the JPEG change touches \EdaJpegChanged\% of the pixels. Turning the crop off is a different kind of change: it rescales and shifts the whole image, which gives a large per-pixel difference (\EdaCrop{} levels) although the content is the same. For scale, the mildest ImageNet-C JPEG corruption~\citep{imagenetc} changes the input by \EdaCone{} levels, and severity \ExtStableSevLo, which lowers OpenVLA from \ExtStableClean\% to \ExtStableJpegThree\% in StableVLA's evaluation~\citep{stablevla}, by \EdaCthree{} levels, \EdaCthreeRatio{} times the change of the JPEG step.
+
+\input{generated/table_eda}
+
+\paragraph{Color inputs, and why no grayscale.} The policies always receive RGB images, in the reference and in every variant, and the intensity level is the average size of the change in the RGB values the policy receives, the same quantity as the mean absolute error used for image quality; it is not a grayscale conversion. We did not study grayscale inputs, for three reasons. Both checkpoints were trained on RGB frames, so a grayscale input would be a mismatch far larger than any step studied here: replacing the policy input by its luminance changes it by \EdaGray{} intensity levels, about \EdaGrayRatio{} times the change of the JPEG round trip (Table~\ref{tab:eda}). Grayscale also removes the chroma that separates surfaces of similar brightness, and the policy has to find a particular black bowl among similar objects. And the question is which steps of the real evaluation pipeline must be matched, and grayscale is not one of them.
+
+\section{Ablation of the analysis}
+\label{app:ablation}
+
+The variants themselves are an ablation of the evaluation pipeline: each removes or replaces one component and keeps the rest. Table~\ref{tab:ablation} ablates the choices of the analysis on the primary comparison and checks the reading of the secondary results.
+
+\input{generated/table_ablation}
+
+\emph{Pairing.} Treating the reference and the JPEG-off cell as independent samples widens the \AlphaPct\% interval from \AblPairedW{} to \AblUnpairedW{} points and raises the bound on the loss from \AblPairedUB{} to \AblUnpairedUB{} points. Pairing by initial state is what makes \NPairs{} episodes informative.
+
+\emph{Number of initial states.} With only initial states \SplitA, the size of the pilot, the same comparison reads \AblFirstDiff{} points with an interval \AblFirstW{} points wide. The full \NPairs{} pairs moved the estimate to \SevJpegDiff, inside the earlier interval but of opposite sign: a \PilotPairs-episode result would have suggested that turning JPEG off helps.
+
+\emph{Single tasks and the step budget.} Leaving any one task out moves the primary estimate only between \AblLooMin{} and \AblLooMax{} points, so no single task drives it. Cutting the step budget from \MaxSteps{} to \BudgetA, \BudgetB{} or \BudgetC{} steps does not reduce the flips, so they are not successes that arrive just before the time limit. The OpenVLA-OFT crop result does depend on one task: without task \TaskFive{} it loses \OftCropNoFiveLost{} and gains \OftCropNoFiveGained{} episodes ($p = \OftCropNoFiveP$). Against the bilinear cell instead of the reference, the crop-off cell loses \OftCropVsBilLost{} and gains \OftCropVsBilGained{} ($p = \OftCropVsBilP$, uncorrected), the only candidate for a real effect in the study, and an exploratory one, for the two reasons given in Section~\ref{sec:effects}.
+
+\emph{Choice of reference.} Comparing the OpenVLA-7B variants with each other instead of with the reference gives \SevVVfMin{} to \SevVVfMax{} flips per pair and no significant difference ($p \geq \SevVVpMin$). The reference cell is also slightly lucky: on states \SplitA{} every variant scores above it (\SevSplitVarAMin{} to \SevSplitVarAMax{} against \SevSplitRefA), and on states \SplitB{} every variant scores below it (\SevSplitVarBMin{} to \SevSplitVarBMax{} against \SevSplitRefB). The direction of a small net change can depend on which run is called the reference.

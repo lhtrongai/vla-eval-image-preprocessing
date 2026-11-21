@@ -1,0 +1,23 @@
+{
+ "task0_state0": {
+  "instruction": "pick up the black bowl between the plate and the ramekin and place it on the plate",
+  "mean_abs_diff": 1.3637329931972788,
+  "p99_abs_diff": 7.0,
+  "max_abs_diff": 38,
+  "share_pixels_changed": 0.9623724489795918
+ },
+ "task4_state0": {
+  "instruction": "pick up the black bowl in the top drawer of the wooden cabinet and place it on the plate",
+  "mean_abs_diff": 1.3406608737244898,
+  "p99_abs_diff": 7.0,
+  "max_abs_diff": 39,
+  "share_pixels_changed": 0.9613759566326531
+ },
+ "task9_state0": {
+  "instruction": "pick up the black bowl on the wooden cabinet and place it on the plate",
+  "mean_abs_diff": 1.3189705569727892,
+  "p99_abs_diff": 7.0,
+  "max_abs_diff": 37,
+  "share_pixels_changed": 0.9588448660714286
+ }
+}

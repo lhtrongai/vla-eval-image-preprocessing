@@ -1,0 +1,29 @@
+{
+  "ckpt": "openvla/openvla-7b-finetuned-libero-spatial",
+  "suite": "libero_spatial",
+  "inits": [
+    0,
+    20
+  ],
+  "n": 200,
+  "success": 161,
+  "sr": 0.805,
+  "wilson95": [
+    0.744558352034882,
+    0.8539455843549424
+  ],
+  "per_task_success": {
+    "0": 16,
+    "1": 17,
+    "2": 16,
+    "3": 19,
+    "4": 16,
+    "5": 17,
+    "6": 20,
+    "7": 12,
+    "8": 15,
+    "9": 13
+  },
+  "gpu": "NVIDIA RTX PRO 4500 Blackwell",
+  "hours": 1.88
+}
