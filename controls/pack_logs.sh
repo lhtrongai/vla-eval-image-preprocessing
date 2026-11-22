@@ -7,7 +7,7 @@ set -eu
 cd /workspace/runs/controls
 mkdir -p outbox
 find . -path ./outbox -prune -o -type f \( -name episodes.jsonl -o -name run_meta.json -o -name cell.json \
-  -o -name 'EVAL-*.txt' -o -name run.log -o -name chain.log -o -name lscpu.txt -o -name nvidia-smi.txt \
+  -o -name 'EVAL-*.txt' -o -name run.log -o -name chain.log -o -name lscpu.txt -o -name nvidia-smi.txt -o -name gpu_name.txt \
   -o -name image_check.log -o -name code_check.txt \) -print | sort > outbox/files.txt
 xargs -d '\n' md5sum < outbox/files.txt > outbox/controls_logs.md5
 tar -czf outbox/controls_logs.tar.gz -T outbox/files.txt outbox/controls_logs.md5

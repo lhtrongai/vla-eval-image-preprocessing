@@ -150,4 +150,4 @@ The 6.5 hours left cover one OpenVLA-7B cell run again.
 
 ## Changes after the plan commit
 
-None.
+1. 23 November 2026, before any cell started. The GPU check of `controls/run_pod.sh` searched the `nvidia-smi` table for the full name `NVIDIA RTX PRO 4500 Blackwell`, but the table cuts the name to `NVIDIA RTX PRO 4500 Blac...`, so the check refused the right GPU and no cell could start. The check now reads `nvidia-smi --query-gpu=name --format=csv,noheader` (saved as `gpu_name.txt`, which `controls/pack_logs.sh` now also packs) and requires exactly one GPU with that full name. `controls/code_sha256.txt` has the new hashes of `run_pod.sh` and `pack_logs.sh`, and `controls/RUN_GUIDE.md` now runs from the last commit that changed `code_sha256.txt`. The cells, settings, sizes, reading rule and analysis are unchanged.

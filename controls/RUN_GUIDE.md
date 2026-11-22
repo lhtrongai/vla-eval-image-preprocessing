@@ -4,7 +4,7 @@ For whoever runs the cells of `controls/PLAN.md`. Read the plan first. Do not ch
 
 ## Rules
 
-1. **Plan commit.** Everything runs from the commit that added `controls/PLAN.md`: `git log --diff-filter=A --format=%H -- controls/PLAN.md` on a full clone.
+1. **Run commit.** Everything runs from the last commit that changed `controls/code_sha256.txt`: `git log -1 --format=%H -- controls/code_sha256.txt` on a full clone. That is the plan commit, or the last correction listed under "Changes after the plan commit" in `controls/PLAN.md`, all made before any cell started.
 2. **Hardware.** Every pod: host CPU `AMD EPYC 7663 56-Core Processor`, one `NVIDIA RTX PRO 4500 Blackwell` (32 GB). The CPU cannot be chosen when a pod is created, so check it first (step 2 below) and terminate a pod with any other CPU at once.
 3. **One evaluation process per GPU.** Two processes on one GPU silently changed outcomes before. If fewer than five GPUs are free, run the pod labels one after another.
 4. **Blind until the end.** Do not read successes or flips before every cell is done: notifications carry only exit codes and episode counts; follow progress with `wc -l` on `episodes.jsonl`; do not open `run.log` or the `EVAL-*.txt` logs during the runs.
@@ -35,18 +35,18 @@ RunPod Secure Cloud, in the data center of the project's network volume; templat
    lscpu | grep 'Model name'      # must print: AMD EPYC 7663 56-Core Processor
    ```
    Any other CPU: terminate this pod now and create another one (note it in `pods.md`).
-3. Get the code at the plan commit, on the container disk:
+3. Get the code at the run commit, on the container disk:
    ```bash
    git clone https://github.com/lhtrongai/vla-eval-image-preprocessing /root/repo
    cd /root/repo
-   PLAN=$(git log --diff-filter=A --format=%H -- controls/PLAN.md)
-   git checkout "$PLAN"
+   RUN=$(git log -1 --format=%H -- controls/code_sha256.txt)
+   git checkout "$RUN"
    ```
 4. Set up and start:
    ```bash
-   bash controls/run_pod.sh <pod label> "$PLAN"
+   bash controls/run_pod.sh <pod label> "$RUN"
    ```
-   `run_pod.sh` checks the commit, the CPU and the GPU (`lscpu.txt`, `nvidia-smi.txt`), runs the pod setup of the volume (about 10 to 20 minutes, `setup_pod.log`), copies the libero-vla-eval scripts with this repository's scripts over them to `/root/controls_code/scripts` and checks them against `controls/code_sha256.txt` (`code_check.txt`), runs `check_image_variants.py` for the pod's model (`image_check.log`, must end with `CHECK_OK`), then starts the cells (tmux window `chain`) and the watchdog (window `watchdog`). Everything it writes goes to `/workspace/runs/controls/pods/<pod label>/` on the volume. On any failure it sends a notification, starts nothing and prints `FAILED: <reason>`: terminate that pod by hand, since no watchdog runs yet. On success it prints `STARTED <pod label>`. Detach with `Ctrl-b d`.
+   `run_pod.sh` checks the commit, the CPU and the GPU (`lscpu.txt`, `nvidia-smi.txt`, `gpu_name.txt`), runs the pod setup of the volume (about 10 to 20 minutes, `setup_pod.log`), copies the libero-vla-eval scripts with this repository's scripts over them to `/root/controls_code/scripts` and checks them against `controls/code_sha256.txt` (`code_check.txt`), runs `check_image_variants.py` for the pod's model (`image_check.log`, must end with `CHECK_OK`), then starts the cells (tmux window `chain`) and the watchdog (window `watchdog`). Everything it writes goes to `/workspace/runs/controls/pods/<pod label>/` on the volume. On any failure it sends a notification, starts nothing and prints `FAILED: <reason>`: terminate that pod by hand, since no watchdog runs yet. On success it prints `STARTED <pod label>`. Detach with `Ctrl-b d`.
 5. Follow progress without reading results:
    ```bash
    wc -l /workspace/runs/controls/<cell>/episodes.jsonl                 # OpenVLA-7B cells
@@ -55,7 +55,7 @@ RunPod Secure Cloud, in the data center of the project's network volume; templat
    ```
 6. **A cell that fails** (exit code other than 0, fewer than 500 episodes, or a watchdog notification of a hang or the deadline): note it in `pods.md`, keep its folder, and run that cell again on a new EPYC 7663 pod with the same steps and the cell name as third argument. It runs as the next attempt, in `/workspace/runs/controls/<cell>__attempt2/`:
    ```bash
-   bash controls/run_pod.sh <pod label> "$PLAN" <cell>
+   bash controls/run_pod.sh <pod label> "$RUN" <cell>
    ```
    Check the budget first: one OpenVLA-7B cell costs about 5 GPU-hours.
 
@@ -64,7 +64,7 @@ RunPod Secure Cloud, in the data center of the project's network volume; templat
 1. Start one short pod in the same data center with the volume attached (any type; it only reads files) and open a terminal:
    ```bash
    git clone https://github.com/lhtrongai/vla-eval-image-preprocessing /root/repo && cd /root/repo
-   git checkout "$(git log --diff-filter=A --format=%H -- controls/PLAN.md)"
+   git checkout "$(git log -1 --format=%H -- controls/code_sha256.txt)"
    bash controls/pack_logs.sh
    ```
    It writes `/workspace/runs/controls/outbox/controls_logs.tar.gz` (episodes, run metadata, `cell.json`, evaluation logs, run logs and the pod logs; no rollout videos, no saved input images, no setup log), the md5 of every packed file (`controls_logs.md5`, inside the archive) and the md5 of the archive (`controls_logs.tar.gz.md5`).
