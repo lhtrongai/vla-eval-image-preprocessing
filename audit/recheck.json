@@ -1,0 +1,2605 @@
+{
+ "rows": {
+  "openvla7b_spatial_rerun": {
+   "k": 424,
+   "pct": 84.8,
+   "wilson": [
+    81.38858517125614,
+    87.68076073261983
+   ],
+   "diff": -0.2,
+   "lost": 2,
+   "gained": 1,
+   "flips": 3,
+   "p": 1.0,
+   "band": 0.6789514404457029,
+   "ex_lo": -1.0,
+   "ex_hi": 0.4,
+   "ex_ub": 0.8,
+   "edge_lo": true,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -1.0,
+    -0.8
+   ],
+   "mc_hi": [
+    0.4
+   ],
+   "mc_ub": [
+    0.8
+   ],
+   "flips_task": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "same": 497
+  },
+  "openvla7b_spatial_jpeg_off": {
+   "k": 421,
+   "pct": 84.2,
+   "wilson": [
+    80.74376489887337,
+    87.13473021355645
+   ],
+   "diff": -0.8,
+   "lost": 39,
+   "gained": 35,
+   "flips": 74,
+   "p": 0.7275470834894697,
+   "band": 3.3720495413404903,
+   "ex_lo": -4.2,
+   "ex_hi": 2.6,
+   "ex_ub": 3.6,
+   "edge_lo": true,
+   "edge_hi": true,
+   "edge_ub": false,
+   "mc_lo": [
+    -4.2,
+    -4.0
+   ],
+   "mc_hi": [
+    2.4,
+    2.6
+   ],
+   "mc_ub": [
+    3.6
+   ],
+   "flips_task": [
+    5,
+    9,
+    7,
+    3,
+    13,
+    5,
+    4,
+    6,
+    11,
+    11
+   ],
+   "same": 426
+  },
+  "openvla7b_spatial_crop_off": {
+   "k": 420,
+   "pct": 84.0,
+   "wilson": [
+    80.52918208363084,
+    86.95236276498359
+   ],
+   "diff": -1.0,
+   "lost": 43,
+   "gained": 38,
+   "flips": 81,
+   "p": 0.6569924675863577,
+   "band": 3.5279351721720973,
+   "ex_lo": -4.6,
+   "ex_hi": 2.6,
+   "ex_ub": 4.0,
+   "edge_lo": true,
+   "edge_hi": true,
+   "edge_ub": true,
+   "mc_lo": [
+    -4.6,
+    -4.4
+   ],
+   "mc_hi": [
+    2.4,
+    2.6
+   ],
+   "mc_ub": [
+    3.8,
+    4.0
+   ],
+   "flips_task": [
+    6,
+    9,
+    9,
+    4,
+    15,
+    5,
+    3,
+    7,
+    6,
+    17
+   ],
+   "same": 419,
+   "holm": 1.0
+  },
+  "openvla7b_spatial_bilinear": {
+   "k": 414,
+   "pct": 82.8,
+   "wilson": [
+    79.24525525008731,
+    85.85458801563487
+   ],
+   "diff": -2.1999999999999997,
+   "lost": 47,
+   "gained": 36,
+   "flips": 83,
+   "p": 0.272268945972048,
+   "band": 3.5712243397334333,
+   "ex_lo": -5.8,
+   "ex_hi": 1.4,
+   "ex_ub": 5.2,
+   "edge_lo": true,
+   "edge_hi": true,
+   "edge_ub": false,
+   "mc_lo": [
+    -5.8,
+    -5.6
+   ],
+   "mc_hi": [
+    1.2,
+    1.4
+   ],
+   "mc_ub": [
+    5.2
+   ],
+   "flips_task": [
+    8,
+    5,
+    5,
+    7,
+    9,
+    8,
+    7,
+    8,
+    11,
+    15
+   ],
+   "same": 417,
+   "holm": 1.0
+  },
+  "openvla7b_spatial_render224": {
+   "k": 427,
+   "pct": 85.39999999999999,
+   "wilson": [
+    82.03507337796904,
+    88.22512331735307
+   ],
+   "diff": 0.4,
+   "lost": 45,
+   "gained": 47,
+   "flips": 92,
+   "p": 0.9170405196524722,
+   "band": 3.7598628246459174,
+   "ex_lo": -3.4,
+   "ex_hi": 4.2,
+   "ex_ub": 2.8,
+   "edge_lo": true,
+   "edge_hi": true,
+   "edge_ub": true,
+   "mc_lo": [
+    -3.4,
+    -3.2
+   ],
+   "mc_hi": [
+    4.0,
+    4.2
+   ],
+   "mc_ub": [
+    2.6,
+    2.8
+   ],
+   "flips_task": [
+    8,
+    10,
+    8,
+    5,
+    13,
+    9,
+    3,
+    9,
+    13,
+    14
+   ],
+   "same": 408,
+   "holm": 1.0
+  },
+  "oft_spatial_rerun": {
+   "k": 495,
+   "pct": 99.0,
+   "wilson": [
+    97.68069002442694,
+    99.57212461034096
+   ],
+   "diff": 0.0,
+   "lost": 0,
+   "gained": 0,
+   "flips": 0,
+   "p": 1.0,
+   "band": 0.0,
+   "ex_lo": 0.0,
+   "ex_hi": 0.0,
+   "ex_ub": 0.0,
+   "edge_lo": false,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    0.0
+   ],
+   "mc_hi": [
+    0.0
+   ],
+   "mc_ub": [
+    0.0
+   ],
+   "flips_task": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "same": 500
+  },
+  "oft_spatial_jpeg_off": {
+   "k": 491,
+   "pct": 98.2,
+   "wilson": [
+    96.61483290912606,
+    99.0501806703803
+   ],
+   "diff": -0.8,
+   "lost": 7,
+   "gained": 3,
+   "flips": 10,
+   "p": 0.34375,
+   "band": 1.2395900646091231,
+   "ex_lo": -2.0,
+   "ex_hi": 0.4,
+   "ex_ub": 1.8,
+   "edge_lo": true,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -2.2,
+    -2.0
+   ],
+   "mc_hi": [
+    0.4
+   ],
+   "mc_ub": [
+    1.8
+   ],
+   "flips_task": [
+    0,
+    0,
+    1,
+    2,
+    0,
+    5,
+    0,
+    0,
+    0,
+    2
+   ],
+   "same": 490,
+   "holm": 1.0
+  },
+  "oft_spatial_crop_off": {
+   "k": 483,
+   "pct": 96.6,
+   "wilson": [
+    94.62286344983654,
+    97.86654801914678
+   ],
+   "diff": -2.4,
+   "lost": 15,
+   "gained": 3,
+   "flips": 18,
+   "p": 0.007537841796875,
+   "band": 1.6630845892196133,
+   "ex_lo": -4.2,
+   "ex_hi": -0.8,
+   "ex_ub": 3.8,
+   "edge_lo": true,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -4.2,
+    -4.0
+   ],
+   "mc_hi": [
+    -0.8
+   ],
+   "mc_ub": [
+    3.8
+   ],
+   "flips_task": [
+    0,
+    2,
+    1,
+    2,
+    0,
+    10,
+    0,
+    1,
+    0,
+    2
+   ],
+   "same": 482,
+   "holm": 0.052764892578125
+  },
+  "oft_spatial_bilinear": {
+   "k": 496,
+   "pct": 99.2,
+   "wilson": [
+    97.96129641658948,
+    99.68846848199378
+   ],
+   "diff": 0.2,
+   "lost": 3,
+   "gained": 4,
+   "flips": 7,
+   "p": 1.0,
+   "band": 1.0371154563472456,
+   "ex_lo": -0.8,
+   "ex_hi": 1.2,
+   "ex_ub": 0.6,
+   "edge_lo": false,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -0.8
+   ],
+   "mc_hi": [
+    1.2
+   ],
+   "mc_ub": [
+    0.6
+   ],
+   "flips_task": [
+    0,
+    0,
+    1,
+    1,
+    2,
+    2,
+    0,
+    0,
+    0,
+    1
+   ],
+   "same": 493,
+   "holm": 1.0
+  },
+  "oft_spatial_render224": {
+   "k": 491,
+   "pct": 98.2,
+   "wilson": [
+    96.61483290912606,
+    99.0501806703803
+   ],
+   "diff": -0.8,
+   "lost": 7,
+   "gained": 3,
+   "flips": 10,
+   "p": 0.34375,
+   "band": 1.2395900646091231,
+   "ex_lo": -2.0,
+   "ex_hi": 0.4,
+   "ex_ub": 1.8,
+   "edge_lo": true,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -2.2,
+    -2.0
+   ],
+   "mc_hi": [
+    0.4
+   ],
+   "mc_ub": [
+    1.8
+   ],
+   "flips_task": [
+    0,
+    0,
+    3,
+    2,
+    1,
+    3,
+    0,
+    0,
+    0,
+    1
+   ],
+   "same": 490,
+   "holm": 1.0
+  },
+  "oft_spatial_crop_off_cpu_control": {
+   "k": 483,
+   "pct": 96.6,
+   "wilson": [
+    94.62286344983654,
+    97.86654801914678
+   ],
+   "diff": -2.4,
+   "lost": 15,
+   "gained": 3,
+   "flips": 18,
+   "p": 0.007537841796875,
+   "band": 1.6630845892196133,
+   "ex_lo": -4.2,
+   "ex_hi": -0.8,
+   "ex_ub": 3.8,
+   "edge_lo": true,
+   "edge_hi": false,
+   "edge_ub": false,
+   "mc_lo": [
+    -4.2,
+    -4.0
+   ],
+   "mc_hi": [
+    -0.8
+   ],
+   "mc_ub": [
+    3.8
+   ],
+   "flips_task": [
+    0,
+    2,
+    1,
+    2,
+    0,
+    10,
+    0,
+    1,
+    0,
+    2
+   ],
+   "same": 482
+  }
+ },
+ "extra": {
+  "SevRerunSame": 497,
+  "RerunBoth": 423,
+  "RerunSameStep": 415,
+  "OftRerunSame": 500,
+  "CpuCtrlK": 483,
+  "CpuCtrlSame": 500,
+  "CpuCtrlDiffer": 0,
+  "CpuCtrlLost": 15,
+  "CpuCtrlGained": 3,
+  "SevAlways": 296,
+  "SevNever": 15,
+  "SevChange": 189,
+  "SevRefFail": 75,
+  "SevRescued": 60,
+  "OftAlways": 470,
+  "OftNever": 1,
+  "OftChange": 29,
+  "OftChangeTaskFive": 13,
+  "SevOverlapMin": 33,
+  "SevOverlapMax": 40,
+  "SevChanceMin": 12.0,
+  "SevChanceMax": 15.3,
+  "SevOverlapRatioMin": 2.5,
+  "SevOverlapRatioMax": 2.9,
+  "SevVVfMin": 85,
+  "SevVVfMax": 99,
+  "SevVVpMin": 0.22762615711004686,
+  "SevSplitRefA": 161,
+  "SevSplitRefB": 264,
+  "SevSplitVarAMin": 163,
+  "SevSplitVarAMax": 168,
+  "SevSplitVarBMin": 251,
+  "SevSplitVarBMax": 260,
+  "SevSameStepMin": 3,
+  "SevSameStepMax": 5,
+  "SevStepDiffMin": 5,
+  "SevStepDiffMax": 8,
+  "OftSameStepMin": 9,
+  "OftSameStepMax": 35,
+  "OftStepDiffMin": 1,
+  "OftStepDiffMax": 3,
+  "OftCropNoFiveLost": 6,
+  "OftCropNoFiveGained": 2,
+  "OftCropNoFiveP": 0.2890625,
+  "OftCropTaskFiveLost": 9,
+  "OftTaskFiveCrop": 40,
+  "OftTaskFiveOthersMin": 45,
+  "OftTaskFiveOthersMax": 48,
+  "OftCropVsBilLost": 15,
+  "OftCropVsBilGained": 2,
+  "OftCropVsBilP": 0.002349853515625,
+  "AblUnpairedLo": -5.2,
+  "AblUnpairedHi": 3.6,
+  "AblUnpairedUB": 4.6,
+  "AblPairedLo": -4.2,
+  "AblPairedHi": 2.6,
+  "AblPairedUB": 3.6,
+  "AblFirstLost": 14,
+  "AblFirstGained": 21,
+  "AblFirstDiff": 3.5,
+  "AblFirstLo": -2.5,
+  "AblFirstHi": 9.5,
+  "AblFirstUB": 1.5,
+  "AblLooMin": -1.5555555555555545,
+  "AblLooMax": -0.22222222222221255,
+  "PilotLost": 14,
+  "PilotGained": 21,
+  "PilotFlips": 35,
+  "PilotDisc": 17.5,
+  "PilotDiff": 3.5,
+  "PilotF": 87.5,
+  "PilotSD": 9.354143466934854,
+  "PilotBandEp": 18.33378430141295,
+  "PilotBandPts": 3.6667568602825904,
+  "FinalSD": 8.602325267042627,
+  "FinalBandEp": 16.860247706702452,
+  "PilotMaxDiffVsFinal": 1,
+  "PilotCellsN": 7,
+  "OlSevFirstN": 500,
+  "OlSevFirstEpisodes": 500,
+  "OlSevFirstAgainChanged": 0,
+  "OlSevFirstAgainMean": 0.0,
+  "OlSevFirstJpegChanged": 29,
+  "OlSevFirstJpegMean": 3.3,
+  "OlSevFirstCropChanged": 95,
+  "OlSevFirstCropMean": 14.4,
+  "OlSevFirstBilChanged": 54,
+  "OlSevFirstBilMean": 6.9,
+  "OlSevFirstRendChanged": 78,
+  "OlSevFirstRendMean": 11.8,
+  "OlSevTrajN": 1713,
+  "OlSevTrajEpisodes": 50,
+  "OlSevTrajAgainChanged": 0,
+  "OlSevTrajAgainMean": 0.0,
+  "OlSevTrajJpegChanged": 35,
+  "OlSevTrajJpegMean": 4.1,
+  "OlSevTrajCropChanged": 91,
+  "OlSevTrajCropMean": 14.0,
+  "OlSevTrajBilChanged": 55,
+  "OlSevTrajBilMean": 7.0,
+  "OlSevTrajRendChanged": 66,
+  "OlSevTrajRendMean": 8.6,
+  "OlSevTrajRepro": 50,
+  "OlSevTrajReproN": 50,
+  "OlOftFirstN": 500,
+  "OlOftFirstEpisodes": 500,
+  "OlOftFirstAgainChanged": 0,
+  "OlOftFirstAgainMean": 0.0,
+  "OlOftFirstJpegChanged": 99,
+  "OlOftFirstJpegMean": 0.9,
+  "OlOftFirstCropChanged": 100,
+  "OlOftFirstCropMean": 10.1,
+  "OlOftFirstBilChanged": 100,
+  "OlOftFirstBilMean": 2.4,
+  "OlOftFirstRendChanged": 100,
+  "OlOftFirstRendMean": 1.3,
+  "OlOftTrajN": 1326,
+  "OlOftTrajEpisodes": 100,
+  "OlOftTrajAgainChanged": 0,
+  "OlOftTrajAgainMean": 0.0,
+  "OlOftTrajJpegChanged": 84,
+  "OlOftTrajJpegMean": 0.5,
+  "OlOftTrajCropChanged": 100,
+  "OlOftTrajCropMean": 5.6,
+  "OlOftTrajBilChanged": 97,
+  "OlOftTrajBilMean": 0.9,
+  "OlOftTrajRendChanged": 97,
+  "OlOftTrajRendMean": 0.8,
+  "OlOftTrajRepro": 99,
+  "OlOftTrajReproN": 100
+ },
+ "compare": [
+  [
+   "SevRefK",
+   "425",
+   "425",
+   "match",
+   ""
+  ],
+  [
+   "SevRefPct",
+   "85.0",
+   "85.0",
+   "match",
+   ""
+  ],
+  [
+   "SevRefLo",
+   "81.6",
+   "81.6",
+   "match",
+   ""
+  ],
+  [
+   "SevRefHi",
+   "87.9",
+   "87.9",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunK",
+   "424",
+   "424",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunPct",
+   "84.8",
+   "84.8",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunDiff",
+   "-0.2",
+   "-0.2",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunLo",
+   "-1.0",
+   "-1.0",
+   "match",
+   "edge; 20,000 draws give -1.0 or -0.8"
+  ],
+  [
+   "SevRerunHi",
+   "+0.4",
+   "+0.4",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunUB",
+   "0.8",
+   "0.8",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunLost",
+   "2",
+   "2",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunGained",
+   "1",
+   "1",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunFlips",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunP",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunBand",
+   "0.7",
+   "0.7",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunFlipPct",
+   "0.6",
+   "0.6",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegK",
+   "421",
+   "421",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegPct",
+   "84.2",
+   "84.2",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegDiff",
+   "-0.8",
+   "-0.8",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegLo",
+   "-4.2",
+   "-4.2",
+   "match",
+   "edge; 20,000 draws give -4.2 or -4.0"
+  ],
+  [
+   "SevJpegHi",
+   "+2.6",
+   "+2.6",
+   "match",
+   "edge; 20,000 draws give +2.4 or +2.6"
+  ],
+  [
+   "SevJpegUB",
+   "3.6",
+   "3.6",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegLost",
+   "39",
+   "39",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegGained",
+   "35",
+   "35",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegFlips",
+   "74",
+   "74",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegP",
+   "0.73",
+   "0.73",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegBand",
+   "3.4",
+   "3.4",
+   "match",
+   ""
+  ],
+  [
+   "SevJpegFlipPct",
+   "14.8",
+   "14.8",
+   "match",
+   ""
+  ],
+  [
+   "SevCropK",
+   "420",
+   "420",
+   "match",
+   ""
+  ],
+  [
+   "SevCropPct",
+   "84.0",
+   "84.0",
+   "match",
+   ""
+  ],
+  [
+   "SevCropDiff",
+   "-1.0",
+   "-1.0",
+   "match",
+   ""
+  ],
+  [
+   "SevCropLo",
+   "-4.6",
+   "-4.6",
+   "match",
+   "edge; 20,000 draws give -4.6 or -4.4"
+  ],
+  [
+   "SevCropHi",
+   "+2.6",
+   "+2.6",
+   "match",
+   "edge; 20,000 draws give +2.4 or +2.6"
+  ],
+  [
+   "SevCropUB",
+   "4.0",
+   "4.0",
+   "match",
+   "edge; 20,000 draws give 3.8 or 4.0"
+  ],
+  [
+   "SevCropLost",
+   "43",
+   "43",
+   "match",
+   ""
+  ],
+  [
+   "SevCropGained",
+   "38",
+   "38",
+   "match",
+   ""
+  ],
+  [
+   "SevCropFlips",
+   "81",
+   "81",
+   "match",
+   ""
+  ],
+  [
+   "SevCropP",
+   "0.66",
+   "0.66",
+   "match",
+   ""
+  ],
+  [
+   "SevCropBand",
+   "3.5",
+   "3.5",
+   "match",
+   ""
+  ],
+  [
+   "SevCropFlipPct",
+   "16.2",
+   "16.2",
+   "match",
+   ""
+  ],
+  [
+   "SevCropHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "SevBilK",
+   "414",
+   "414",
+   "match",
+   ""
+  ],
+  [
+   "SevBilPct",
+   "82.8",
+   "82.8",
+   "match",
+   ""
+  ],
+  [
+   "SevBilDiff",
+   "-2.2",
+   "-2.2",
+   "match",
+   ""
+  ],
+  [
+   "SevBilLo",
+   "-5.8",
+   "-5.8",
+   "match",
+   "edge; 20,000 draws give -5.8 or -5.6"
+  ],
+  [
+   "SevBilHi",
+   "+1.4",
+   "+1.4",
+   "match",
+   "edge; 20,000 draws give +1.2 or +1.4"
+  ],
+  [
+   "SevBilUB",
+   "5.2",
+   "5.2",
+   "match",
+   ""
+  ],
+  [
+   "SevBilLost",
+   "47",
+   "47",
+   "match",
+   ""
+  ],
+  [
+   "SevBilGained",
+   "36",
+   "36",
+   "match",
+   ""
+  ],
+  [
+   "SevBilFlips",
+   "83",
+   "83",
+   "match",
+   ""
+  ],
+  [
+   "SevBilP",
+   "0.27",
+   "0.27",
+   "match",
+   ""
+  ],
+  [
+   "SevBilBand",
+   "3.6",
+   "3.6",
+   "match",
+   ""
+  ],
+  [
+   "SevBilFlipPct",
+   "16.6",
+   "16.6",
+   "match",
+   ""
+  ],
+  [
+   "SevBilHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "SevRendK",
+   "427",
+   "427",
+   "match",
+   ""
+  ],
+  [
+   "SevRendPct",
+   "85.4",
+   "85.4",
+   "match",
+   ""
+  ],
+  [
+   "SevRendDiff",
+   "+0.4",
+   "+0.4",
+   "match",
+   ""
+  ],
+  [
+   "SevRendLo",
+   "-3.4",
+   "-3.4",
+   "match",
+   "edge; 20,000 draws give -3.4 or -3.2"
+  ],
+  [
+   "SevRendHi",
+   "+4.2",
+   "+4.2",
+   "match",
+   "edge; 20,000 draws give +4.0 or +4.2"
+  ],
+  [
+   "SevRendUB",
+   "2.8",
+   "2.8",
+   "match",
+   "edge; 20,000 draws give 2.6 or 2.8"
+  ],
+  [
+   "SevRendLost",
+   "45",
+   "45",
+   "match",
+   ""
+  ],
+  [
+   "SevRendGained",
+   "47",
+   "47",
+   "match",
+   ""
+  ],
+  [
+   "SevRendFlips",
+   "92",
+   "92",
+   "match",
+   ""
+  ],
+  [
+   "SevRendP",
+   "0.92",
+   "0.92",
+   "match",
+   ""
+  ],
+  [
+   "SevRendBand",
+   "3.8",
+   "3.8",
+   "match",
+   ""
+  ],
+  [
+   "SevRendFlipPct",
+   "18.4",
+   "18.4",
+   "match",
+   ""
+  ],
+  [
+   "SevRendHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "SevFlipsMin",
+   "74",
+   "74",
+   "match",
+   ""
+  ],
+  [
+   "SevFlipsMax",
+   "92",
+   "92",
+   "match",
+   ""
+  ],
+  [
+   "SevBandMin",
+   "3.4",
+   "3.4",
+   "match",
+   ""
+  ],
+  [
+   "SevBandMax",
+   "3.8",
+   "3.8",
+   "match",
+   ""
+  ],
+  [
+   "SevVarMinPct",
+   "82.8",
+   "82.8",
+   "match",
+   ""
+  ],
+  [
+   "SevVarMaxPct",
+   "85.4",
+   "85.4",
+   "match",
+   ""
+  ],
+  [
+   "OftRefK",
+   "495",
+   "495",
+   "match",
+   ""
+  ],
+  [
+   "OftRefPct",
+   "99.0",
+   "99.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRefLo",
+   "97.7",
+   "97.7",
+   "match",
+   ""
+  ],
+  [
+   "OftRefHi",
+   "99.6",
+   "99.6",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunK",
+   "495",
+   "495",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunPct",
+   "99.0",
+   "99.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunDiff",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunLo",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunHi",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunUB",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunLost",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunGained",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunFlips",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunP",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunBand",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunFlipPct",
+   "0.0",
+   "0.0",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegK",
+   "491",
+   "491",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegPct",
+   "98.2",
+   "98.2",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegDiff",
+   "-0.8",
+   "-0.8",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegLo",
+   "-2.0",
+   "-2.0",
+   "match",
+   "edge; 20,000 draws give -2.2 or -2.0"
+  ],
+  [
+   "OftJpegHi",
+   "+0.4",
+   "+0.4",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegUB",
+   "1.8",
+   "1.8",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegLost",
+   "7",
+   "7",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegGained",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegFlips",
+   "10",
+   "10",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegP",
+   "0.34",
+   "0.34",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegBand",
+   "1.2",
+   "1.2",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegFlipPct",
+   "2.0",
+   "2.0",
+   "match",
+   ""
+  ],
+  [
+   "OftJpegHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "OftCropK",
+   "483",
+   "483",
+   "match",
+   ""
+  ],
+  [
+   "OftCropPct",
+   "96.6",
+   "96.6",
+   "match",
+   ""
+  ],
+  [
+   "OftCropDiff",
+   "-2.4",
+   "-2.4",
+   "match",
+   ""
+  ],
+  [
+   "OftCropLo",
+   "-4.2",
+   "-4.2",
+   "match",
+   "edge; 20,000 draws give -4.2 or -4.0"
+  ],
+  [
+   "OftCropHi",
+   "-0.8",
+   "-0.8",
+   "match",
+   ""
+  ],
+  [
+   "OftCropUB",
+   "3.8",
+   "3.8",
+   "match",
+   ""
+  ],
+  [
+   "OftCropLost",
+   "15",
+   "15",
+   "match",
+   ""
+  ],
+  [
+   "OftCropGained",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "OftCropFlips",
+   "18",
+   "18",
+   "match",
+   ""
+  ],
+  [
+   "OftCropP",
+   "0.008",
+   "0.008",
+   "match",
+   ""
+  ],
+  [
+   "OftCropBand",
+   "1.7",
+   "1.7",
+   "match",
+   ""
+  ],
+  [
+   "OftCropFlipPct",
+   "3.6",
+   "3.6",
+   "match",
+   ""
+  ],
+  [
+   "OftCropHolm",
+   "0.053",
+   "0.053",
+   "match",
+   ""
+  ],
+  [
+   "OftBilK",
+   "496",
+   "496",
+   "match",
+   ""
+  ],
+  [
+   "OftBilPct",
+   "99.2",
+   "99.2",
+   "match",
+   ""
+  ],
+  [
+   "OftBilDiff",
+   "+0.2",
+   "+0.2",
+   "match",
+   ""
+  ],
+  [
+   "OftBilLo",
+   "-0.8",
+   "-0.8",
+   "match",
+   ""
+  ],
+  [
+   "OftBilHi",
+   "+1.2",
+   "+1.2",
+   "match",
+   ""
+  ],
+  [
+   "OftBilUB",
+   "0.6",
+   "0.6",
+   "match",
+   ""
+  ],
+  [
+   "OftBilLost",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "OftBilGained",
+   "4",
+   "4",
+   "match",
+   ""
+  ],
+  [
+   "OftBilFlips",
+   "7",
+   "7",
+   "match",
+   ""
+  ],
+  [
+   "OftBilP",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "OftBilBand",
+   "1.0",
+   "1.0",
+   "match",
+   ""
+  ],
+  [
+   "OftBilFlipPct",
+   "1.4",
+   "1.4",
+   "match",
+   ""
+  ],
+  [
+   "OftBilHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "OftRendK",
+   "491",
+   "491",
+   "match",
+   ""
+  ],
+  [
+   "OftRendPct",
+   "98.2",
+   "98.2",
+   "match",
+   ""
+  ],
+  [
+   "OftRendDiff",
+   "-0.8",
+   "-0.8",
+   "match",
+   ""
+  ],
+  [
+   "OftRendLo",
+   "-2.0",
+   "-2.0",
+   "match",
+   "edge; 20,000 draws give -2.2 or -2.0"
+  ],
+  [
+   "OftRendHi",
+   "+0.4",
+   "+0.4",
+   "match",
+   ""
+  ],
+  [
+   "OftRendUB",
+   "1.8",
+   "1.8",
+   "match",
+   ""
+  ],
+  [
+   "OftRendLost",
+   "7",
+   "7",
+   "match",
+   ""
+  ],
+  [
+   "OftRendGained",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "OftRendFlips",
+   "10",
+   "10",
+   "match",
+   ""
+  ],
+  [
+   "OftRendP",
+   "0.34",
+   "0.34",
+   "match",
+   ""
+  ],
+  [
+   "OftRendBand",
+   "1.2",
+   "1.2",
+   "match",
+   ""
+  ],
+  [
+   "OftRendFlipPct",
+   "2.0",
+   "2.0",
+   "match",
+   ""
+  ],
+  [
+   "OftRendHolm",
+   "1.00",
+   "1.00",
+   "match",
+   ""
+  ],
+  [
+   "OftFlipsMin",
+   "7",
+   "7",
+   "match",
+   ""
+  ],
+  [
+   "OftFlipsMax",
+   "18",
+   "18",
+   "match",
+   ""
+  ],
+  [
+   "OftBandMin",
+   "1.0",
+   "1.0",
+   "match",
+   ""
+  ],
+  [
+   "OftBandMax",
+   "1.7",
+   "1.7",
+   "match",
+   ""
+  ],
+  [
+   "OftVarMinPct",
+   "96.6",
+   "96.6",
+   "match",
+   ""
+  ],
+  [
+   "OftVarMaxPct",
+   "99.2",
+   "99.2",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlP",
+   "0.008",
+   "0.008",
+   "match",
+   ""
+  ],
+  [
+   "SevRerunSame",
+   "497",
+   "497",
+   "match",
+   ""
+  ],
+  [
+   "RerunBoth",
+   "423",
+   "423",
+   "match",
+   ""
+  ],
+  [
+   "RerunSameStep",
+   "415",
+   "415",
+   "match",
+   ""
+  ],
+  [
+   "OftRerunSame",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlK",
+   "483",
+   "483",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlSame",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlDiffer",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlLost",
+   "15",
+   "15",
+   "match",
+   ""
+  ],
+  [
+   "CpuCtrlGained",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "SevAlways",
+   "296",
+   "296",
+   "match",
+   ""
+  ],
+  [
+   "SevNever",
+   "15",
+   "15",
+   "match",
+   ""
+  ],
+  [
+   "SevChange",
+   "189",
+   "189",
+   "match",
+   ""
+  ],
+  [
+   "SevRefFail",
+   "75",
+   "75",
+   "match",
+   ""
+  ],
+  [
+   "SevRescued",
+   "60",
+   "60",
+   "match",
+   ""
+  ],
+  [
+   "OftAlways",
+   "470",
+   "470",
+   "match",
+   ""
+  ],
+  [
+   "OftNever",
+   "1",
+   "1",
+   "match",
+   ""
+  ],
+  [
+   "OftChange",
+   "29",
+   "29",
+   "match",
+   ""
+  ],
+  [
+   "OftChangeTaskFive",
+   "13",
+   "13",
+   "match",
+   ""
+  ],
+  [
+   "SevOverlapMin",
+   "33",
+   "33",
+   "match",
+   ""
+  ],
+  [
+   "SevOverlapMax",
+   "40",
+   "40",
+   "match",
+   ""
+  ],
+  [
+   "SevChanceMin",
+   "12.0",
+   "12",
+   "match",
+   ""
+  ],
+  [
+   "SevChanceMax",
+   "15.3",
+   "15.3",
+   "match",
+   ""
+  ],
+  [
+   "SevOverlapRatioMin",
+   "2.5",
+   "2.5",
+   "match",
+   ""
+  ],
+  [
+   "SevOverlapRatioMax",
+   "2.9",
+   "2.9",
+   "match",
+   ""
+  ],
+  [
+   "SevVVfMin",
+   "85",
+   "85",
+   "match",
+   ""
+  ],
+  [
+   "SevVVfMax",
+   "99",
+   "99",
+   "match",
+   ""
+  ],
+  [
+   "SevVVpMin",
+   "0.23",
+   "0.23",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitRefA",
+   "161",
+   "161",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitRefB",
+   "264",
+   "264",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitVarAMin",
+   "163",
+   "163",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitVarAMax",
+   "168",
+   "168",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitVarBMin",
+   "251",
+   "251",
+   "match",
+   ""
+  ],
+  [
+   "SevSplitVarBMax",
+   "260",
+   "260",
+   "match",
+   ""
+  ],
+  [
+   "SevSameStepMin",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "SevSameStepMax",
+   "5",
+   "5",
+   "match",
+   ""
+  ],
+  [
+   "SevStepDiffMin",
+   "5",
+   "5",
+   "match",
+   ""
+  ],
+  [
+   "SevStepDiffMax",
+   "8",
+   "8",
+   "match",
+   ""
+  ],
+  [
+   "OftSameStepMin",
+   "9",
+   "9",
+   "match",
+   ""
+  ],
+  [
+   "OftSameStepMax",
+   "35",
+   "35",
+   "match",
+   ""
+  ],
+  [
+   "OftStepDiffMin",
+   "1",
+   "1",
+   "match",
+   ""
+  ],
+  [
+   "OftStepDiffMax",
+   "3",
+   "3",
+   "match",
+   ""
+  ],
+  [
+   "OftCropNoFiveLost",
+   "6",
+   "6",
+   "match",
+   ""
+  ],
+  [
+   "OftCropNoFiveGained",
+   "2",
+   "2",
+   "match",
+   ""
+  ],
+  [
+   "OftCropNoFiveP",
+   "0.29",
+   "0.29",
+   "match",
+   ""
+  ],
+  [
+   "OftCropTaskFiveLost",
+   "9",
+   "9",
+   "match",
+   ""
+  ],
+  [
+   "OftTaskFiveCrop",
+   "40",
+   "40",
+   "match",
+   ""
+  ],
+  [
+   "OftTaskFiveOthersMin",
+   "45",
+   "45",
+   "match",
+   ""
+  ],
+  [
+   "OftTaskFiveOthersMax",
+   "48",
+   "48",
+   "match",
+   ""
+  ],
+  [
+   "OftCropVsBilLost",
+   "15",
+   "15",
+   "match",
+   ""
+  ],
+  [
+   "OftCropVsBilGained",
+   "2",
+   "2",
+   "match",
+   ""
+  ],
+  [
+   "AblUnpairedLo",
+   "-5.2",
+   "-5.2",
+   "match",
+   ""
+  ],
+  [
+   "AblUnpairedHi",
+   "+3.6",
+   "+3.6",
+   "match",
+   ""
+  ],
+  [
+   "AblUnpairedUB",
+   "4.6",
+   "4.6",
+   "match",
+   ""
+  ],
+  [
+   "AblPairedLo",
+   "-4.2",
+   "-4.2",
+   "match",
+   ""
+  ],
+  [
+   "AblPairedHi",
+   "+2.6",
+   "+2.6",
+   "match",
+   ""
+  ],
+  [
+   "AblPairedUB",
+   "3.6",
+   "3.6",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstLost",
+   "14",
+   "14",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstGained",
+   "21",
+   "21",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstDiff",
+   "+3.5",
+   "+3.5",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstLo",
+   "-2.5",
+   "-2.5",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstHi",
+   "+9.5",
+   "+9.5",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstUB",
+   "1.5",
+   "1.5",
+   "match",
+   ""
+  ],
+  [
+   "AblLooMin",
+   "-1.6",
+   "-1.6",
+   "match",
+   ""
+  ],
+  [
+   "AblLooMax",
+   "-0.2",
+   "-0.2",
+   "match",
+   ""
+  ],
+  [
+   "PilotLost",
+   "14",
+   "14",
+   "match",
+   ""
+  ],
+  [
+   "PilotGained",
+   "21",
+   "21",
+   "match",
+   ""
+  ],
+  [
+   "PilotFlips",
+   "35",
+   "35",
+   "match",
+   ""
+  ],
+  [
+   "PilotDisc",
+   "17.5",
+   "17.5",
+   "match",
+   ""
+  ],
+  [
+   "PilotDiff",
+   "+3.5",
+   "+3.5",
+   "match",
+   ""
+  ],
+  [
+   "PilotF",
+   "87.5",
+   "87.5",
+   "match",
+   ""
+  ],
+  [
+   "PilotSD",
+   "9.4",
+   "9.4",
+   "match",
+   ""
+  ],
+  [
+   "PilotBandEp",
+   "18.3",
+   "18.3",
+   "match",
+   ""
+  ],
+  [
+   "PilotBandPts",
+   "3.7",
+   "3.7",
+   "match",
+   ""
+  ],
+  [
+   "FinalSD",
+   "8.6",
+   "8.6",
+   "match",
+   ""
+  ],
+  [
+   "FinalBandEp",
+   "16.9",
+   "16.9",
+   "match",
+   ""
+  ],
+  [
+   "PilotMaxDiffVsFinal",
+   "1",
+   "1",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstN",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstEpisodes",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstAgainChanged",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstAgainMean",
+   "0.0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstJpegChanged",
+   "29",
+   "29",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstJpegMean",
+   "3.3",
+   "3.3",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstCropChanged",
+   "95",
+   "95",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstCropMean",
+   "14.4",
+   "14.4",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstBilChanged",
+   "54",
+   "54",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstBilMean",
+   "6.9",
+   "6.9",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstRendChanged",
+   "78",
+   "78",
+   "match",
+   ""
+  ],
+  [
+   "OlSevFirstRendMean",
+   "11.8",
+   "11.8",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajN",
+   "1713",
+   "1713",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajEpisodes",
+   "50",
+   "50",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajAgainChanged",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajAgainMean",
+   "0.0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajJpegChanged",
+   "35",
+   "35",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajJpegMean",
+   "4.1",
+   "4.1",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajCropChanged",
+   "91",
+   "91",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajCropMean",
+   "14.0",
+   "14",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajBilChanged",
+   "55",
+   "55",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajBilMean",
+   "7.0",
+   "7",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajRendChanged",
+   "66",
+   "66",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajRendMean",
+   "8.6",
+   "8.6",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajRepro",
+   "50",
+   "50",
+   "match",
+   ""
+  ],
+  [
+   "OlSevTrajReproN",
+   "50",
+   "50",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstN",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstEpisodes",
+   "500",
+   "500",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstAgainChanged",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstAgainMean",
+   "0.0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstJpegChanged",
+   "99",
+   "99",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstJpegMean",
+   "0.9",
+   "0.9",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstCropChanged",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstCropMean",
+   "10.1",
+   "10.1",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstBilChanged",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstBilMean",
+   "2.4",
+   "2.4",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstRendChanged",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OlOftFirstRendMean",
+   "1.3",
+   "1.3",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajN",
+   "1326",
+   "1326",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajEpisodes",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajAgainChanged",
+   "0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajAgainMean",
+   "0.0",
+   "0",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajJpegChanged",
+   "84",
+   "84",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajJpegMean",
+   "0.5",
+   "0.5",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajCropChanged",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajCropMean",
+   "5.6",
+   "5.6",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajBilChanged",
+   "97",
+   "97",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajBilMean",
+   "0.9",
+   "0.9",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajRendChanged",
+   "97",
+   "97",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajRendMean",
+   "0.8",
+   "0.8",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajRepro",
+   "99",
+   "99",
+   "match",
+   ""
+  ],
+  [
+   "OlOftTrajReproN",
+   "100",
+   "100",
+   "match",
+   ""
+  ],
+  [
+   "OftCropVsBilP",
+   "0.002",
+   "0.002",
+   "match",
+   ""
+  ],
+  [
+   "AblPairedW",
+   "6.8",
+   "6.8",
+   "match",
+   ""
+  ],
+  [
+   "AblUnpairedW",
+   "8.8",
+   "8.8",
+   "match",
+   ""
+  ],
+  [
+   "AblFirstW",
+   "12.0",
+   "12.0",
+   "match",
+   ""
+  ],
+  [
+   "PilotCells",
+   "seven",
+   "seven",
+   "match",
+   ""
+  ]
+ ],
+ "problems": [],
+ "hashes": {
+  "openvla7b_spatial_reference": "500/500",
+  "openvla7b_spatial_rerun": "500/500",
+  "openvla7b_spatial_jpeg_off": "500/500",
+  "openvla7b_spatial_crop_off": "500/500",
+  "openvla7b_spatial_bilinear": "500/500",
+  "openvla7b_spatial_render224": "500/500",
+  "oft_spatial_reference": "no hashes logged",
+  "oft_spatial_rerun": "500/500",
+  "oft_spatial_jpeg_off": "500/500",
+  "oft_spatial_crop_off": "500/500",
+  "oft_spatial_bilinear": "500/500",
+  "oft_spatial_render224": "500/500",
+  "oft_spatial_crop_off_cpu_control": "500/500"
+ }
+}
