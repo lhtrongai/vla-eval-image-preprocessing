@@ -216,3 +216,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# LaTeX build intermediates (the PDFs and .bbl files are kept)
+paper/*.aux
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.out
+paper/*.blg
+paper/*.log
+paper/*.synctex.gz

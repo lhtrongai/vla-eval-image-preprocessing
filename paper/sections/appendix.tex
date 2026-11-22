@@ -6,6 +6,13 @@ Table~\ref{tab:cells} lists the \NCells{} cells with the date each one started a
 \input{generated/table_cells}
 \input{generated/table_setup}
 
+\subsection{Pilot cells}
+\label{app:pilot}
+
+Before the full cells, a pilot ran \PilotCells{} cells of \PilotPairs{} episodes on initial states \SplitA{} of every task, all on \PilotDate{} on one machine (Table~\ref{tab:pilot}): the reference, an identical rerun and JPEG off for both models, and the crop step off for OpenVLA-7B. Its JPEG-off comparison for OpenVLA-7B gave the share of flips, \PilotDisc\%, that the decision rule of Section~\ref{sec:stats} uses, and the pilot cells are compared with the full cells in the reproducibility check of Section~\ref{sec:repro}. The pilot is not pooled with the full cells. Because it already contained two of the four variant steps, the analysis plan precedes the full variant cells, not every variant run. The per-episode records and run metadata of the pilot cells are released with the paper source.
+
+\input{generated/table_pilot}
+
 \subsection{CPU control of the OpenVLA-OFT crop-off cell}
 \label{app:cpucontrol}
 

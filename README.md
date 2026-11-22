@@ -7,7 +7,7 @@ This repository changes one step at a time and measures the effect on closed-loo
 ## Setup
 
 - **Models:** OpenVLA-7B ([`openvla/openvla-7b-finetuned-libero-spatial`](https://huggingface.co/openvla/openvla-7b-finetuned-libero-spatial), sdpa attention) and OpenVLA-OFT ([`moojink/openvla-7b-oft-finetuned-libero-spatial`](https://huggingface.co/moojink/openvla-7b-oft-finetuned-libero-spatial)). Both were fine-tuned with random crops of 90% of the image area, and both evaluation scripts take the matching center crop.
-- **Episodes:** LIBERO-Spatial, 10 tasks x the 50 stored initial states, 500 episodes per cell. Every cell is paired with its model's reference cell by (task, initial state); the initial-state hashes match the reference in all 500 pairs of every cell.
+- **Episodes:** LIBERO-Spatial, 10 tasks x the 50 stored initial states, 500 episodes per cell. Every cell is paired with its model's reference cell by (task, initial state). In every harness cell the logged initial-state hash matches the LIBERO init file in all 500 pairs; the OpenVLA-OFT reference cell ran with the original script, which logs no hash.
 - **Cells** (one step changed per cell):
 
 | Cell | What changes |
@@ -19,18 +19,18 @@ This repository changes one step at a time and measures the effect on closed-loo
 | `render224` | The cameras render at 224x224 instead of 256x256. |
 | `rerun` | The reference repeated unchanged, to measure the run-to-run noise floor. |
 
-- **Analysis fixed before the variant runs:** the primary comparison is the JPEG round trip off on OpenVLA-7B, with 3 points as the smallest loss that matters. A pilot on initial states 0-19 found 17.5% of episodes changing outcome, so the rule reports the one-sided 95% upper bound on the loss at 500 pairs. The other seven variant comparisons are secondary, Holm-adjusted.
+- **Analysis written down before the full variant cells:** the primary comparison is the JPEG round trip off on OpenVLA-7B, with 3 points as the smallest loss that matters. A pilot on initial states 0-19 (12 October 2026, seven cells of 200 episodes, among them JPEG off for both models and crop off for OpenVLA-7B; records in `paper/data/pilot_states_0-19/`) found 17.5% of episodes changing outcome, so the rule reports the one-sided 95% upper bound on the loss at 500 pairs. Because the pilot already ran two variant steps, the plan precedes the 500-episode cells, not every variant run; it was not committed to a public repository at the time. The other seven variant comparisons are secondary, Holm-adjusted.
 - **Stack:** MuJoCo 3.3.7, robosuite 1.4.1, torch 2.8.0+cu128, one NVIDIA RTX PRO 4500 (32 GB) per cell, 220 policy steps plus 10 settle steps per episode.
 
 ## Results
 
-Difference to the model's reference cell, in points, with a 95% paired bootstrap interval (20,000 draws over paired episodes):
+Difference to the model's reference cell, in points, with a 95% paired bootstrap interval over episodes (percentiles computed exactly, no random draws; see `scripts/exact_bootstrap.py`):
 
 | Cell | OpenVLA-7B | OpenVLA-OFT |
 |---|---|---|
 | reference success | 425/500 = 85.0% | 495/500 = 99.0% |
 | `jpeg_off` | -0.8 [-4.2, +2.6] (primary) | -0.8 [-2.0, +0.4] |
-| `crop_off` | -1.0 [-4.6, +2.6] | -2.4 [-4.0, -0.8], Holm p = 0.053 |
+| `crop_off` | -1.0 [-4.6, +2.6] | -2.4 [-4.2, -0.8], Holm p = 0.053 |
 | `bilinear` | -2.2 [-5.8, +1.4] | +0.2 [-0.8, +1.2] |
 | `render224` | +0.4 [-3.4, +4.2] | -0.8 [-2.0, +0.4] |
 | `rerun` | -0.2 (3 of 500 episodes change) | 0.0 (no episode changes) |
@@ -47,12 +47,15 @@ Full table (Wilson intervals, lost and gained episodes, McNemar and Holm p-value
 
 ## Reproduce the analysis (CPU, a few seconds)
 
-Requires Python 3 and numpy.
+Requires Python 3 and numpy. Checked with Python 3.13.18 and numpy 2.5.3, and with numpy 2.1.3 (same output). The paper assets (`paper/scripts/make_assets.py`) also need matplotlib (checked with 3.11.2) and Pillow (12.3.0); the independent recheck needs scipy (1.18.1).
 
 ```bash
 python scripts/paired_stats.py      # the table in results/summary.md
 python scripts/post_lock_checks.py  # every number in the exploratory section
+python -I audit/independent_recheck.py   # recompute every number from the per-episode files and compare with paper/generated/numbers.tex
 ```
+
+The bootstrap intervals and upper bounds are computed exactly from the multinomial distribution of resampled lost and gained pairs (`scripts/exact_bootstrap.py`), not from random draws. An earlier version drew 20,000 resamples per cell from one shared random stream, in the order the cell folders sort; adding a cell folder (the CPU control) shifted the draws of every later cell and moved interval ends that lie close to a percentile boundary by one episode (0.2 points). The exact computation gives the same numbers on every machine and with every numpy version. `audit/independent_recheck.py` is written separately from the analysis scripts and checks every closed-loop number, the pilot and the open-loop summary against `paper/generated/numbers.tex` (report: `audit/recheck_report.md`).
 
 ## Rerun the evaluation (GPU)
 
@@ -116,6 +119,8 @@ The per-observation records (`actions_*.jsonl`) stay on the run volume; `python 
 | `scripts/post_lock_checks.py` | Exploratory checks made after the results were fixed. |
 | `results/<model>_spatial_<cell>/` | Per-episode records (`episodes.jsonl`) and run metadata (`run_meta.json`) of each cell. The OpenVLA-OFT reference cell holds the logs of the original script instead. |
 | `results/summary.md` | Output of `paired_stats.py` with the reading of the results. |
+| `scripts/exact_bootstrap.py` | Exact percentile bootstrap for 0/1 outcomes (paired and unpaired), used by the analysis and the paper assets. |
+| `audit/` | Independent recheck of every number of the paper from the per-episode files, and its report. |
 | `scripts/open_loop_actions.py`, `scripts/analyze_open_loop.py`, `scripts/summarize_open_loop.py` | Open-loop action check: query every pipeline on identical observations, then summarize. |
 | `results/open_loop/` | Summary of the open-loop check (`summary.json`) and its run log. |
 
