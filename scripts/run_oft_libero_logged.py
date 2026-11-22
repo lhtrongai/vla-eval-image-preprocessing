@@ -1,19 +1,26 @@
 """Run OpenVLA-OFT's original LIBERO evaluation script unchanged and add a per-episode record.
 
 Same idea as run_openvla_libero_logged.py: the wrapper imports experiments/robot/libero/run_libero_eval.py
-from the OFT repo and replaces only names that script imported (get_libero_env, save_rollout_video and,
-with JPEG_ROUNDTRIP=off, resize_image_for_policy). Every episode is appended to episodes.jsonl in OUT_DIR;
+from the OFT repo and replaces only names that script imported (get_libero_env, save_rollout_video,
+prepare_observation to record the first input, resize_image_for_policy, unchanged unless a variant is set, and,
+with IMAGE_VARIANT=noise only, get_processor). Every episode is appended to episodes.jsonl in OUT_DIR;
 the initial state passed to the environment is checked against the LIBERO init file for (task_id, episode_idx).
 With the default initial states, --num_trials_per_task N runs initial states 0..N-1 of every task.
 
 Optional control (image steps: see image_pipeline.py):
     JPEG_ROUNDTRIP=off    resize third-person and wrist images without the JPEG round trip.
+    IMAGE_VARIANT=bilinear|render224  change one more image step (render224 needs --env_img_res 224).
+    IMAGE_VARIANT=jpeg_q94  sham control: the JPEG round trip of both images at quality 94 instead of 95.
+    IMAGE_VARIANT=noise NOISE_SEED=k  sham control: every image the processor receives (third-person and wrist,
+                          after the crop step) moves by one intensity level in every value.
     SAVE_POLICY_INPUTS=1  save each episode's first third-person and wrist input images as PNGs.
     CAMERA_TEXTURE_LOOKS="agentview=dark,robot0_eye_in_hand=training"  render each listed camera with its own
         texture look (see per_camera_textures.py); the looks go to run_meta.json and to every record.
 Each record holds jpeg_input_mad (third-person and wrist): the mean absolute difference between the first
-input images with and without the JPEG round trip. run_meta.json holds camera_textures in every run: each
-camera's look and a hash of the texture content it renders.
+input images with and without the JPEG round trip; with bilinear or jpeg_q94, variant_input_mad is the same
+difference between the official and the changed first inputs. With noise, noise_calls counts the processor calls of
+the episode (two per query: third-person, then wrist) and noise_first_mad is the change on the first two calls.
+run_meta.json holds camera_textures in every run: each camera's look and a hash of the texture content it renders.
 
 Usage: OUT_DIR=/path/to/output python run_oft_libero_logged.py <OFT run_libero_eval.py arguments>
 """
@@ -76,8 +83,11 @@ class Tracker:
     frame_sha1 = None
     first_input_pending = False
     jpeg_input_mad = None
+    variant_input_mad = None
     policy_input_png = None
     camera_looks = None
+    noise_calls = 0
+    noise_first_mad = None
 
 
 T = Tracker()
@@ -102,7 +112,10 @@ class EnvRecorder:
         T.frame_sha1 = None
         T.first_input_pending = True
         T.jpeg_input_mad = None
+        T.variant_input_mad = None
         T.policy_input_png = None
+        T.noise_calls = 0
+        T.noise_first_mad = {}
         obs = self._env.set_init_state(state)
         T.fixtures = el.fixture_poses(self._env.env)
         T.camera_looks = pct.episode_record(self._env.env.sim)  # after the first render: plan built and checked
@@ -122,6 +135,7 @@ _original_get_libero_env = rle.get_libero_env
 _original_save_rollout_video = rle.save_rollout_video
 _original_resize = rle.resize_image_for_policy
 _original_prepare_observation = rle.prepare_observation
+_original_get_processor = rle.get_processor
 
 
 def get_libero_env(task, *a, **kw):
@@ -138,6 +152,8 @@ def resize_image_for_policy(img, resize_size):
         return ip.resize_without_jpeg(img, resize_size)
     if ip.IMAGE_VARIANT == "bilinear":
         return ip.resize_with_jpeg(img, resize_size, "bilinear")
+    if ip.IMAGE_VARIANT == "jpeg_q94":
+        return ip.guarded(ip.resize_with_jpeg, img, resize_size, "lanczos3", quality=ip.JPEG_QUALITY)
     return _original_resize(img, resize_size)
 
 
@@ -148,6 +164,9 @@ def prepare_observation(obs, resize_size):
         raw = {"full_image": rle.get_libero_image(obs), "wrist_image": rle.get_libero_wrist_image(obs)}
         T.jpeg_input_mad = {k: ip.mean_abs_diff(_original_resize(v, resize_size), ip.resize_without_jpeg(v, resize_size))
                             for k, v in raw.items()}
+        if ip.IMAGE_VARIANT in ("bilinear", "jpeg_q94"):
+            T.variant_input_mad = {k: ip.mean_abs_diff(_original_resize(v, resize_size), resize_image_for_policy(v, resize_size))
+                                   for k, v in raw.items()}
         if ip.SAVE_POLICY_INPUTS:
             T.policy_input_png = {}
             for k, name in (("full_image", "agentview"), ("wrist_image", "wrist")):
@@ -155,6 +174,23 @@ def prepare_observation(obs, resize_size):
                 ip.save_png(os.path.join(OUT_DIR, rel), observation[k])
                 T.policy_input_png[k] = rel
     return observation, img
+
+
+def noise_key_and_count():
+    """Key of the next processor call of this episode (task, initial state, call index); counts the call."""
+    index = T.noise_calls
+    T.noise_calls += 1
+    return ip.noise_key(T.task_id, INIT_OFFSET + T.episode_idx, index), index
+
+
+def record_noise(index, before, after):
+    if index < 2:  # the first query: third-person image, then wrist image
+        T.noise_first_mad[("full_image", "wrist_image")[index]] = ip.mean_abs_diff(before, after)
+
+
+def get_processor(cfg):
+    """The original processor, wrapped so that every image it receives gets the noise control (IMAGE_VARIANT=noise)."""
+    return ip.NoisyProcessor(_original_get_processor(cfg), noise_key_and_count, record_noise)
 
 
 def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
@@ -177,6 +213,11 @@ def save_rollout_video(rollout_images, idx, success, task_description, log_file=
     }
     if T.camera_looks:
         record["camera_texture_looks"] = T.camera_looks
+    if ip.IMAGE_VARIANT in ("bilinear", "jpeg_q94"):
+        record["variant_input_mad"] = T.variant_input_mad
+    if ip.IMAGE_VARIANT == "noise":
+        record["noise_calls"] = T.noise_calls
+        record["noise_first_mad"] = T.noise_first_mad
     EPISODES.write(json.dumps(record) + "\n")
     EPISODES.flush()
     return _original_save_rollout_video(rollout_images, idx, success, task_description, log_file=log_file)
@@ -199,6 +240,7 @@ def run_metadata():
         "camera_textures": pct.camera_texture_identity(os.path.join(libero_dir, "assets")),
         "camera_texture_looks": pct.describe(),
         "start_time": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "code_sha256": ip.file_sha256([os.path.abspath(__file__), ip.__file__, el.__file__, pct.__file__]),
         **{k: v for k, v in el.host_info().items() if k != "time"},
     }
     try:
@@ -221,5 +263,7 @@ if __name__ == "__main__":
     rle.save_rollout_video = save_rollout_video
     rle.resize_image_for_policy = resize_image_for_policy
     rle.prepare_observation = prepare_observation
+    if ip.IMAGE_VARIANT == "noise":
+        rle.get_processor = get_processor
     rle.eval_libero()
     EPISODES.close()

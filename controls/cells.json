@@ -1,0 +1,389 @@
+{
+  "_about": "Cells of controls/PLAN.md. Read by controls/run_cell.py (to run them) and scripts/sham_control_analysis.py (to check and read them).",
+  "required_cpu": "AMD EPYC 7663 56-Core Processor",
+  "required_gpu": "NVIDIA RTX PRO 4500 Blackwell",
+  "out_root": "/workspace/runs/controls",
+  "code_dir": "/root/controls_code/scripts",
+  "python": {
+    "openvla7b": "/workspace/venvs/openvla/bin/python",
+    "oft": "/workspace/venvs/oft/bin/python"
+  },
+  "runner": {
+    "openvla7b": "run_openvla_libero_logged.py",
+    "oft": "run_oft_libero_logged.py"
+  },
+  "image_check": {
+    "openvla7b": "openvla",
+    "oft": "oft"
+  },
+  "env": {
+    "HF_HOME": "/workspace/hf_cache",
+    "HF_HUB_ENABLE_HF_TRANSFER": "0",
+    "MUJOCO_GL": "egl",
+    "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
+    "TZ": "ICT-7",
+    "PYTHONPATH": "/workspace/LIBERO",
+    "LIBERO_CONFIG_PATH": "/workspace/.libero",
+    "SAVE_POLICY_INPUTS": "1",
+    "JPEG_ROUNDTRIP": "on"
+  },
+  "pods": {
+    "openvla7b-noise-seed1": {
+      "deadline_hours": 7.0
+    },
+    "openvla7b-noise-seed2": {
+      "deadline_hours": 7.0
+    },
+    "openvla7b-jpeg-q94": {
+      "deadline_hours": 7.0
+    },
+    "openvla7b-render224-cpu": {
+      "deadline_hours": 7.0
+    },
+    "oft-controls": {
+      "deadline_hours": 5.0
+    }
+  },
+  "cells": [
+    {
+      "name": "openvla7b_spatial_sham_noise_seed1",
+      "model": "openvla7b",
+      "kind": "sham",
+      "pod": "openvla7b-noise-seed1",
+      "env": {
+        "IMAGE_VARIANT": "noise",
+        "NOISE_SEED": "1"
+      },
+      "segments": [
+        {
+          "dir": ".",
+          "env": {},
+          "argv": [
+            "--model_family",
+            "openvla",
+            "--pretrained_checkpoint",
+            "openvla/openvla-7b-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "50",
+            "--seed",
+            "7"
+          ]
+        }
+      ],
+      "run_hours": 4.7,
+      "what": "every processor input (after the crop step) moves by +1 or -1 level in every value, draw 1"
+    },
+    {
+      "name": "openvla7b_spatial_sham_noise_seed2",
+      "model": "openvla7b",
+      "kind": "sham",
+      "pod": "openvla7b-noise-seed2",
+      "env": {
+        "IMAGE_VARIANT": "noise",
+        "NOISE_SEED": "2"
+      },
+      "segments": [
+        {
+          "dir": ".",
+          "env": {},
+          "argv": [
+            "--model_family",
+            "openvla",
+            "--pretrained_checkpoint",
+            "openvla/openvla-7b-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "50",
+            "--seed",
+            "7"
+          ]
+        }
+      ],
+      "run_hours": 4.7,
+      "what": "the same noise, draw 2"
+    },
+    {
+      "name": "openvla7b_spatial_sham_jpeg_q94",
+      "model": "openvla7b",
+      "kind": "sham",
+      "pod": "openvla7b-jpeg-q94",
+      "env": {
+        "IMAGE_VARIANT": "jpeg_q94"
+      },
+      "segments": [
+        {
+          "dir": ".",
+          "env": {},
+          "argv": [
+            "--model_family",
+            "openvla",
+            "--pretrained_checkpoint",
+            "openvla/openvla-7b-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "50",
+            "--seed",
+            "7"
+          ]
+        }
+      ],
+      "run_hours": 4.7,
+      "what": "the JPEG round trip at quality 94 instead of 95"
+    },
+    {
+      "name": "openvla7b_spatial_render224_cpu_control",
+      "model": "openvla7b",
+      "kind": "cpu_control",
+      "pod": "openvla7b-render224-cpu",
+      "env": {
+        "IMAGE_VARIANT": "render224"
+      },
+      "segments": [
+        {
+          "dir": ".",
+          "env": {},
+          "argv": [
+            "--model_family",
+            "openvla",
+            "--pretrained_checkpoint",
+            "openvla/openvla-7b-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "50",
+            "--seed",
+            "7"
+          ]
+        }
+      ],
+      "run_hours": 4.3,
+      "repeats": "openvla7b_spatial_render224",
+      "what": "the render-at-224 cell of 29 October (EPYC 7443) repeated unchanged on an EPYC 7663 host"
+    },
+    {
+      "name": "oft_spatial_rerun_stack_check",
+      "model": "oft",
+      "kind": "stack_check",
+      "pod": "oft-controls",
+      "env": {},
+      "segments": [
+        {
+          "dir": "states_0-19",
+          "env": {
+            "INIT_OFFSET": "0"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "20",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        },
+        {
+          "dir": "states_20-49",
+          "env": {
+            "INIT_OFFSET": "20"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "30",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        }
+      ],
+      "run_hours": 0.7,
+      "repeats": "oft_spatial_reference",
+      "what": "the reference pipeline repeated unchanged, to check that the stack of these runs repeats the October cells"
+    },
+    {
+      "name": "oft_spatial_sham_noise_seed1",
+      "model": "oft",
+      "kind": "sham",
+      "pod": "oft-controls",
+      "env": {
+        "IMAGE_VARIANT": "noise",
+        "NOISE_SEED": "1"
+      },
+      "segments": [
+        {
+          "dir": "states_0-19",
+          "env": {
+            "INIT_OFFSET": "0"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "20",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        },
+        {
+          "dir": "states_20-49",
+          "env": {
+            "INIT_OFFSET": "20"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "30",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        }
+      ],
+      "run_hours": 0.7,
+      "what": "every processor input (third-person and wrist, after the crop step) moves by +1 or -1 level, draw 1"
+    },
+    {
+      "name": "oft_spatial_sham_noise_seed2",
+      "model": "oft",
+      "kind": "sham",
+      "pod": "oft-controls",
+      "env": {
+        "IMAGE_VARIANT": "noise",
+        "NOISE_SEED": "2"
+      },
+      "segments": [
+        {
+          "dir": "states_0-19",
+          "env": {
+            "INIT_OFFSET": "0"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "20",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        },
+        {
+          "dir": "states_20-49",
+          "env": {
+            "INIT_OFFSET": "20"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "30",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        }
+      ],
+      "run_hours": 0.7,
+      "what": "the same noise, draw 2"
+    },
+    {
+      "name": "oft_spatial_sham_jpeg_q94",
+      "model": "oft",
+      "kind": "sham",
+      "pod": "oft-controls",
+      "env": {
+        "IMAGE_VARIANT": "jpeg_q94"
+      },
+      "segments": [
+        {
+          "dir": "states_0-19",
+          "env": {
+            "INIT_OFFSET": "0"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "20",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        },
+        {
+          "dir": "states_20-49",
+          "env": {
+            "INIT_OFFSET": "20"
+          },
+          "argv": [
+            "--pretrained_checkpoint",
+            "moojink/openvla-7b-oft-finetuned-libero-spatial",
+            "--task_suite_name",
+            "libero_spatial",
+            "--center_crop",
+            "True",
+            "--num_trials_per_task",
+            "30",
+            "--env_img_res",
+            "256",
+            "--local_log_dir",
+            "{OUT}"
+          ]
+        }
+      ],
+      "run_hours": 0.7,
+      "what": "the JPEG round trip of both images at quality 94 instead of 95"
+    }
+  ]
+}

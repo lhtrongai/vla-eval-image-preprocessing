@@ -1,8 +1,9 @@
 """Run OpenVLA's original LIBERO evaluation script unchanged and add a per-episode record.
 
-The wrapper imports experiments/robot/libero/run_libero_eval.py and replaces only two names
-that script imported: get_libero_env (to observe set_init_state and step calls) and
-save_rollout_video (called once per episode with the success flag). Every episode is appended
+The wrapper imports experiments/robot/libero/run_libero_eval.py and replaces only names that
+script imported: get_libero_env (to observe set_init_state and step calls), save_rollout_video
+(called once per episode with the success flag), get_libero_image (the image step, unchanged
+unless a variant is set) and, with IMAGE_VARIANT=noise only, get_processor. Every episode is appended
 to episodes.jsonl in OUT_DIR. The initial state passed to the environment is checked against
 the LIBERO init file for (task_id, episode_idx), so paired comparisons rest on a verified match.
 
@@ -19,9 +20,16 @@ Optional control:
         Only the fixture placement changes; the fixed initial states and the policy stay the same.
     JPEG_ROUNDTRIP=off  skip the JPEG encode/decode before the resize (see image_pipeline.py).
         The crop step is switched with the original script's own flag, --center_crop False.
+    IMAGE_VARIANT=bilinear|render224  change one more image step (see image_pipeline.py).
+    IMAGE_VARIANT=jpeg_q94  sham control: the JPEG round trip at quality 94 instead of 95.
+    IMAGE_VARIANT=noise NOISE_SEED=k  sham control: the policy's processor is wrapped so that every image it
+        receives (after the crop step) moves by one intensity level in every value (image_pipeline.NoisyProcessor).
     SAVE_POLICY_INPUTS=1  save each episode's first policy input image (before the crop step) as a PNG.
 Each episode record holds jpeg_input_mad: the mean absolute difference between the first input image with and
-without the JPEG round trip, so the size of that input change is known for every episode.
+without the JPEG round trip, so the size of that input change is known for every episode; with bilinear or
+jpeg_q94, variant_input_mad is the same difference between the official and the changed first input. With noise,
+noise_calls counts the processor calls of the episode (one per policy query) and noise_first_mad is the change the
+noise made to the first processor input.
 
 Usage: OUT_DIR=/path/to/output python run_openvla_libero_logged.py <run_libero_eval.py arguments>
 """
@@ -85,6 +93,8 @@ class Tracker:
     jpeg_input_mad = None
     variant_input_mad = None
     policy_input_png = None
+    noise_calls = 0
+    noise_first_mad = None
 
 
 T = Tracker()
@@ -110,6 +120,8 @@ class EnvRecorder:
         T.first_input_pending = True
         T.jpeg_input_mad = None
         T.policy_input_png = None
+        T.noise_calls = 0
+        T.noise_first_mad = None
         obs = self._env.set_init_state(state)
         T.fixtures = el.fixture_poses(self._env.env)  # placed by the env.reset() just before this call
         return obs
@@ -139,10 +151,14 @@ def get_libero_image(obs, resize_size):
     img = official if ip.JPEG_ROUNDTRIP == "on" else no_jpeg
     if ip.IMAGE_VARIANT == "bilinear":
         img = ip.resize_with_jpeg(obs["agentview_image"][::-1, ::-1], size, "bilinear")
+    if ip.IMAGE_VARIANT == "jpeg_q94":
+        img = ip.guarded(ip.resize_with_jpeg, obs["agentview_image"][::-1, ::-1], size, "lanczos3",
+                         quality=ip.JPEG_QUALITY)
     if T.first_input_pending:
         T.first_input_pending = False
         T.jpeg_input_mad = ip.mean_abs_diff(official, no_jpeg)
-        T.variant_input_mad = ip.mean_abs_diff(official, img) if ip.IMAGE_VARIANT == "bilinear" else None
+        T.variant_input_mad = (ip.mean_abs_diff(official, img) if ip.IMAGE_VARIANT in ("bilinear", "jpeg_q94")
+                               else None)
         if ip.SAVE_POLICY_INPUTS:
             T.policy_input_png = f"policy_inputs/task{T.task_id:02d}_ep{T.episode_idx:02d}_agentview.png"
             ip.save_png(os.path.join(OUT_DIR, T.policy_input_png), img)
@@ -164,6 +180,26 @@ def get_libero_env(task, *a, **kw):
     return EnvRecorder(env), task_description
 
 
+_original_get_processor = rle.get_processor
+
+
+def noise_key_and_count():
+    """Key of the next processor call of this episode (task, initial state, call index); counts the call."""
+    index = T.noise_calls
+    T.noise_calls += 1
+    return ip.noise_key(T.task_id, T.episode_idx, index), index
+
+
+def record_noise(index, before, after):
+    if index == 0:
+        T.noise_first_mad = ip.mean_abs_diff(before, after)
+
+
+def get_processor(cfg):
+    """The original processor, wrapped so that every image it receives gets the noise control (IMAGE_VARIANT=noise)."""
+    return ip.NoisyProcessor(_original_get_processor(cfg), noise_key_and_count, record_noise)
+
+
 def save_rollout_video(rollout_images, idx, success, task_description, log_file=None):
     record = {
         "suite": args.task_suite_name,
@@ -182,6 +218,9 @@ def save_rollout_video(rollout_images, idx, success, task_description, log_file=
         "variant_input_mad": T.variant_input_mad,
         "policy_input_png": T.policy_input_png,
     }
+    if ip.IMAGE_VARIANT == "noise":
+        record["noise_calls"] = T.noise_calls
+        record["noise_first_mad"] = T.noise_first_mad
     EPISODES.write(json.dumps(record) + "\n")
     EPISODES.flush()
     return _original_save_rollout_video(rollout_images, idx, success, task_description, log_file=log_file)
@@ -203,6 +242,7 @@ def run_metadata():
         "libero_package": libero_dir,
         "textures": el.texture_state(os.path.join(libero_dir, "assets")),
         "start_time": time.strftime("%Y-%m-%d %H:%M:%S"),
+        "code_sha256": ip.file_sha256([os.path.abspath(__file__), ip.__file__, el.__file__]),
         **{k: v for k, v in el.host_info().items() if k != "time"},
     }
     try:
@@ -224,5 +264,7 @@ if __name__ == "__main__":
     rle.get_libero_env = get_libero_env
     rle.save_rollout_video = save_rollout_video
     rle.get_libero_image = get_libero_image
+    if ip.IMAGE_VARIANT == "noise":
+        rle.get_processor = get_processor
     rle.eval_libero()
     EPISODES.close()

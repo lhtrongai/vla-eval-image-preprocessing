@@ -61,7 +61,7 @@ The bootstrap intervals and upper bounds are computed exactly from the multinomi
 
 The evaluation runs on top of [libero-vla-eval](https://github.com/lhtrongai/libero-vla-eval), which holds the environment (exact package versions, setup scripts, the OpenVLA and OpenVLA-OFT commits) and the per-episode logging shared by these runs. Set up as described in its README (section on the original OpenVLA and OpenVLA-OFT scripts), then:
 
-1. Copy `libero-vla-eval/scripts/` to a working folder and copy this repository's `scripts/*.py` over it. `image_pipeline.py` and the two runners here are the libero-vla-eval files with the `IMAGE_VARIANT` switch (`bilinear`, `render224`) added, and the OpenVLA-OFT runner also takes `INIT_OFFSET` (start at a later stored initial state); `check_image_variants.py` is new. The runners import `episode_logging.py` and `per_camera_textures.py` from libero-vla-eval.
+1. Copy `libero-vla-eval/scripts/` to a working folder and copy this repository's `scripts/*.py` over it. `image_pipeline.py` and the two runners here are the libero-vla-eval files with the `IMAGE_VARIANT` switch (`bilinear`, `render224`, and the sham controls `jpeg_q94` and `noise`) added, and the OpenVLA-OFT runner also takes `INIT_OFFSET` (start at a later stored initial state); `check_image_variants.py` is new. The runners import `episode_logging.py` and `per_camera_textures.py` from libero-vla-eval.
 2. Check the image code on the machine before any variant cell: `python check_image_variants.py openvla` (or `oft`) must print `CHECK_OK` (the rewritten resize must reproduce the official step pixel for pixel).
 3. Run a cell. For example, OpenVLA-7B with the JPEG round trip off, and OpenVLA-OFT with the bilinear resize:
 
@@ -108,11 +108,15 @@ For OpenVLA-OFT a change above half a bin counts. The reference rollouts repeat 
 
 The per-observation records (`actions_*.jsonl`) stay on the run volume; `python scripts/analyze_open_loop.py <dir> results` and `python scripts/summarize_open_loop.py <dir> results` recompute the tables from them.
 
+## Sham and CPU controls (plan fixed before the runs)
+
+The identical rerun shows that the variants cause the flips, not that the flips are specific to the image steps. `controls/PLAN.md` adds sham cells: meaningless changes of the same pixel size as the mild steps (noise of exactly one intensity level on every policy input, two draws; the JPEG round trip at quality 94 instead of 95), three per model, plus a rerun of the OpenVLA-7B render-at-224 cell on the host CPU of the other OpenVLA-7B cells and an OpenVLA-OFT stack check. The plan fixes the question, the comparison, the reading rule in numbers, the validity checks and the text of the paper for each outcome, and it was committed with the code and the analysis script (`scripts/sham_control_analysis.py`) before any of these cells ran. How to run them: `controls/RUN_GUIDE.md`. Their logs will go to `results/controls/`, apart from the cells above.
+
 ## Repository layout
 
 | Path | Contents |
 |---|---|
-| `scripts/image_pipeline.py` | The evaluation image steps, switchable one at a time (`JPEG_ROUNDTRIP`, `IMAGE_VARIANT`), and helpers that record what the policy saw. |
+| `scripts/image_pipeline.py` | The evaluation image steps, switchable one at a time (`JPEG_ROUNDTRIP`, `IMAGE_VARIANT`), the two sham controls (`IMAGE_VARIANT=jpeg_q94`, `IMAGE_VARIANT=noise` with `NOISE_SEED`), and helpers that record what the policy saw. |
 | `scripts/run_openvla_libero_logged.py`, `scripts/run_oft_libero_logged.py` | Run the original OpenVLA or OpenVLA-OFT evaluation script unchanged and append one record per episode (initial-state hash checked against the LIBERO init file, fixture placement, first-frame hashes, input-image differences). |
 | `scripts/check_image_variants.py` | Pre-run check of the image code against the official step. |
 | `scripts/paired_stats.py` | Paired statistics of every cell against its reference cell. |
@@ -123,6 +127,8 @@ The per-observation records (`actions_*.jsonl`) stay on the run volume; `python 
 | `audit/` | Independent recheck of every number of the paper from the per-episode files, and its report. |
 | `scripts/open_loop_actions.py`, `scripts/analyze_open_loop.py`, `scripts/summarize_open_loop.py` | Open-loop action check: query every pipeline on identical observations, then summarize. |
 | `results/open_loop/` | Summary of the open-loop check (`summary.json`) and its run log. |
+| `controls/` | Plan of the sham and CPU controls (`PLAN.md`), the cells (`cells.json`), the code hashes they must run with, the pod scripts and the run guide. |
+| `scripts/sham_control_analysis.py` | Checks the control cells and applies the reading rule of `controls/PLAN.md`. |
 
 ## License
 
