@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{51}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -27,6 +27,13 @@ Aharon Azulay and Yair Weiss.
   image transformations?
 \newblock \emph{Journal of Machine Learning Research}, 20\penalty0
   (184):\penalty0 1--25, 2019.
+
+\bibitem[Bhojanapalli et~al.(2021)Bhojanapalli, Wilber, Veit, Rawat, Kim,
+  Menon, and Kumar]{bhojanapalli2021churn}
+Srinadh Bhojanapalli, Kimberly Wilber, Andreas Veit, Ankit~Singh Rawat,
+  Seungyeon Kim, Aditya Menon, and Sanjiv Kumar.
+\newblock On the reproducibility of neural network predictions.
+\newblock \emph{arXiv preprint arXiv:2102.03349}, 2021.
 
 \bibitem[Black et~al.(2025{\natexlab{a}})Black, Brown, Darpinian, Dhabalia,
   Driess, Esmail, Equi, Finn, Fusai, Galliker, Ghosh, Groom, Hausman, Ichter,
@@ -420,6 +427,14 @@ Yuhan Xie, Yuping Yan, Yunqi Zhao, Handing Wang, and Yaochu Jin.
 \newblock {STRONG-VLA}: Decoupled robustness learning for
   vision-language-action models under multimodal perturbations.
 \newblock \emph{arXiv preprint arXiv:2604.10055}, 2026.
+
+\bibitem[Yan et~al.(2021)Yan, Xiong, Kundu, Yang, Deng, Wang, Xia, and
+  Soatto]{yan2021pct}
+Sijie Yan, Yuanjun Xiong, Kaustav Kundu, Shuo Yang, Siqi Deng, Meng Wang, Wei
+  Xia, and Stefano Soatto.
+\newblock Positive-congruent training: Towards regression-free model updates.
+\newblock In \emph{Proceedings of the IEEE/CVF Conference on Computer Vision
+  and Pattern Recognition (CVPR)}, pp.\  14299--14308, 2021.
 
 \bibitem[Zhai et~al.(2023)Zhai, Mustafa, Kolesnikov, and Beyer]{siglip}
 Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, and Lucas Beyer.

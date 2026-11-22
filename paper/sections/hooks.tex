@@ -1,0 +1,23 @@
+% Sentences that the results of the control cells (controls/PLAN.md) replace or add. This file holds the text as it
+% stands before those results; sections/controls_results.tex redefines these commands for the branch that the
+% pre-registered reading selects (many or few sham flips; CPU control (a) or (b)) and is input after this file
+% once results/controls/summary.json exists.
+\newcommand{\HookTitle}{Per-Step Effects of Evaluation Image Preprocessing on Two OpenVLA Policies in LIBERO-Spatial}
+\newcommand{\HookAbstractPlan}{}
+\newcommand{\HookAbstractCancel}{This extends to the evaluator's own image steps the cancellation of opposing outcome changes that paired evaluations have reported for compound perturbations.}
+\newcommand{\HookContribFlips}{while each step flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions, from a shared pool of fragile episodes, against \SevRerunFlips{} of \NPairs{} for an identical rerun on the same stack}
+\newcommand{\HookIntroNew}{what is new is that they hold for the mild image steps of the evaluator itself, applied to clean frames.}
+\newcommand{\HookPool}{The flips of the four steps fall largely in a common pool of fragile episodes.}
+\newcommand{\HookShamResults}{}
+\newcommand{\HookBandCheck}{}
+\newcommand{\HookPractice}{For the two checkpoints studied here, the larger risk to comparisons is not one step: each of the four changes we tested reshuffles the same fragile episodes, and other studies show that for some stacks a different machine changes outcomes as well~\citep{jiang2026bench,roboscope}.}
+\newcommand{\HookRecThree}{measure an A/A floor on the same hardware and policy}
+\newcommand{\HookConclusionFlips}{Yet every step, including a JPEG change of about one intensity level, flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions and changes almost every trajectory, so the cancellation that paired evaluations have reported for large perturbations already occurs for the evaluator's own steps on clean frames.}
+\newcommand{\HookShamLimit}{}
+% render-at-224 cell of OpenVLA-7B: host CPU differs, control rerun pending (PLAN.md, section 7)
+\newcommand{\HookCpuSetup}{ The OpenVLA-7B cell rendered at \InputRes{} has no such rerun, so part of its flips may come from the host.}
+\newcommand{\HookCpuFloor}{, except possibly in the OpenVLA-7B cell rendered at \InputRes, which ran on another host CPU}
+\newcommand{\HookCpuFlipNote}{}
+\newcommand{\HookCpuLimit}{ The OpenVLA-7B cell rendered at \InputRes{} ran on another host CPU than the other OpenVLA-7B harness cells.}
+\newcommand{\HookCpuAppendix}{}
+\newcommand{\HookResultsTableFile}{generated/table_results}

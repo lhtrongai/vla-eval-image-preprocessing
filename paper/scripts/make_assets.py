@@ -351,6 +351,115 @@ if CTRL.exists():
                     p=mcnemar(l_c, g_c),
                     cpu=sorted({short_cpu(mm["cpu"]) for mm in meta("oft_spatial_crop_off_cpu_control")}))
 
+# ---------------------------------------------------------------- checks added after the blind reviews (existing logs only)
+# Primary comparison on the initial states outside the pilot (20-49): the pilot of 12 October already held the outcomes
+# of states 0-19 of the primary cells, which the full cells repeat, so these 300 pairs are the part not seen before.
+sB = ~s20
+out_pilot = dict(diff=100 * (jx[sB].mean() - jr[sB].mean()), ci=paired_ci(jr[sB], jx[sB]), lg=flips_of(jr[sB], jx[sB]))
+out_pilot["p"] = mcnemar(*out_pilot["lg"])
+assert out_pilot["lg"][0] + abl["first200"][4] == stat["openvla7b_spatial_jpeg_off"]["lost"]
+# Every OpenVLA-7B variant against the logged harness rerun (same harness, host CPU, fixtures and first frames
+# checked) instead of the reference cell, which ran the original script and logs neither CPU nor fixtures.
+rr7 = succ["openvla7b_spatial_rerun"]
+vs_rerun = {}
+for v in VARS:
+    l_, g_ = flips_of(rr7, succ[f"openvla7b_spatial_{v}"])
+    vs_rerun[v] = dict(lost=l_, gained=g_, flips=l_ + g_, diff=100 * (g_ - l_) / 500, p=mcnemar(l_, g_),
+                       ci=paired_ci(rr7, succ[f"openvla7b_spatial_{v}"]))
+# Chance overlap of flips, conditional on task and reference outcome: two variants can only lose among the same
+# reference successes and gain among the same reference failures, so flips are expected to overlap within each
+# (task, reference outcome) stratum even if they are otherwise independent.
+for m in MODELS:
+    ref = succ[f"{m}_spatial_reference"]
+    fl = {v: ref != succ[f"{m}_spatial_{v}"] for v in VARS}
+    strata = [(np.array([tt == t for tt, _ in KEYS]) & (ref == o)) for t in range(10) for o in (0, 1)]
+    cond = []
+    for i, v in enumerate(VARS):
+        for w in VARS[i + 1:]:
+            e = sum(fl[v][s].sum() * fl[w][s].sum() / s.sum() for s in strata if s.sum())
+            cond.append((int((fl[v] & fl[w]).sum()), float(e)))
+    expl[m]["overlap_cond"] = cond
+assert [o for o, _ in expl["openvla7b"]["overlap_cond"]] == [o for o, _ in expl["openvla7b"]["overlap"]]
+
+
+def cluster_boot(ref, x):
+    """Exact bootstrap over the 10 tasks (clusters of 50 paired episodes): every composition of 10 draws over the
+    10 tasks with its multinomial probability; returns (lo, hi, upper bound on the loss) in points."""
+    d = [int(((ref.reshape(10, 50)[t] == 0) & (x.reshape(10, 50)[t] == 1)).sum()
+             - ((ref.reshape(10, 50)[t] == 1) & (x.reshape(10, 50)[t] == 0)).sum()) for t in range(10)]
+    acc = {}
+
+    def rec(t, left, c):
+        if t == 9:
+            cc = c + [left]
+            pr = math.factorial(10) / math.prod(math.factorial(k) for k in cc) / 10 ** 10
+            val = sum(k * dd for k, dd in zip(cc, d))
+            acc[val] = acc.get(val, 0.0) + pr
+            return
+        for k in range(left + 1):
+            rec(t + 1, left - k, c + [k])
+    rec(0, 10, [])
+    vals = np.array(sorted(acc)); probs = np.array([acc[v] for v in vals])
+    assert abs(probs.sum() - 1) < 1e-9
+    return exact_bootstrap.summarize(vals, probs / probs.sum(), 500)
+
+
+clus = {"sev_jpeg": cluster_boot(jr, jx), "oft_crop": cluster_boot(succ["oft_spatial_reference"], succ["oft_spatial_crop_off"])}
+# Ceiling of OpenVLA-OFT: the variant can gain only among the reference failures, so G <= reference failures and the
+# net change can be at most 2 x failures - f, whatever the variant does.
+oft_ref_fail = int(500 - refk["oft"])
+
+
+# First action and flip (open-loop check): difference of the two flip rates with the Newcombe hybrid score interval.
+def wilson_p(k, n, z=1.96):
+    p, d = k / n, 1 + z * z / n
+    c, h = (p + z * z / (2 * n)) / d, z * math.sqrt(p * (1 - p) / n + z * z / (4 * n * n)) / d
+    return c - h, c + h
+
+
+def newcombe(k1, n1, k0, n0):
+    p1, p0 = k1 / n1, k0 / n0
+    l1, u1 = wilson_p(k1, n1); l0, u0 = wilson_p(k0, n0)
+    d = p1 - p0
+    return 100 * d, 100 * (d - math.sqrt((p1 - l1) ** 2 + (u0 - p0) ** 2)), 100 * (d + math.sqrt((u1 - p1) ** 2 + (p0 - l0) ** 2))
+
+
+first_link = {}
+_olsum = DATA / "open_loop" / "summary.json"
+if _olsum.exists():
+    _fl = json.load(open(_olsum))["openvla7b/first"]["flip_link"]
+    for v in ("jpeg_off", "bilinear"):
+        a_, b_, nc_, nn_ = _fl[v]
+        k1, k0 = round(a_ * nc_), round(b_ * nn_)
+        assert abs(k1 / nc_ - a_) < 1e-9 and abs(k0 / nn_ - b_) < 1e-9
+        first_link[v] = newcombe(k1, nc_, k0, nn_)
+# Unpaired range: two independent 500-episode cells at the rates of our reference and StableVLA (normal approximation)
+_ps, _po = float(json.load(open(DATA / "external_numbers.json"))["StableClean"]["value"]) / 100, refk["openvla7b"] / 500
+stable_unpaired = 100 * Z * math.sqrt(_ps * (1 - _ps) / 500 + _po * (1 - _po) / 500)
+
+# ---------------------------------------------------------------- control cells of controls/PLAN.md (pending until run)
+# The sham cells, the render-at-224 CPU control and the OpenVLA-OFT stack check go to results/controls/<cell>/, and
+# their pre-registered reading, by scripts/sham_control_analysis.py, to results/controls/summary.json. Until that
+# exists every control macro holds a placeholder and only sections/controls_results.tex (not included by main.tex
+# until the results are in) uses them; generated/table_controls.tex is written only when the results exist.
+CTRLD = RES / "controls"
+ctrl = None
+if (CTRLD / "summary.json").exists():
+    ctrl = json.load(open(CTRLD / "summary.json"))
+elif CTRLD.exists() and any(CTRLD.glob("*/episodes.jsonl")):
+    _tmp = paper / "generated" / ".controls_reading.json"
+    subprocess.run([sys.executable, str(repo / "scripts/sham_control_analysis.py"), "--results", str(RES),
+                    "--json", str(_tmp)], capture_output=True, text=True)
+    if _tmp.exists():
+        ctrl = json.load(open(_tmp)); _tmp.unlink()
+CONTROL_PLAN_COMMIT = "04fb502"  # commit that added controls/PLAN.md, pushed before any control cell ran
+try:
+    _c = subprocess.run(["git", "-C", str(repo), "log", "--diff-filter=A", "--format=%h", "--", "controls/PLAN.md"],
+                        capture_output=True, text=True).stdout.split()
+    assert not _c or _c[-1][:7] == CONTROL_PLAN_COMMIT, _c
+except FileNotFoundError:
+    pass
+
 # ---------------------------------------------------------------- numbers quoted from other work
 EXT = {k: v for k, v in json.load(open(DATA / "external_numbers.json")).items() if not k.startswith("_")}
 m0 = meta("openvla7b_spatial_jpeg_off")[0]
@@ -367,7 +476,7 @@ def f1(x):
 def sg(x, nd=1):
     s = f"{abs(x):.{nd}f}"
     if float(s) == 0:
-        return "0." + "0" * nd
+        return "0" if nd == 0 else "0." + "0" * nd
     return ("+" if x > 0 else "$-$") + s
 
 
@@ -470,7 +579,7 @@ N.update({
     "GpuBilMean": f"{gpu_bil.mean():.2f}", "CpuPreMean": f"{cpu_pre.mean():.2f}", "GpuSameMean": f"{gpu_same.mean():.2f}",
     "EdaFrames": str(len(eda)), "EdaStates": str(len({r['state'] for r in eda})),
     "EdaJpeg": f"{edas['jpeg_off']['mad']:.2f}", "EdaBil": f"{edas['bilinear']['mad']:.2f}",
-    "EdaRend": f"{edas['render224']['mad']:.2f}", "EdaCrop": f"{edas['crop_off']['mad']:.1f}",
+    "EdaRend": f"{edas['render224']['mad']:.2f}", "EdaCrop": f"{edas['crop_off']['mad']:.2f}",
     "EdaGray": f"{edas['grayscale']['mad']:.2f}", "EdaGrayRatio": f1(edas["grayscale"]["mad"] / edas["jpeg_off"]["mad"]),
     "EdaCthree": f"{edas['imagenetc_jpeg_s3']['mad']:.2f}", "EdaCone": f"{edas['imagenetc_jpeg_s1']['mad']:.2f}",
     "EdaCfive": f"{edas['imagenetc_jpeg_s5']['mad']:.2f}",
@@ -532,7 +641,7 @@ if ol:
     hdr = " & ".join(f"{ol[(m, mo)]['n'] if (m, mo) in ol else '-'}" for m in MODELS for mo in ("first", "traj"))
     ol_tab = r"""% Generated by scripts/make_assets.py from data/open_loop (scripts/open_loop_actions.py).
 \begin{table}[t]
-\caption{Open-loop action check: the same observation is given to the policy through each pipeline and the predicted action is compared with that of the reference pipeline. Each cell: share of observations whose arm action changes / mean absolute change of the arm dimensions, in OpenVLA-7B action bins (1 bin = 1/256 of the range between the 1st and 99th percentile of the training actions; OpenVLA-OFT: mean over its chunk of 8 actions, and a change above half a bin counts). First: the first observation of every initial state; along: observations along the reference rollout.}
+\caption{Open-loop action check: the same observation is given to the policy through each pipeline and the predicted action is compared with that of the reference pipeline. Each cell: share of observations whose arm action changes / mean absolute change of the six arm dimensions over all observations, in bins. OpenVLA-7B: difference in token index (a token spans 1/255 of the range between the 1st and 99th percentile of the training actions); any changed arm token counts. OpenVLA-OFT: absolute change averaged over the 8 actions of the chunk, in units of 1/256 of that range; a change above half a unit in any arm dimension counts. The two models' summaries are not directly comparable. First: the first observation of every initial state; along: observations along the reference rollout.}
 \label{tab:openloop}
 \centering
 \footnotesize
@@ -581,7 +690,7 @@ DESIGN = {
     "NTasks": 10, "NStates": 50, "NPairs": len(KEYS), "NCells": 12, "NVariants": len(VARS), "NSecondary": 7,
     "RenderRes": 256, "InputRes": 224, "CropAreaPct": 90, "JpegQuality": 95, "DctBlock": 8,
     "SettleSteps": settle, "MaxSteps": fail_limit, "PolicySteps": fail_limit - settle,
-    "Bins": 256, "Chunk": 8, "ThresholdPts": 3, "ThresholdEp": 15, "Zval": "1.96",
+    "Bins": 256, "TokenSpan": 255, "ShamJpegQuality": 94, "Chunk": 8, "SharedCells": "Four", "SharedEpisodes": "2,000", "ThresholdPts": 3, "ThresholdEp": 15, "Zval": "1.96",
     "AlphaPct": 95, "PowerTarget": 80, "PctLo": "1st", "PctHi": "99th", "MarginLow": 2, "MarginHigh": 8,
     "OlStride": "fourth", "OlSevStates": 5, "OlOftStates": 10, "PilotStates": 20, "PilotPairs": 200,
     "SplitA": "0-19", "SplitB": "20-49", "BudgetA": 180, "BudgetB": 150, "BudgetC": 120, "Seed": m0["seed"],
@@ -615,6 +724,120 @@ if cpu_ctrl is not None:
               "CpuCtrlDiffer": str(500 - cpu_ctrl["same"]), "CpuCtrlLost": str(cpu_ctrl["lost"]),
               "CpuCtrlGained": str(cpu_ctrl["gained"]), "CpuCtrlP": pfmt(cpu_ctrl["p"]),
               "CpuCtrlCpu": ", ".join(cpu_ctrl["cpu"])})
+# checks added after the blind reviews
+_cs = [c for _, c in expl["openvla7b"]["overlap_cond"]]
+_cr = [o / c for o, c in expl["openvla7b"]["overlap_cond"]]
+N.update({
+    "OutLost": str(out_pilot["lg"][0]), "OutGained": str(out_pilot["lg"][1]), "OutDiff": sg(out_pilot["diff"]),
+    "OutLo": sg(out_pilot["ci"][0]), "OutHi": sg(out_pilot["ci"][1]), "OutUB": f1(out_pilot["ci"][2]),
+    "OutP": pfmt(out_pilot["p"]), "OutPairs": str(int(sB.sum())),
+    "VrJpegDiff": sg(vs_rerun["jpeg_off"]["diff"]), "VrJpegLo": sg(vs_rerun["jpeg_off"]["ci"][0]),
+    "VrJpegHi": sg(vs_rerun["jpeg_off"]["ci"][1]), "VrJpegUB": f1(vs_rerun["jpeg_off"]["ci"][2]),
+    "VrJpegLost": str(vs_rerun["jpeg_off"]["lost"]), "VrJpegGained": str(vs_rerun["jpeg_off"]["gained"]),
+    "VrFlipsMin": str(min(r_["flips"] for r_ in vs_rerun.values())), "VrFlipsMax": str(max(r_["flips"] for r_ in vs_rerun.values())),
+    "VrDiffMin": sg(min(r_["diff"] for r_ in vs_rerun.values())), "VrDiffMax": sg(max(r_["diff"] for r_ in vs_rerun.values())),
+    "VrPMin": pfmt(min(r_["p"] for r_ in vs_rerun.values())),
+    "SevCondChanceMin": f1(min(_cs)), "SevCondChanceMax": f1(max(_cs)),
+    "SevCondRatioMin": f1(min(_cr)), "SevCondRatioMax": f1(max(_cr)),
+    "ClusJpegLo": sg(clus["sev_jpeg"][0]), "ClusJpegHi": sg(clus["sev_jpeg"][1]), "ClusJpegUB": f1(clus["sev_jpeg"][2]),
+    "ClusOftCropLo": sg(clus["oft_crop"][0]), "ClusOftCropHi": sg(clus["oft_crop"][1]),
+    "OftRefFail": str(oft_ref_fail), "OftCropMaxD": sg(2 * oft_ref_fail - stat["oft_spatial_crop_off"]["flips"], 0),
+    "OftRefFailTwice": str(2 * oft_ref_fail),
+    "StableUnpaired": f1(stable_unpaired),
+    "VariantFirstDate": day_month(min(start_date(f"{m}_spatial_{v}") for m in MODELS for v in ["rerun"] + VARS)),
+    "VariantLastDate": day_month(max(start_date(f"{m}_spatial_{v}") for m in MODELS for v in ["rerun"] + VARS)),
+    "VariantDates": (lambda ds: day_month(ds[0]) if len(ds) == 1 else f"{ds[0].day} and {day_month(ds[-1])}" if ds[0].month == ds[-1].month else f"{day_month(ds[0])} and {day_month(ds[-1])}")(
+        sorted({start_date(f"{m}_spatial_{v}") for m in MODELS for v in ["rerun"] + VARS})),
+    "RefDates": (lambda ds: ", ".join(ds[:-1]) + " and " + ds[-1])([str(d.day) for d in sorted(set(oft_ref_dates + [ref7_date]))]) + " " + MONTHS[ref7_date.month - 1],
+    "MainEpisodes": f"{12 * 500:,}", "PilotEpisodes": f"{len(pilot) * 200:,}",
+    "MujocoOldPct": f1(m337["sr"] * 100), "MujocoNewPct": f1(m313["sr"] * 100),
+    "MujocoNewHours": f1(m313["hours"]), "ControlPlanCommit": CONTROL_PLAN_COMMIT,
+})
+if cpu_ctrl is not None:
+    _cd = sorted({start_date("oft_spatial_crop_off_cpu_control")} | {date.fromisoformat(mm["start_time"][:10]) for mm in meta("oft_spatial_crop_off_cpu_control")})
+    N["CpuCtrlDates"] = "-".join(str(d.day) for d in _cd) + " " + MONTHS[_cd[-1].month - 1]
+for v, (d_, lo_, hi_) in first_link.items():
+    p_ = "OlLink" + MAC[v]
+    N.update({p_ + "Diff": sg(d_, 0), p_ + "Lo": sg(lo_, 0), p_ + "Hi": sg(hi_, 0)})
+
+
+# control cells (sham, render-at-224 CPU control, OpenVLA-OFT stack check): placeholders until results/controls exists
+def words_list(xs):
+    xs = [str(x) for x in xs]
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+YN = lambda b: "Y" if b else "N"  # noqa: E731
+SHAM = ["sham_noise_seed1", "sham_noise_seed2", "sham_jpeg_q94"]
+SHAMMAC = {"sham_noise_seed1": "NoiseA", "sham_noise_seed2": "NoiseB", "sham_jpeg_q94": "Qnf"}
+PH = "--"
+N["ControlsStatus"] = "pending" if ctrl is None else "done"
+N["ShamBranch"] = "X"
+for m, mk in MODELS.items():
+    pre = "Sham" + mk
+    for key in ("FlipsList", "FlipsMin", "FlipsMax", "FlipPctMin", "FlipPctMax", "RatioPct", "RatioLo", "RatioHi",
+                "Total", "Need", "PoolPct", "NoisePair", "Missing"):
+        N[pre + key] = PH
+    for key in ("Many", "Read", "Close", "OverOne", "BandOK", "SamePool", "Fallback"):
+        N[pre + key] = "N"
+    for s, sm in SHAMMAC.items():
+        for key in ("K", "Lost", "Gained", "Flips", "Diff", "Lo", "Hi", "P", "Band"):
+            N[pre + sm + key] = PH
+N["ShamOftAgrees"] = "N"
+for key in ("Differ", "K", "Lost", "Gained", "Flips", "P", "StepsDiffer", "FlipsMin", "FlipsMax"):
+    N["CpuSevCtrl" + key] = PH
+N["CpuSevCtrlReading"] = "x"
+N["CpuSevCtrlDriver"] = PH
+N["StackReading"] = "x"; N["StackDiffer"] = PH; N["StackSameStep"] = PH
+N["CpuSevOldDriver"] = meta("openvla7b_spatial_render224")[0]["gpu_driver"]
+ctrl_cells = {}
+if ctrl is not None:
+    R_ = ctrl["readings"]
+    for m, mk in MODELS.items():
+        pre, rd = "Sham" + mk, R_.get(m, {})
+        if not rd.get("read"):
+            N[pre + "Missing"] = ", ".join(rd.get("missing_or_invalid", [])).replace("_", r"\_")
+            continue
+        cells_ = rd["cells"]
+        fl_ = [ctrl["cells"][c]["flips"] for c in cells_]
+        N.update({pre + "Read": "Y", pre + "Many": YN(rd["reading"] == "many"), pre + "FlipsList": words_list(fl_),
+                  pre + "FlipsMin": str(min(fl_)), pre + "FlipsMax": str(max(fl_)),
+                  pre + "FlipPctMin": f1(min(fl_) / 5), pre + "FlipPctMax": f1(max(fl_) / 5),
+                  pre + "RatioPct": str(round(100 * rd["ratio"])), pre + "RatioLo": str(round(100 * rd["ratio_ci"][0])),
+                  pre + "RatioHi": str(round(100 * rd["ratio_ci"][1])), pre + "Close": YN(rd["close_to_cutoff"]),
+                  pre + "OverOne": YN(rd["ratio"] >= 1), pre + "BandOK": YN(rd["band_supported"]),
+                  pre + "Total": str(rd["total_flips"]), pre + "Need": str(rd["total_needed"]),
+                  pre + "PoolPct": str(round(100 * rd["share_in_pool"])), pre + "SamePool": YN(rd["same_pool"]),
+                  pre + "NoisePair": PH if rd.get("noise1_vs_noise2_flips") is None else str(rd["noise1_vs_noise2_flips"]),
+                  pre + "Fallback": YN(rd.get("fallback"))})
+        if rd.get("fallback"):
+            N[pre + "Missing"] = ", ".join(c for c in [f"{m}_spatial_{s}" for s in SHAM] if c not in cells_).replace("_", r"\_")
+        for c in cells_:
+            s_ = ctrl["cells"][c]; sm = SHAMMAC[c.split("_spatial_")[1]]
+            ctrl_cells[c] = s_
+            N.update({pre + sm + "K": str(s_["k"]), pre + sm + "Lost": str(s_["lost"]), pre + sm + "Gained": str(s_["gained"]),
+                      pre + sm + "Flips": str(s_["flips"]), pre + sm + "Diff": sg(s_["diff"]), pre + sm + "Lo": sg(s_["lo"]),
+                      pre + sm + "Hi": sg(s_["hi"]), pre + sm + "P": pfmt(s_["p"]), pre + sm + "Band": f1(s_["band"])})
+    if "writing_branch" in R_:
+        N["ShamBranch"] = "F" if R_["writing_branch"] == "fragility" else "S"  # F: fragility, S: step-specific
+        N["ShamOftAgrees"] = YN(R_.get("oft_agrees"))
+    cc_ = R_.get("cpu_control")
+    if cc_:
+        new_ = cc_["new"]
+        both_ = [stat[f"openvla7b_spatial_{v}"]["flips"] for v in VARS] + [new_["flips"]]
+        N.update({"CpuSevCtrlReading": cc_["reading"], "CpuSevCtrlDiffer": str(cc_["differ"]), "CpuSevCtrlK": str(new_["k"]),
+                  "CpuSevCtrlLost": str(new_["lost"]), "CpuSevCtrlGained": str(new_["gained"]),
+                  "CpuSevCtrlFlips": str(new_["flips"]), "CpuSevCtrlP": pfmt(new_["p"]),
+                  "CpuSevCtrlStepsDiffer": str(cc_["env_steps_differ"]),
+                  "CpuSevCtrlFlipsMin": str(min(both_)), "CpuSevCtrlFlipsMax": str(max(both_))})
+        notes_ = " ".join(ctrl["cells"].get("openvla7b_spatial_render224_cpu_control", {}).get("notes", []))
+        mt_ = re.search(r"GPU driver ([\d.]+(?:, [\d.]+)*)", notes_)
+        if mt_:
+            N["CpuSevCtrlDriver"] = mt_.group(1)
+    sc_ = R_.get("stack_check")
+    if sc_:
+        N.update({"StackReading": sc_["reading"], "StackDiffer": str(sc_["differ_reference"]),
+                  "StackSameStep": str(sc_["same_step_as_october_rerun"])})
 for k, e in EXT.items():
     assert re.fullmatch(r"[A-Za-z]+", k), k
     N["Ext" + k] = e["value"]
@@ -642,9 +865,14 @@ for m, v, d, h, cp in runlog:
                  f"{'-' if h is None else f'{h:.1f}'} & {short_cpu(cp[0]) if cp else 'not logged'} \\\\")
     if m == "openvla7b" and v == "render224":
         lines.append(r"\midrule")
+if cpu_ctrl is not None:
+    _cm = meta("oft_spatial_crop_off_cpu_control")
+    _ch = sum(r.get("wall_time_s", 0) for r in rows["oft_spatial_crop_off_cpu_control"].values()) / 3600
+    lines.append(f" & CPU control & crop-off cell repeated on another host & {dates_str(sorted({mm['start_time'][8:10] + '/' + mm['start_time'][5:7] for mm in _cm}))} & "
+                 f"{_ch:.1f} & {', '.join(cpu_ctrl['cpu'])} \\\\")
 tab = r"""% Generated by scripts/make_assets.py from run_meta.json and the episode records of every cell.
 \begin{table}[t]
-\caption{The twelve cells of the study and their run log. Each cell runs the 500 (task, initial state) pairs of LIBERO-Spatial. Date: day of 2026 on which the cell started; hours: summed episode time on one GPU (not logged by the original OpenVLA-OFT script); host CPU as recorded in the run metadata (the two reference cells ran with the original scripts, which do not record it). Every cell ran on one NVIDIA RTX PRO 4500 Blackwell GPU.}
+\caption{The twelve cells of the study, the CPU control of the OpenVLA-OFT crop-off cell (Appendix~\ref{app:cpucontrol}) and their run log. Each cell runs the 500 (task, initial state) pairs of LIBERO-Spatial. Date: day of 2026 on which the cell started; hours: summed episode time on one GPU (not logged by the original OpenVLA-OFT script); host CPU as recorded in the run metadata (the two reference cells ran the original scripts, which do not record it). Every cell ran on one NVIDIA RTX PRO 4500 Blackwell GPU.}
 \label{tab:cells}
 \centering
 \scriptsize
@@ -675,7 +903,7 @@ for mname, pc, v in PILOT_ROWS:
                   f"{pilot[pc]['diff_vs_final']} & {short_cpu(pm['cpu'])} \\\\")
 ptab = r"""% Generated by scripts/make_assets.py from data/pilot_states_0-19/*/run_meta.json and episodes.jsonl.
 \begin{table}[t]
-\caption{The pilot cells, run before the full cells on initial states 0-19 of every task (200 episodes per cell). Start: day and time (clock of the cloud instance) at which the cell started, from its run metadata. Successes: of 200. Differ: outcomes that differ from the full cell of the same pipeline on the same 200 pairs. The pilot included two variant steps; it fixed the share of flips used by the decision rule and is not pooled with the full cells.}
+\caption{The pilot cells, run before the full variant cells on initial states 0-19 of every task (200 episodes per cell). Start: day and time (clock of the cloud instance) at which the cell started, from its run metadata. Successes: of 200. Differ: outcomes that differ from the full cell of the same pipeline on the same 200 pairs. The pilot included two variant steps; it fixed the share of flips used by the decision rule and is not pooled with the full cells.}
 \label{tab:pilot}
 \centering
 \footnotesize
@@ -735,7 +963,7 @@ for m, name in (("openvla7b", "OpenVLA-7B"), ("oft", "OpenVLA-OFT")):
         body.append(r"\midrule")
 res = r"""% Generated by scripts/make_assets.py from the output of scripts/paired_stats.py of the results repository.
 \begin{table*}[t]
-\caption{Results on LIBERO-Spatial, 500 paired episodes per cell. Change: variant minus reference, in percentage points, with a 95\% percentile bootstrap interval over the paired episodes, computed exactly (no random draws). Lost: episodes that succeed under the reference and fail under the variant; gained: the reverse. $p$: exact two-sided McNemar test; Holm: adjusted over the seven secondary comparisons (the primary comparison, JPEG off for OpenVLA-7B, is not adjusted). Bound: one-sided 95\% upper bound on the loss, in points. Band: the 95\% range of the change that the observed number of flips $f$ leaves with no systematic effect, $\pm 1.96\sqrt{f}/500$ (Section~\ref{sec:band}).}
+\caption{Results on LIBERO-Spatial, 500 paired episodes per cell. Change: variant minus reference, in percentage points, with a 95\% percentile bootstrap interval over the paired episodes, computed exactly (no random draws). Lost: episodes that succeed under the reference and fail under the variant; gained: the reverse. $p$: exact two-sided McNemar test; Holm: adjusted over the seven secondary comparisons (the primary comparison, JPEG off for OpenVLA-7B, is not adjusted). Bound: one-sided 95\% upper bound on the loss, in points. Band: $\pm 1.96\sqrt{f}/500$, the acceptance region of the McNemar test given the $f$ flips (Section~\ref{sec:band}; near its ceiling OpenVLA-OFT cannot reach most of it).}
 \label{tab:results}
 \centering
 \footnotesize
@@ -750,6 +978,59 @@ Model & Cell & Successes & Rate (\%) [Wilson 95\%] & Change & Paired 95\% interv
 \end{table*}
 """
 (paper / "generated/table_results.tex").write_text(res)
+# Results table with the render-at-224 CPU control of OpenVLA-7B below its October cell, used only when that control
+# reads (b) (controls/PLAN.md, section 7): both runs are reported.
+_cpub = paper / "generated/table_results_cpub.tex"
+if ctrl is not None and (ctrl["readings"].get("cpu_control") or {}).get("reading") == "b":
+    n_ = ctrl["readings"]["cpu_control"]["new"]; lo_, hi_ = wilson(n_["k"], 500)
+    row_ = (f" & Render at 224, rerun ({N['CpuMain']}) & {n_['k']} & {n_['k'] / 5:.1f} [{lo_:.1f}, {hi_:.1f}] & {sg(n_['diff'])} & "
+            f"[{sg(n_['lo'])}, {sg(n_['hi'])}] & {n_['lost']} & {n_['gained']} & {pfmt(n_['p'])} & - & {n_['ub_loss']:.1f} & $\\pm${n_['band']:.1f} \\\\")
+    anchor = resrow("openvla7b", "render224")
+    assert anchor in res
+    _cpub.write_text(res.replace(anchor, anchor + "\n" + row_).replace(r"\label{tab:results}", r"\label{tab:results}%"))
+elif _cpub.exists():
+    _cpub.unlink()
+
+# ---------------------------------------------------------------- Table: control cells (only once their results exist)
+if ctrl is not None:
+    CNAME = {"sham_noise_seed1": "Noise of one level, draw 1", "sham_noise_seed2": "Noise of one level, draw 2",
+             "sham_jpeg_q94": "JPEG quality 94"}
+    crow = []
+    for m, name in (("openvla7b", "OpenVLA-7B"), ("oft", "OpenVLA-OFT")):
+        first = True
+        for s_ in SHAM:
+            c = f"{m}_spatial_{s_}"
+            if c not in ctrl_cells:
+                continue
+            x_ = ctrl_cells[c]
+            crow.append(f"{name if first else ''} & {CNAME[s_]} & {x_['k']} & {sg(x_['diff'])} & [{sg(x_['lo'])}, {sg(x_['hi'])}] & "
+                        f"{x_['lost']} & {x_['gained']} & {x_['flips']} & {pfmt(x_['p'])} & $\\pm${x_['band']:.1f} \\\\")
+            first = False
+        if m == "openvla7b" and ctrl["readings"].get("cpu_control"):
+            n_ = ctrl["readings"]["cpu_control"]["new"]
+            crow.append(f" & Render at 224, rerun on {N['CpuMain']} & {n_['k']} & {sg(n_['diff'])} & [{sg(n_['lo'])}, {sg(n_['hi'])}] & "
+                        f"{n_['lost']} & {n_['gained']} & {n_['flips']} & {pfmt(n_['p'])} & $\\pm${n_['band']:.1f} \\\\")
+        if m == "openvla7b":
+            crow.append(r"\midrule")
+    ctab = r"""% Generated by scripts/make_assets.py from results/controls/summary.json (scripts/sham_control_analysis.py).
+\begin{table}[t]
+\caption{Control cells, run after the plan of the controls was committed (commit """ + CONTROL_PLAN_COMMIT + r"""), each paired with the reference cell of its model as in Table~\ref{tab:results}. The sham changes belong to no evaluation pipeline: every value of every policy input moves by one intensity level up or down, or the JPEG round trip encodes at quality 94 instead of 95. McNemar $p$ is outside the Holm family of the paper. Band: $\pm 1.96\sqrt{f}/500$.}
+\label{tab:controls}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrcrrrrr@{}}
+\toprule
+Model & Cell & Successes & Change & Paired 95\% interval & Lost & Gained & Flips & $p$ & Band \\
+\midrule
+""" + "\n".join(crow) + r"""
+\bottomrule
+\end{tabular}
+\end{table}
+"""
+    (paper / "generated/table_controls.tex").write_text(ctab)
+elif (paper / "generated/table_controls.tex").exists():
+    (paper / "generated/table_controls.tex").unlink()
 
 # ---------------------------------------------------------------- Table: image-level EDA
 def edarow(label, key):
@@ -802,6 +1083,9 @@ Pairing removed (cells treated as independent samples) & """ + f"{N['SevJpegDiff
 200 initial states (0-19) instead of 500 & """ + f"{N['AblFirstDiff']} [{N['AblFirstLo']}, {N['AblFirstHi']}], width {N['AblFirstW']}; {N['AblFirstLost']} lost, {N['AblFirstGained']} gained" + r""" \\
 One task left out (10 analyses) & """ + f"change between {N['AblLooMin']} and {N['AblLooMax']}" + r""" \\
 Step budget cut from 230 to 180 / 150 / 120 env steps & """ + f"flips {N['BudgetOneEighty']} / {N['BudgetOneFifty']} / {N['BudgetOneTwenty']} (against {N['SevJpegFlips']})" + r""" \\
+Initial states 20-49 only (outside the pilot) & """ + f"{N['OutDiff']} [{N['OutLo']}, {N['OutHi']}], bound {N['OutUB']}; {N['OutLost']} lost, {N['OutGained']} gained, $p = {N['OutP']}$" + r""" \\
+Tasks resampled instead of episodes & """ + f"[{N['ClusJpegLo']}, {N['ClusJpegHi']}], bound {N['ClusJpegUB']} (OpenVLA-OFT crop off: [{N['ClusOftCropLo']}, {N['ClusOftCropHi']}])" + r""" \\
+Logged rerun as the reference instead of the reference cell & """ + f"{N['VrJpegDiff']} [{N['VrJpegLo']}, {N['VrJpegHi']}], bound {N['VrJpegUB']}; four variants: {N['VrFlipsMin']}-{N['VrFlipsMax']} flips, every $p \\geq {N['VrPMin']}$" + r""" \\
 \midrule
 OpenVLA-OFT crop off without task 5 & """ + f"{N['OftCropNoFiveLost']} lost, {N['OftCropNoFiveGained']} gained, $p = {N['OftCropNoFiveP']}$ (with task 5: {N['OftCropLost']} lost, {N['OftCropGained']} gained)" + r""" \\
 Variant against variant instead of against the reference (OpenVLA-7B, 6 pairs) & """ + f"{N['SevVVfMin']}-{N['SevVVfMax']} flips, every $p \\geq {N['SevVVpMin']}$" + r""" \\
@@ -816,7 +1100,7 @@ Reference cell split by initial state (OpenVLA-7B) & """ + f"states 0-19: {N['Se
 E = {k: e["value"] for k, e in EXT.items()}
 cmp_tab = r"""% Generated by scripts/make_assets.py; numbers of other studies come from data/external_numbers.json.
 \begin{table}[t]
-\caption{LIBERO-Spatial success of the same released checkpoints in other evaluations (numbers as reported) and in this study. OpenVLA: mean and standard error over three seeds of 500 episodes. vla-eval: its published per-episode results, which we pair with ours (Section~\ref{sec:compare}); its image steps and environment loop are its own. StableVLA: checkpoint identifiers, evaluation script and episode count not stated.}
+\caption{LIBERO-Spatial success of the same released checkpoints in other evaluations (numbers as reported) and in this study. OpenVLA: mean and standard error over three seeds of 500 episodes. vla-eval: its published per-episode results, which we pair with ours (Section~\ref{sec:compare}); its image steps and environment loop are its own. StableVLA: 500 episodes per suite; checkpoint revisions and evaluation script not stated.}
 \label{tab:compare}
 \centering
 \small
@@ -945,9 +1229,14 @@ for m, col, mn in (("openvla7b", BLUE, "OpenVLA-7B"), ("oft", ORANGE, "OpenVLA-O
 ax.scatter(ve_lost + ve_gained, ve_gained - ve_lost, marker="*", s=45, color=INK, zorder=3)
 ax.text(ve_lost + ve_gained - 3, ve_gained - ve_lost, "vla-eval vs.\nreference", fontsize=5.8, ha="right", va="center", color=INK)
 ax.text(30, Z * np.sqrt(30) + 1.5, "95% band, ±1.96√f", fontsize=5.8, ha="center", va="bottom", color=INK)
+# OpenVLA-OFT can gain only among its reference failures: G <= failures, so G - L <= 2 x failures - f
+fc = np.linspace(0, 2 * oft_ref_fail + 26, 50)
+ax.plot(fc, 2 * oft_ref_fail - fc, color=ORANGE, lw=0.8, ls=(0, (3, 1.5)))
+ax.text(19, -6.5, f"OpenVLA-OFT ceiling: $G - L \\leq {2 * oft_ref_fail} - f$", fontsize=5.6, ha="left", va="center", color=INK)
 from matplotlib.lines import Line2D  # noqa: E402
 hand = [Line2D([], [], marker=mk[vv], ls="", color=GREY, ms=4, label=VNAME[vv]) for vv in VARS]
 hand += [Line2D([], [], marker="x", ls="", color=GREY, ms=4, label="rerun (A/A)"),
+         Line2D([], [], marker="*", ls="", color=INK, ms=5, label="vla-eval vs. reference"),
          Line2D([], [], marker="s", ls="", color=BLUE, ms=4, label="OpenVLA-7B"),
          Line2D([], [], marker="s", ls="", color=ORANGE, ms=4, label="OpenVLA-OFT")]
 ax.legend(handles=hand, fontsize=5.8, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=3, handletextpad=0.3, columnspacing=0.9)

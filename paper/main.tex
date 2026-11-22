@@ -18,17 +18,20 @@
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \input{generated/numbers}
+\input{sections/hooks}
+% After the control cells are read (results/controls/summary.json), the branch text is switched on here:
+% \input{sections/controls_results}
 \newcommand{\pizero}{$\pi_0$}
 \newcommand{\pifive}{$\pi_{0.5}$}
 
-\title{Per-Step Effects of Evaluation Image Preprocessing on Two OpenVLA Policies in LIBERO-Spatial}
+\title{\HookTitle}
 
 \ifdefined\PreprintBuild
   \input{author_preprint}
 \else
   % Anonymous build: no author, no link to any version that names the author, no PDF metadata that identifies it.
   \author{Anonymous authors}
-  % Link to the anonymous mirror of the results repository; the final URL is set before submission.
+  % Anonymous mirror of the results repository. Placeholder: the final URL is set here, and only here, before submission.
   \newcommand{\RepoURL}{\url{https://anonymous.4open.science/r/ANONYMOUS-MIRROR}}
   \newcommand{\HarnessNote}{}
   \hypersetup{pdfauthor={}, pdfcreator={}, pdfproducer={}}
@@ -36,7 +39,7 @@
   \pdftrailerid{}
   \pdfsuppressptexinfo=-1
 \fi
-\hypersetup{pdftitle={Per-Step Effects of Evaluation Image Preprocessing on Two OpenVLA Policies in LIBERO-Spatial}}
+\hypersetup{pdftitle={\HookTitle}}
 
 \begin{document}
 

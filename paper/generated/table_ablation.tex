@@ -14,6 +14,9 @@ Pairing removed (cells treated as independent samples) & $-$0.8 [$-$5.2, +3.6], 
 200 initial states (0-19) instead of 500 & +3.5 [$-$2.5, +9.5], width 12.0; 14 lost, 21 gained \\
 One task left out (10 analyses) & change between $-$1.6 and $-$0.2 \\
 Step budget cut from 230 to 180 / 150 / 120 env steps & flips 81 / 90 / 87 (against 74) \\
+Initial states 20-49 only (outside the pilot) & $-$3.7 [$-$7.7, +0.3], bound 7.0; 25 lost, 14 gained, $p = 0.11$ \\
+Tasks resampled instead of episodes & [$-$3.0, +1.6], bound 2.8 (OpenVLA-OFT crop off: [$-$5.8, 0.0]) \\
+Logged rerun as the reference instead of the reference cell & $-$0.6 [$-$4.0, +2.8], bound 3.4; four variants: 75-93 flips, every $p \geq 0.33$ \\
 \midrule
 OpenVLA-OFT crop off without task 5 & 6 lost, 2 gained, $p = 0.29$ (with task 5: 15 lost, 3 gained) \\
 Variant against variant instead of against the reference (OpenVLA-7B, 6 pairs) & 85-99 flips, every $p \geq 0.23$ \\

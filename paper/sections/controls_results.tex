@@ -1,0 +1,83 @@
+% Text of the control cells of controls/PLAN.md: the sham control (section 6 of the plan, the fragility branch, "many flips",
+% \ShamBranch = F, and the step-specific branch, "few flips", \ShamBranch = S), the render-at-224 CPU control of OpenVLA-7B (section 7, readings (a) and (b)) and the
+% OpenVLA-OFT stack check (section 8). NOT input by main.tex until the results exist. To switch it on:
+%   1. results/controls/summary.json is committed (scripts/sham_control_analysis.py --json, RUN_GUIDE.md);
+%   2. python3 scripts/make_assets.py .. .   (sets \ShamBranch, \CpuSevCtrlReading, \StackReading and every number);
+%   3. uncomment \input{sections/controls_results} in main.tex, right after \input{sections/hooks};
+%   4. check_numbers.py, latexmk, and check that the branch printed below the title matches the reading reported.
+% The sentences are those of PLAN.md section 6, with every number a macro of generated/numbers.tex
+% ({s7} = \ShamSevFlipsList, {s7r} = \ShamSevFlipsMin to \ShamSevFlipsMax, {s7p} the same in percent, {r7} =
+% \ShamSevRatioPct, {so}, {sor}, {ro} the same for OpenVLA-OFT, {n12} = \ShamSevNoisePair, {pool} = \ShamSevPoolPct).
+% Branch and readings are chosen from the macros; nothing here needs editing by hand.
+
+\newcommand{\ShamSevRange}{\ShamSevFlipsMin{} to \ShamSevFlipsMax}
+\newcommand{\ShamSevRangePct}{\ShamSevFlipPctMin\% to \ShamSevFlipPctMax\%}
+\newcommand{\ShamOftRange}{\ShamOftFlipsMin{} to \ShamOftFlipsMax}
+\newcommand{\ShamWhat}{independent noise of one intensity level or JPEG quality \ShamJpegQuality{} instead of \JpegQuality}
+\newcommand{\ShamShareSev}{\if Y\ShamSevOverOne as many episodes as the steps or more\else \ShamSevRatioPct\% of the steps' flips above the rerun floor\fi}
+
+% ------------------------------------------------------------------ both branches
+\renewcommand{\HookAbstractPlan}{ The sham and CPU control cells reported below were fixed in a plan pushed to a public repository before any of them ran (commit \ControlPlanCommit).}
+\newcommand{\ShamCloseNote}{\if Y\ShamSevClose{} The ratio for OpenVLA-7B is close to the cutoff of one half fixed in advance: its bootstrap interval, \ShamSevRatioLo\% to \ShamSevRatioHi\%, contains it.\fi}
+\newcommand{\ShamFallbackNote}{\if Y\ShamSevFallback{} The cell \ShamSevMissing{} was not valid within the compute budget, so OpenVLA-7B is read with the other two, as the plan provides.\fi\if Y\ShamOftFallback{} The cell \ShamOftMissing{} was not valid within the compute budget, so OpenVLA-OFT is read with the other two, as the plan provides.\fi}
+\newcommand{\ShamOftNote}{\if Y\ShamOftAgrees\else\if F\ShamBranch{} For OpenVLA-OFT the sham cells flip \ShamOftRange{} episodes, fewer than its steps (\OftFlipsMin{} to \OftFlipsMax), so its few flips are specific to the steps.\else{} For OpenVLA-OFT the sham cells flip \ShamOftRange{} episodes, about as many as its steps (\OftFlipsMin{} to \OftFlipsMax): near full success, its few flips are what any small change produces.\fi\fi}
+\renewcommand{\HookBandCheck}{\if Y\ShamSevBandOK\if Y\ShamOftBandOK{} Every sham cell lies inside its band, as a check (Table~\ref{tab:controls}).\else{} A sham cell of OpenVLA-OFT lies outside its band, so for OpenVLA-OFT the band is not the range that a change with no systematic effect produces; the sham cells' net changes are in Table~\ref{tab:controls}.\fi\else{} A sham cell of OpenVLA-7B lies outside its band, so for OpenVLA-7B the band is not the range that a change with no systematic effect produces; the sham cells' net changes are in Table~\ref{tab:controls}.\if Y\ShamOftBandOK\else{} The same holds for OpenVLA-OFT.\fi\fi}
+\renewcommand{\HookShamLimit}{ The sham control covers two kinds of meaningless change at the size of the mild steps, not at the size of the crop step.}
+
+% ------------------------------------------------------------------ fragility branch: many sham flips
+\if F\ShamBranch
+\if Y\ShamOftAgrees
+\renewcommand{\HookTitle}{Outcome Fragility of Two OpenVLA Policies Under Small Evaluation Image Changes in LIBERO-Spatial}
+\else
+\renewcommand{\HookTitle}{Outcome Fragility of OpenVLA-7B Under Small Evaluation Image Changes in LIBERO-Spatial}
+\fi
+\renewcommand{\HookAbstractCancel}{A meaningless change of the same pixel size, \ShamWhat, flips \ShamSevRange{} episodes, \ShamShareSev, so most of these flips reflect how sensitive the policy is to any small change of its input, not an effect of the particular steps.}
+\renewcommand{\HookContribFlips}{while each step flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions, from a shared pool of fragile episodes, and a meaningless change of the same pixel size flips \ShamSevRangePct, against \SevRerunFlips{} of \NPairs{} for an identical rerun on the same stack}
+\renewcommand{\HookIntroNew}{what is new is that they hold for changes of about one intensity level on clean frames, whether the change is an image step of the evaluator or meaningless noise.}
+\renewcommand{\HookPool}{The flips come from a common pool of fragile episodes rather than from one step.}
+\renewcommand{\HookShamResults}{
+
+\emph{Sham control.} A meaningless change of the same pixel size flips \ShamSevFlipsList{} OpenVLA-7B and \ShamOftFlipsList{} OpenVLA-OFT episodes, \ShamSevRatioPct\% and \ShamOftRatioPct\% of the steps' flips above the rerun floor (the steps flip \SevFlipsMin{} to \SevFlipsMax{} and \OftFlipsMin{} to \OftFlipsMax, the identical rerun \SevRerunFlips{} and \OftRerunFlips). Two draws of the same noise differ in \ShamSevNoisePair{} OpenVLA-7B episodes.\if Y\ShamSevSamePool{} \ShamSevPoolPct\% of the sham flips fall among the \SevChange{} fragile episodes of the four steps, which hold \SevChangePct\% of the episodes.\fi\ShamOftNote\ShamCloseNote\ShamFallbackNote{} The cells, the sizes of the changes and this reading were fixed before the cells ran (commit \ControlPlanCommit; Appendix~\ref{app:controls}).}
+\renewcommand{\HookPractice}{For the two checkpoints studied here, the larger risk to comparisons is not one step: any change to the evaluation, even meaningless noise of one intensity level, reshuffles the fragile episodes, and other studies show that for some stacks even a different machine does~\citep{jiang2026bench,roboscope}.}
+\renewcommand{\HookRecThree}{measure the floor of flips with a meaningless change of the size of the change being compared, not only with an identical rerun, on the same hardware and policy}
+\renewcommand{\HookConclusionFlips}{Yet every step, including a JPEG change of about one intensity level, flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions and changes almost every trajectory, and a meaningless change of the same size flips \ShamSevRangePct: on clean frames the outcome of these episodes depends on any small change of the input, so the cancellation that paired evaluations have reported for large perturbations already occurs for changes this small.}
+\fi
+
+% ------------------------------------------------------------------ step-specific branch: few sham flips
+\if S\ShamBranch
+\renewcommand{\HookAbstractCancel}{A meaningless change of the same pixel size, \ShamWhat, flips \ShamSevRange{} episodes, \ShamSevRatioPct\% of the steps' flips above the rerun floor, so most of a step's flips are specific to that step, and the cancellation of opposing outcome changes that paired evaluations have reported for compound perturbations holds for the evaluator's own image steps.}
+\renewcommand{\HookContribFlips}{while each step flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions, from a shared pool of fragile episodes, against \ShamSevRangePct{} for a meaningless change of the same pixel size and \SevRerunFlips{} of \NPairs{} for an identical rerun on the same stack}
+\renewcommand{\HookIntroNew}{what is new is that they hold for the mild image steps of the evaluator itself, applied to clean frames, beyond what a meaningless change of the same size produces.}
+\renewcommand{\HookPool}{The flips of the four steps fall largely in a common pool of fragile episodes.}
+\renewcommand{\HookShamResults}{
+
+\emph{Sham control.} A meaningless change of the same pixel size flips \ShamSevFlipsList{} OpenVLA-7B and \ShamOftFlipsList{} OpenVLA-OFT episodes, against \SevFlipsMin{} to \SevFlipsMax{} and \OftFlipsMin{} to \OftFlipsMax{} for the steps and \SevRerunFlips{} and \OftRerunFlips{} for the identical rerun, so each step flips more episodes than its pixel change alone explains.\ShamOftNote\ShamCloseNote\ShamFallbackNote{} The cells, the sizes of the changes and this reading were fixed before the cells ran (commit \ControlPlanCommit; Appendix~\ref{app:controls}).}
+\renewcommand{\HookPractice}{For the two checkpoints studied here, each step flips more episodes than a meaningless change of the same size (\ShamSevRange{} against \SevFlipsMin{} to \SevFlipsMax), so the steps have to be matched one by one, and other studies show that for some stacks a different machine changes outcomes as well~\citep{jiang2026bench,roboscope}.}
+\renewcommand{\HookRecThree}{measure an A/A floor on the same hardware and policy, and the flips of a meaningless change of the same size}
+\renewcommand{\HookConclusionFlips}{Yet every step, including a JPEG change of about one intensity level, flips \SevFlipPctMin\% to \SevFlipPctMax\% of OpenVLA-7B episodes in both directions and changes almost every trajectory, more than a meaningless change of the same size (\ShamSevRangePct), so the cancellation that paired evaluations have reported for large perturbations already occurs for the evaluator's own steps on clean frames.}
+\fi
+
+% ------------------------------------------------------------------ render-at-224 CPU control of OpenVLA-7B
+\if a\CpuSevCtrlReading
+\renewcommand{\HookCpuSetup}{ A rerun of the OpenVLA-7B cell rendered at \InputRes{} on an \CpuMain{} host differs from it in \CpuSevCtrlDiffer{} of \NPairs{} outcomes, within the floor of the OpenVLA-7B rerun (Appendix~\ref{app:controls}).}
+\renewcommand{\HookCpuFloor}{}
+\renewcommand{\HookCpuLimit}{}
+\fi
+\if b\CpuSevCtrlReading
+\renewcommand{\HookCpuSetup}{ A rerun of the OpenVLA-7B cell rendered at \InputRes{} on an \CpuMain{} host differs from it in \CpuSevCtrlDiffer{} of \NPairs{} outcomes, more than the floor of the OpenVLA-7B rerun, so the result of this cell depends on the host it runs on (the CPU type, and the GPU driver where it differs; Appendix~\ref{app:controls}); Table~\ref{tab:results} gives both runs.}
+\renewcommand{\HookCpuFloor}{, except in the OpenVLA-7B cell rendered at \InputRes, whose outcomes depend on the host}
+\renewcommand{\HookCpuFlipNote}{ (with both runs of the cell rendered at \InputRes, \CpuSevCtrlFlipsMin{} to \CpuSevCtrlFlipsMax)}
+\renewcommand{\HookCpuLimit}{ The result of the OpenVLA-7B cell rendered at \InputRes{} depends on the host it runs on.}
+\renewcommand{\HookResultsTableFile}{generated/table_results_cpub}
+\fi
+
+% ------------------------------------------------------------------ appendix: the control cells
+\renewcommand{\HookCpuAppendix}{
+
+\subsection{Control cells}
+\label{app:controls}
+
+The control cells were fixed in \texttt{controls/PLAN.md} of the released repository, together with their code and the script that reads them, and pushed to the public repository before any of them ran (commit \ControlPlanCommit). All ran on \CpuMain{} hosts with the GPU type of the other cells; Table~\ref{tab:controls} gives them. \if a\StackReading An identical OpenVLA-OFT rerun in the same batch repeats all \NPairs{} outcomes of the October reference, so the control cells and the cells of October share one stack.\else\if b\StackReading An identical OpenVLA-OFT rerun in the same batch differs from the October reference in \StackDiffer{} of \NPairs{} outcomes; the OpenVLA-OFT sham flips are also given against it in the repository, and the reading stays the one against the October reference.\fi\fi{} \if a\CpuSevCtrlReading The rerun of the OpenVLA-7B cell rendered at \InputRes{} on an \CpuMain{} host differs from the cell of \VariantLastDate{} (\CpuSevRend) in \CpuSevCtrlDiffer{} of \NPairs{} outcomes, within the OpenVLA-7B rerun floor of \SevRerunFlips, so the October cell stays the result; against the reference it loses \CpuSevCtrlLost{} and gains \CpuSevCtrlGained{} episodes ($p = \CpuSevCtrlP$).\else\if b\CpuSevCtrlReading The rerun of the OpenVLA-7B cell rendered at \InputRes{} on an \CpuMain{} host (GPU driver \CpuSevCtrlDriver, against \CpuSevOldDriver{} in October) differs from the cell of \VariantLastDate{} (\CpuSevRend) in \CpuSevCtrlDiffer{} of \NPairs{} outcomes, more than the OpenVLA-7B rerun floor of \SevRerunFlips; against the reference it loses \CpuSevCtrlLost{} and gains \CpuSevCtrlGained{} episodes ($p = \CpuSevCtrlP$), and both runs are reported.\fi\fi
+
+\input{generated/table_controls}
+}

@@ -31,3 +31,9 @@ Inputs:
 - `scripts/power.py`: exact McNemar power used by the decision rule.
 
 A rerun of the OpenVLA-OFT crop-off cell on the host CPU of the other OpenVLA-OFT cells goes to `../results/oft_spatial_crop_off_cpu_control/` (`states_0-19/` and `states_20-49/`); `make_assets.py` then writes its macros (`CpuCtrl*`).
+
+## Control cells (sham control, render-at-224 CPU control)
+
+The cells of `../controls/PLAN.md` go to `../results/controls/`, and their pre-registered reading, by `../scripts/sham_control_analysis.py --json`, to `../results/controls/summary.json`. When that file exists, `make_assets.py` writes the control macros (`Sham*`, `CpuSevCtrl*`, `Stack*`), `generated/table_controls.tex` and, for CPU reading (b), `generated/table_results_cpub.tex`; until then the macros hold placeholders and the build is unchanged. If the folder holds cells but no `summary.json`, `make_assets.py` runs the analysis script itself.
+
+`sections/hooks.tex` holds every sentence that the control results replace or add, as it stands before them. `sections/controls_results.tex` redefines those sentences with the text fixed in section 6 of the plan (fragility branch or step-specific branch, set by `\ShamBranch`) and section 7 (CPU readings (a) and (b), set by `\CpuSevCtrlReading`). It is switched on by uncommenting `\input{sections/controls_results}` in `main.tex`.
