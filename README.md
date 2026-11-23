@@ -59,7 +59,7 @@ The bootstrap intervals and upper bounds are computed exactly from the multinomi
 
 ## Rerun the evaluation (GPU)
 
-The evaluation runs on top of [libero-vla-eval](https://github.com/lhtrongai/libero-vla-eval), which holds the environment (exact package versions, setup scripts, the OpenVLA and OpenVLA-OFT commits) and the per-episode logging shared by these runs. Set up as described in its README (section on the original OpenVLA and OpenVLA-OFT scripts), then:
+The evaluation runs on top of [libero-vla-eval](https://github.com/lhtrongai/libero-vla-eval) (anonymous copy for review: https://anonymous.4open.science/r/libero-vla-eval-DB53/), which holds the environment (exact package versions, setup scripts, the OpenVLA and OpenVLA-OFT commits) and the per-episode logging shared by these runs. Set up as described in its README (section on the original OpenVLA and OpenVLA-OFT scripts), then:
 
 1. Copy `libero-vla-eval/scripts/` to a working folder and copy this repository's `scripts/*.py` over it. `image_pipeline.py` and the two runners here are the libero-vla-eval files with the `IMAGE_VARIANT` switch (`bilinear`, `render224`, and the sham controls `jpeg_q94` and `noise`) added, and the OpenVLA-OFT runner also takes `INIT_OFFSET` (start at a later stored initial state); `check_image_variants.py` is new. The runners import `episode_logging.py` and `per_camera_textures.py` from libero-vla-eval.
 2. Check the image code on the machine before any variant cell: `python check_image_variants.py openvla` (or `oft`) must print `CHECK_OK` (the rewritten resize must reproduce the official step pixel for pixel).
