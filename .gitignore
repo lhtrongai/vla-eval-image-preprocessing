@@ -225,3 +225,4 @@ paper/*.out
 paper/*.blg
 paper/*.log
 paper/*.synctex.gz
+paper/preprint.pdf
