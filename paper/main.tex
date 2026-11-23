@@ -19,6 +19,13 @@
 
 \input{generated/numbers}
 \input{sections/hooks}
+\ifdefined\PreprintBuild
+  \newcommand{\PlanRef}{commit \ControlPlanCommit}
+  \newcommand{\PlanFixRef}{ (commit \ControlFixCommit)}
+\else
+  \newcommand{\PlanRef}{its push time is recorded in the anonymous repository}
+  \newcommand{\PlanFixRef}{}
+\fi
 % Text of the control cells, chosen by their pre-registered reading (results/controls/summary.json):
 \input{sections/controls_results}
 \newcommand{\pizero}{$\pi_0$}
