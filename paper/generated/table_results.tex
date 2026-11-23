@@ -4,8 +4,8 @@
 \label{tab:results}
 \centering
 \footnotesize
-\setlength{\tabcolsep}{3.6pt}
-\begin{tabular}{@{}llrccrrrrrrr@{}}
+\setlength{\tabcolsep}{2.6pt}
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}llrccrrrrrrr@{}}
 \toprule
 Model & Cell & Successes & Rate (\%) [Wilson 95\%] & Change & Paired 95\% interval & Lost & Gained & $p$ & Holm & Bound & Band \\
 \midrule
@@ -23,5 +23,5 @@ OpenVLA-OFT & Reference & 495 & 99.0 [97.7, 99.6] & \multicolumn{8}{c}{reference
  & Bilinear resize & 496 & 99.2 [98.0, 99.7] & +0.2 & [$-$0.8, +1.2] & 3 & 4 & 1.00 & 1.00 & 0.6 & $\pm$1.0 \\
  & Render at 224 & 491 & 98.2 [96.6, 99.1] & $-$0.8 & [$-$2.0, +0.4] & 7 & 3 & 0.34 & 1.00 & 1.8 & $\pm$1.2 \\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table*}
