@@ -37,7 +37,7 @@ Difference to the model's reference cell, in points, with a 95% paired bootstrap
 
 - **Primary result.** Turning the JPEG round trip off changes OpenVLA-7B by -0.8 points, with a one-sided 95% upper bound of 3.6 points on the loss. The bound is above the 3 points fixed beforehand, so a 3-point loss is not ruled out: the result does not show that the JPEG step can be skipped.
 - **No secondary comparison passes 0.05 after Holm correction.** The closest, the center crop on OpenVLA-OFT, rests mostly on one task: 9 of its 15 lost episodes are in task 5 (black bowl on the ramekin); without task 5 it loses 6 and gains 2 (McNemar p = 0.29).
-- **Small net effects, many flips.** Every OpenVLA-7B variant changes the outcome of 74-92 of 500 episodes, in both directions, while the identical rerun changes 3. Different variants flip largely the same fragile episodes (2.5-3 times as often as chance), so the flips do not belong to one image step. For OpenVLA-7B, almost every trajectory changes under any variant: among episodes that succeed in both, only 3-5% succeed at the same step.
+- **Small net effects, many flips.** Every OpenVLA-7B variant changes the outcome of 74-92 of 500 episodes, in both directions, while the identical rerun changes 3. Different variants flip overlapping sets of fragile episodes (1.2 to 1.5 times the overlap expected by chance given each episode's task and reference outcome), so the flips do not belong to one image step. For OpenVLA-7B, almost every trajectory changes under any variant: among episodes that succeed in both, only 3-5% succeed at the same step.
 - **Consequence for comparing scores.** Given its number of flips, a pipeline change with no systematic effect still moves a 500-episode LIBERO-Spatial score within about ±3.4 to ±3.8 points (95%) for OpenVLA-7B and ±1.0 to ±1.7 for OpenVLA-OFT. Score gaps of that size between two evaluation pipelines are not evidence that the pipelines differ.
 - The center-crop cost on OpenVLA-7B (-1.0 points, upper bound 4.0 on the loss) is consistent with the about 3 points reported by the [vla-evaluation-harness](https://github.com/allenai/vla-evaluation-harness) over four suites, but not distinguishable from zero here.
 
@@ -110,7 +110,16 @@ The per-observation records (`actions_*.jsonl`) stay on the run volume; `python 
 
 ## Sham and CPU controls (plan fixed before the runs)
 
-The identical rerun shows that the variants cause the flips, not that the flips are specific to the image steps. `controls/PLAN.md` adds sham cells: meaningless changes of the same pixel size as the mild steps (noise of exactly one intensity level on every policy input, two draws; the JPEG round trip at quality 94 instead of 95), three per model, plus a rerun of the OpenVLA-7B render-at-224 cell on the host CPU of the other OpenVLA-7B cells and an OpenVLA-OFT stack check. The plan fixes the question, the comparison, the reading rule in numbers, the validity checks and the text of the paper for each outcome, and it was committed with the code and the analysis script (`scripts/sham_control_analysis.py`) before any of these cells ran. How to run them: `controls/RUN_GUIDE.md`. Their logs will go to `results/controls/`, apart from the cells above.
+The identical rerun shows that the variants cause the flips, not that the flips are specific to the image steps. `controls/PLAN.md` adds sham cells: meaningless changes as large, in intensity levels, as the two mildest steps (noise of exactly one intensity level on every policy input, two draws; the JPEG round trip at quality 94 instead of 95), three per model, plus a rerun of the OpenVLA-7B render-at-224 cell on the host CPU of the other OpenVLA-7B cells and an OpenVLA-OFT stack check. The plan fixes the question, the comparison, the reading rule in numbers, the validity checks and the text of the paper for each outcome, and it was committed with the code and the analysis script (`scripts/sham_control_analysis.py`) before any of these cells ran. How to run them: `controls/RUN_GUIDE.md`; timeline of the plan and the runs: `PROVENANCE.md`.
+
+Results (`results/controls/summary.md`, read once with the pre-registered rule). The rule divides the mean flips of the three sham cells by the mean flips of the two steps they are sized to (JPEG off and bilinear), both above the identical rerun, and calls the sham flips many at a ratio of one half or more.
+
+| | Sham flips (noise draw 1, draw 2, JPEG q94) | Ratio [bootstrap 95%] |
+|---|---|---|
+| OpenVLA-7B | 61, 83, 78 | 0.94 [0.81, 1.10] |
+| OpenVLA-OFT | 4, 7, 5 | 0.63 [0.30, 1.04], close to the cutoff |
+
+For OpenVLA-7B, most flips of the mild steps therefore reflect sensitivity to any change of about one intensity level, not an effect of the particular step. For OpenVLA-OFT the counts are small, and its steps, the crop above all, lose episodes the shams do not. The render-at-224 rerun on the other host CPU repeats all 500 outcomes of the October cell, and the OpenVLA-OFT stack check repeats all 500 outcomes of the October reference.
 
 ## Repository layout
 
