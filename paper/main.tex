@@ -24,7 +24,9 @@
 \newcommand{\pizero}{$\pi_0$}
 \newcommand{\pifive}{$\pi_{0.5}$}
 
-\title{\HookTitle}
+% Statement on the use of a large language model tool, in both builds (first-page footnote on the title).
+\newcommand{\LlmUseNote}{The author chose the research question and the two policies, decided which cells and controls to run and how to read them, ran and monitored the evaluations, and checked every reported result. A large language model tool (Claude) was used to write and debug the evaluation and analysis code and to draft and edit parts of the text.}
+\title{\HookTitle\thanks{\LlmUseNote}}
 
 \ifdefined\PreprintBuild
   \input{author_preprint}
