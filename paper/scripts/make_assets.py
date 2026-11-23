@@ -453,10 +453,14 @@ elif CTRLD.exists() and any(CTRLD.glob("*/episodes.jsonl")):
     if _tmp.exists():
         ctrl = json.load(open(_tmp)); _tmp.unlink()
 CONTROL_PLAN_COMMIT = "04fb502"  # commit that added controls/PLAN.md, pushed before any control cell ran
+CONTROL_FIX_COMMIT = "e6ec1c2"  # the one correction before any cell started (GPU name check), PLAN.md "Changes after the plan commit"
 try:
     _c = subprocess.run(["git", "-C", str(repo), "log", "--diff-filter=A", "--format=%h", "--", "controls/PLAN.md"],
                         capture_output=True, text=True).stdout.split()
     assert not _c or _c[-1][:7] == CONTROL_PLAN_COMMIT, _c
+    _f = subprocess.run(["git", "-C", str(repo), "log", "--format=%h", "--", "controls/code_sha256.txt"],
+                        capture_output=True, text=True).stdout.split()
+    assert not _f or CONTROL_FIX_COMMIT in [h[:7] for h in _f], _f
 except FileNotFoundError:
     pass
 
@@ -751,7 +755,7 @@ N.update({
     "RefDates": (lambda ds: ", ".join(ds[:-1]) + " and " + ds[-1])([str(d.day) for d in sorted(set(oft_ref_dates + [ref7_date]))]) + " " + MONTHS[ref7_date.month - 1],
     "MainEpisodes": f"{12 * 500:,}", "PilotEpisodes": f"{len(pilot) * 200:,}",
     "MujocoOldPct": f1(m337["sr"] * 100), "MujocoNewPct": f1(m313["sr"] * 100),
-    "MujocoNewHours": f1(m313["hours"]), "ControlPlanCommit": CONTROL_PLAN_COMMIT,
+    "MujocoNewHours": f1(m313["hours"]), "ControlPlanCommit": CONTROL_PLAN_COMMIT, "ControlFixCommit": CONTROL_FIX_COMMIT,
 })
 if cpu_ctrl is not None:
     _cd = sorted({start_date("oft_spatial_crop_off_cpu_control")} | {date.fromisoformat(mm["start_time"][:10]) for mm in meta("oft_spatial_crop_off_cpu_control")})
@@ -787,6 +791,7 @@ N["ShamOftAgrees"] = "N"
 for key in ("Differ", "K", "Lost", "Gained", "Flips", "P", "StepsDiffer", "FlipsMin", "FlipsMax"):
     N["CpuSevCtrl" + key] = PH
 N["CpuSevCtrlReading"] = "x"
+N["CpuSevCtrlAllSame"] = "N"; N["CpuSevCtrlStepsSame"] = "N"
 N["CpuSevCtrlDriver"] = PH
 N["StackReading"] = "x"; N["StackDiffer"] = PH; N["StackSameStep"] = PH
 N["CpuSevOldDriver"] = meta("openvla7b_spatial_render224")[0]["gpu_driver"]
@@ -829,7 +834,8 @@ if ctrl is not None:
                   "CpuSevCtrlLost": str(new_["lost"]), "CpuSevCtrlGained": str(new_["gained"]),
                   "CpuSevCtrlFlips": str(new_["flips"]), "CpuSevCtrlP": pfmt(new_["p"]),
                   "CpuSevCtrlStepsDiffer": str(cc_["env_steps_differ"]),
-                  "CpuSevCtrlFlipsMin": str(min(both_)), "CpuSevCtrlFlipsMax": str(max(both_))})
+                  "CpuSevCtrlFlipsMin": str(min(both_)), "CpuSevCtrlFlipsMax": str(max(both_)),
+                  "CpuSevCtrlAllSame": YN(cc_["differ"] == 0), "CpuSevCtrlStepsSame": YN(cc_["env_steps_differ"] == 0)})
         notes_ = " ".join(ctrl["cells"].get("openvla7b_spatial_render224_cpu_control", {}).get("notes", []))
         mt_ = re.search(r"GPU driver ([\d.]+(?:, [\d.]+)*)", notes_)
         if mt_:
