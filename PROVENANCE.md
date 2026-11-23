@@ -1,6 +1,6 @@
 # Timeline of the control cells
 
-The sham and CPU control cells were planned and committed before any of them ran. Times are commit times in UTC, as recorded by git and the hosting service; the logs in `results/controls/pods/*/chain.log` give the start and end of every cell.
+The control cells of `controls/PLAN.md` (the sham cells, the rerun of the OpenVLA-7B render-at-224 cell on the other host CPU, and the OpenVLA-OFT stack check) were planned and committed before any of them ran. The earlier CPU control of the OpenVLA-OFT crop-off cell (`results/oft_spatial_crop_off_cpu_control/`, run on 21-22 November 2026) was not part of this plan. Times are commit times in UTC, as recorded by git and the hosting service; the logs in `results/controls/pods/*/chain.log` give the start and end of every cell.
 
 | Event | Time (UTC) |
 |---|---|

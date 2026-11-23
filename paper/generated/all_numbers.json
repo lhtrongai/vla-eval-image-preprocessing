@@ -515,6 +515,8 @@
   "MujocoNewPct": "70.0",
   "MujocoNewHours": "2.2",
   "ControlPlanCommit": "04fb502",
+  "ShamSizeNoise": "1.00",
+  "ShamSizeQ": "0.54",
   "ControlFixCommit": "e6ec1c2",
   "CpuCtrlDates": "21-22 November",
   "OlLinkJpegDiff": "$-$1",

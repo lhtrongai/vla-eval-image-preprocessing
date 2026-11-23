@@ -755,7 +755,7 @@ N.update({
     "RefDates": (lambda ds: ", ".join(ds[:-1]) + " and " + ds[-1])([str(d.day) for d in sorted(set(oft_ref_dates + [ref7_date]))]) + " " + MONTHS[ref7_date.month - 1],
     "MainEpisodes": f"{12 * 500:,}", "PilotEpisodes": f"{len(pilot) * 200:,}",
     "MujocoOldPct": f1(m337["sr"] * 100), "MujocoNewPct": f1(m313["sr"] * 100),
-    "MujocoNewHours": f1(m313["hours"]), "ControlPlanCommit": CONTROL_PLAN_COMMIT, "ControlFixCommit": CONTROL_FIX_COMMIT,
+    "MujocoNewHours": f1(m313["hours"]), "ControlPlanCommit": CONTROL_PLAN_COMMIT, "ShamSizeNoise": f"{json.load(open(repo / 'controls/sham_sizes.json'))['noise']['mean']:.2f}", "ShamSizeQ": f"{json.load(open(repo / 'controls/sham_sizes.json'))['jpeg_q94']['mean']:.2f}", "ControlFixCommit": CONTROL_FIX_COMMIT,
 })
 if cpu_ctrl is not None:
     _cd = sorted({start_date("oft_spatial_crop_off_cpu_control")} | {date.fromisoformat(mm["start_time"][:10]) for mm in meta("oft_spatial_crop_off_cpu_control")})
