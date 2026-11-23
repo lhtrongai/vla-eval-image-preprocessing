@@ -1,0 +1,8 @@
+2026-11-22 18:24:07 chain start openvla7b-render224-cpu: openvla7b_spatial_render224_cpu_control
+2026-11-22 18:24:07 start openvla7b_spatial_render224_cpu_control /workspace/runs/controls/openvla7b_spatial_render224_cpu_control
+2026-11-22 23:13:52 end openvla7b_spatial_render224_cpu_control rc=0 episodes=500
+2026-11-22 23:13:52 chain finished
+2026-11-22 23:15:42 watchdog: chain finished, removing pod
+Runpod config file not found, please run `runpodctl config` to create it
+API key not found
+Error: API key not found

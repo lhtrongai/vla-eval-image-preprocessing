@@ -1,0 +1,18 @@
+2026-11-22 18:21:21 chain start oft-controls: oft_spatial_rerun_stack_check oft_spatial_sham_noise_seed1 oft_spatial_sham_noise_seed2 oft_spatial_sham_jpeg_q94
+2026-11-22 18:21:21 start oft_spatial_rerun_stack_check /workspace/runs/controls/oft_spatial_rerun_stack_check/states_0-19
+2026-11-22 18:45:13 start oft_spatial_rerun_stack_check /workspace/runs/controls/oft_spatial_rerun_stack_check/states_20-49
+2026-11-22 19:19:48 end oft_spatial_rerun_stack_check rc=0 episodes=500
+2026-11-22 19:19:49 start oft_spatial_sham_noise_seed1 /workspace/runs/controls/oft_spatial_sham_noise_seed1/states_0-19
+2026-11-22 19:43:29 start oft_spatial_sham_noise_seed1 /workspace/runs/controls/oft_spatial_sham_noise_seed1/states_20-49
+2026-11-22 20:18:15 end oft_spatial_sham_noise_seed1 rc=0 episodes=500
+2026-11-22 20:18:15 start oft_spatial_sham_noise_seed2 /workspace/runs/controls/oft_spatial_sham_noise_seed2/states_0-19
+2026-11-22 20:41:56 start oft_spatial_sham_noise_seed2 /workspace/runs/controls/oft_spatial_sham_noise_seed2/states_20-49
+2026-11-22 21:16:52 end oft_spatial_sham_noise_seed2 rc=0 episodes=500
+2026-11-22 21:16:53 start oft_spatial_sham_jpeg_q94 /workspace/runs/controls/oft_spatial_sham_jpeg_q94/states_0-19
+2026-11-22 21:40:34 start oft_spatial_sham_jpeg_q94 /workspace/runs/controls/oft_spatial_sham_jpeg_q94/states_20-49
+2026-11-22 22:15:18 end oft_spatial_sham_jpeg_q94 rc=0 episodes=500
+2026-11-22 22:15:18 chain finished
+2026-11-22 22:16:55 watchdog: chain finished, removing pod
+Runpod config file not found, please run `runpodctl config` to create it
+API key not found
+Error: API key not found

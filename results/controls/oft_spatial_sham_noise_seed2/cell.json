@@ -1,0 +1,156 @@
+{
+  "cell": "oft_spatial_sham_noise_seed2",
+  "attempt": 1,
+  "out_dir": "/workspace/runs/controls/oft_spatial_sham_noise_seed2",
+  "config": {
+    "name": "oft_spatial_sham_noise_seed2",
+    "model": "oft",
+    "kind": "sham",
+    "pod": "oft-controls",
+    "env": {
+      "IMAGE_VARIANT": "noise",
+      "NOISE_SEED": "2"
+    },
+    "segments": [
+      {
+        "dir": "states_0-19",
+        "env": {
+          "INIT_OFFSET": "0"
+        },
+        "argv": [
+          "--pretrained_checkpoint",
+          "moojink/openvla-7b-oft-finetuned-libero-spatial",
+          "--task_suite_name",
+          "libero_spatial",
+          "--center_crop",
+          "True",
+          "--num_trials_per_task",
+          "20",
+          "--env_img_res",
+          "256",
+          "--local_log_dir",
+          "{OUT}"
+        ]
+      },
+      {
+        "dir": "states_20-49",
+        "env": {
+          "INIT_OFFSET": "20"
+        },
+        "argv": [
+          "--pretrained_checkpoint",
+          "moojink/openvla-7b-oft-finetuned-libero-spatial",
+          "--task_suite_name",
+          "libero_spatial",
+          "--center_crop",
+          "True",
+          "--num_trials_per_task",
+          "30",
+          "--env_img_res",
+          "256",
+          "--local_log_dir",
+          "{OUT}"
+        ]
+      }
+    ],
+    "run_hours": 0.7,
+    "what": "the same noise, draw 2"
+  },
+  "cpu": "AMD EPYC 7663 56-Core Processor",
+  "gpu": [
+    "NVIDIA RTX PRO 4500 Blackwell"
+  ],
+  "pod_id": null,
+  "start": "2026-11-22 20:18:15",
+  "segments": [
+    {
+      "dir": "states_0-19",
+      "argv": [
+        "/root/controls_code/scripts/run_oft_libero_logged.py",
+        "--pretrained_checkpoint",
+        "moojink/openvla-7b-oft-finetuned-libero-spatial",
+        "--task_suite_name",
+        "libero_spatial",
+        "--center_crop",
+        "True",
+        "--num_trials_per_task",
+        "20",
+        "--env_img_res",
+        "256",
+        "--local_log_dir",
+        "/workspace/runs/controls/oft_spatial_sham_noise_seed2/states_0-19"
+      ],
+      "env": {
+        "HF_HOME": "/workspace/hf_cache",
+        "HF_HUB_ENABLE_HF_TRANSFER": "0",
+        "IMAGE_VARIANT": "noise",
+        "INIT_OFFSET": "0",
+        "JPEG_ROUNDTRIP": "on",
+        "LIBERO_CONFIG_PATH": "/workspace/.libero",
+        "MUJOCO_GL": "egl",
+        "NOISE_SEED": "2",
+        "OUT_DIR": "/workspace/runs/controls/oft_spatial_sham_noise_seed2/states_0-19",
+        "PYTHONPATH": "/workspace/LIBERO",
+        "SAVE_POLICY_INPUTS": "1",
+        "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
+        "TZ": "ICT-7"
+      },
+      "rc": 0,
+      "start": "2026-11-22 20:18:15",
+      "end": "2026-11-22 20:41:56"
+    },
+    {
+      "dir": "states_20-49",
+      "argv": [
+        "/root/controls_code/scripts/run_oft_libero_logged.py",
+        "--pretrained_checkpoint",
+        "moojink/openvla-7b-oft-finetuned-libero-spatial",
+        "--task_suite_name",
+        "libero_spatial",
+        "--center_crop",
+        "True",
+        "--num_trials_per_task",
+        "30",
+        "--env_img_res",
+        "256",
+        "--local_log_dir",
+        "/workspace/runs/controls/oft_spatial_sham_noise_seed2/states_20-49"
+      ],
+      "env": {
+        "HF_HOME": "/workspace/hf_cache",
+        "HF_HUB_ENABLE_HF_TRANSFER": "0",
+        "IMAGE_VARIANT": "noise",
+        "INIT_OFFSET": "20",
+        "JPEG_ROUNDTRIP": "on",
+        "LIBERO_CONFIG_PATH": "/workspace/.libero",
+        "MUJOCO_GL": "egl",
+        "NOISE_SEED": "2",
+        "OUT_DIR": "/workspace/runs/controls/oft_spatial_sham_noise_seed2/states_20-49",
+        "PYTHONPATH": "/workspace/LIBERO",
+        "SAVE_POLICY_INPUTS": "1",
+        "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1",
+        "TZ": "ICT-7"
+      },
+      "rc": 0,
+      "start": "2026-11-22 20:41:56",
+      "end": "2026-11-22 21:16:52"
+    }
+  ],
+  "repo_commit": "e6ec1c2ee91cd246427c0a4a98a28a8ec0be2cd5",
+  "code_sha256": {
+    "scripts/image_pipeline.py": "5dcaac5c68d282b78b9cf46195b5ac7eb26f456e70af483ae1adc005f125b65a",
+    "scripts/run_openvla_libero_logged.py": "f3fdf19aa71b635472477ed86123514aa1ce6ccdf8c3de9148a61d2de9d7fe83",
+    "scripts/run_oft_libero_logged.py": "cfd2852a8baf3d17f445987b5e6ce787ad740b0aadcf14328acb412e8fef3fdf",
+    "scripts/check_image_variants.py": "b4bf4fe341613b29f1ba4d8b9e0e4aa53f8129aa30cca6fa750e1ea996ad43dc",
+    "scripts/sham_control_analysis.py": "0af81dbbdd745781daffa1cd455a7837783d2fc180f8415e05f02d49518d670a",
+    "controls/cells.json": "50d9da28e51f32ba54fedb0283c2a3ac068f7061c8c8f911cc058857c1ffa444",
+    "controls/run_cell.py": "5c960043e851c96554a8319b0a90810635f6a85bd61b7aacfc61746016b2a887",
+    "controls/run_pod.sh": "5aa9770fa3df87ee2f29f121f1763bbab3288b74d45c8b62025a86512712d2cc",
+    "controls/watchdog.sh": "0c4c566d01ac89a79ba7deeed7e51f8c737b6a34b56ae63fb380eb01d5b96c33",
+    "controls/pack_logs.sh": "a2df0e827b6b5b1692fb9ed54af43caaeb5c632bb098441ea4ac6ef8850ee966",
+    "controls/measure_sham_sizes.py": "5d28a25ee5ff07387969f19c9135854eee7f4d910fc24c134db6afcf72eeb698"
+  },
+  "end": "2026-11-22 21:16:52",
+  "rc": 0,
+  "episodes": 500
+}

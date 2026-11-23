@@ -1,0 +1,21 @@
+[info] using task orders [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[Warning]: datasets path /workspace/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /workspace/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /workspace/LIBERO/libero/libero/../datasets does not exist!
+[Warning]: datasets path /workspace/LIBERO/libero/libero/../datasets does not exist!
+openvla: official vs resize_with_jpeg(lanczos3): identical=True mad=0.0000
+openvla: official vs bilinear variant: mad=0.7556 grey levels
+openvla: official vs JPEG quality 94: mad=0.6492 grey levels (before the crop)
+openvla: render224 input shape (224, 224, 3), mad vs official 256 path=1.8421
+openvla: noise control: every value moves by 1, mad=1.0000
+openvla: processor wrapper passes the noisy image on
+CHECK_OK
+2026-11-23 01:36:19.272363: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+/workspace/LIBERO/libero/libero/benchmark/__init__.py:164: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  init_states = torch.load(init_states_path)
+

@@ -1,0 +1,13 @@
+scripts/image_pipeline.py: OK
+scripts/run_openvla_libero_logged.py: OK
+scripts/run_oft_libero_logged.py: OK
+scripts/check_image_variants.py: OK
+scripts/sham_control_analysis.py: OK
+controls/cells.json: OK
+controls/run_cell.py: OK
+controls/run_pod.sh: OK
+controls/watchdog.sh: OK
+controls/pack_logs.sh: OK
+controls/measure_sham_sizes.py: OK
+2c2f725108fe961d91066664e523505abfee49bb128f3f5f862d5caace034c68  /root/controls_code/scripts/episode_logging.py
+7c370893745ab467927be736d211b38e15c6fdccdb50f5ba2a10a0f3939159e5  /root/controls_code/scripts/per_camera_textures.py

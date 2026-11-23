@@ -1,0 +1,354 @@
+{
+  "cells": {
+    "openvla7b_spatial_sham_noise_seed1": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 428,
+      "lost": 29,
+      "gained": 32,
+      "flips": 61,
+      "diff": 0.6,
+      "lo": -2.4,
+      "hi": 3.6,
+      "ub_loss": 2.0,
+      "p": 0.798152627305718,
+      "band": 3.0616178729554084,
+      "inside_band": true,
+      "flips_per_task": [
+        5,
+        9,
+        3,
+        4,
+        8,
+        3,
+        2,
+        10,
+        8,
+        9
+      ],
+      "flips_vs_rerun": 62,
+      "in_pool": 45,
+      "same_step_share": 0.0707070707070707,
+      "median_step_diff": 5.0
+    },
+    "openvla7b_spatial_sham_noise_seed2": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 420,
+      "lost": 44,
+      "gained": 39,
+      "flips": 83,
+      "diff": -1.0,
+      "lo": -4.6,
+      "hi": 2.6,
+      "ub_loss": 4.0,
+      "p": 0.6608836477612148,
+      "band": 3.571289963024565,
+      "inside_band": true,
+      "flips_per_task": [
+        7,
+        12,
+        5,
+        4,
+        13,
+        3,
+        7,
+        8,
+        11,
+        13
+      ],
+      "flips_vs_rerun": 82,
+      "in_pool": 62,
+      "same_step_share": 0.05774278215223097,
+      "median_step_diff": 5.0
+    },
+    "openvla7b_spatial_sham_jpeg_q94": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 421,
+      "lost": 41,
+      "gained": 37,
+      "flips": 78,
+      "diff": -0.8,
+      "lo": -4.2,
+      "hi": 2.6,
+      "ub_loss": 3.8,
+      "p": 0.7343420330298468,
+      "band": 3.4620502596005163,
+      "inside_band": true,
+      "flips_per_task": [
+        8,
+        5,
+        3,
+        4,
+        10,
+        8,
+        3,
+        9,
+        12,
+        16
+      ],
+      "flips_vs_rerun": 77,
+      "in_pool": 56,
+      "same_step_share": 0.059895833333333336,
+      "median_step_diff": 5.0
+    },
+    "openvla7b_spatial_render224_cpu_control": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the repeated cell in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ]
+    },
+    "oft_spatial_rerun_stack_check": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ]
+    },
+    "oft_spatial_sham_noise_seed1": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 497,
+      "lost": 1,
+      "gained": 3,
+      "flips": 4,
+      "diff": 0.4,
+      "lo": -0.4,
+      "hi": 1.2,
+      "ub_loss": 0.2,
+      "p": 0.625,
+      "band": 0.784,
+      "inside_band": true,
+      "flips_per_task": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "flips_vs_rerun": 4,
+      "in_pool": 4,
+      "same_step_share": 0.4149797570850202,
+      "median_step_diff": 1.0
+    },
+    "oft_spatial_sham_noise_seed2": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 494,
+      "lost": 4,
+      "gained": 3,
+      "flips": 7,
+      "diff": -0.2,
+      "lo": -1.2,
+      "hi": 0.8,
+      "ub_loss": 1.0,
+      "p": 1.0,
+      "band": 1.0371345139373196,
+      "inside_band": true,
+      "flips_per_task": [
+        0,
+        0,
+        2,
+        1,
+        0,
+        3,
+        0,
+        0,
+        0,
+        1
+      ],
+      "flips_vs_rerun": 7,
+      "in_pool": 3,
+      "same_step_share": 0.4317718940936864,
+      "median_step_diff": 1.0
+    },
+    "oft_spatial_sham_jpeg_q94": {
+      "valid": true,
+      "problems": [],
+      "notes": [
+        "first frame differs from the October rerun in 0 of 500 pairs",
+        "GPU driver 595.112.07"
+      ],
+      "k": 496,
+      "lost": 2,
+      "gained": 3,
+      "flips": 5,
+      "diff": 0.2,
+      "lo": -0.6,
+      "hi": 1.0,
+      "ub_loss": 0.6,
+      "p": 1.0,
+      "band": 0.8765386471799176,
+      "inside_band": true,
+      "flips_per_task": [
+        0,
+        0,
+        1,
+        1,
+        0,
+        2,
+        0,
+        0,
+        0,
+        1
+      ],
+      "flips_vs_rerun": 5,
+      "in_pool": 5,
+      "same_step_share": 0.4077079107505071,
+      "median_step_diff": 1.0
+    }
+  },
+  "readings": {
+    "openvla7b": {
+      "read": true,
+      "cells": [
+        "openvla7b_spatial_sham_noise_seed1",
+        "openvla7b_spatial_sham_noise_seed2",
+        "openvla7b_spatial_sham_jpeg_q94"
+      ],
+      "total_flips": 222,
+      "total_needed": 123,
+      "sham_mean": 74.0,
+      "steps_mean": 78.5,
+      "floor": 3,
+      "ratio": 0.9403973509933775,
+      "ratio_ci": [
+        0.807255552823539,
+        1.1023622047244095
+      ],
+      "ratio_undefined_draws": 0,
+      "reading": "many",
+      "close_to_cutoff": false,
+      "ratio_with_render224": 0.8875,
+      "ratio_vs_october_rerun": 0.9237472766884532,
+      "share_in_pool": 0.7342342342342343,
+      "pool_share_of_episodes": 0.378,
+      "same_pool": false,
+      "band_supported": true,
+      "noise1_vs_noise2_flips": 78,
+      "fallback": false
+    },
+    "oft": {
+      "read": true,
+      "cells": [
+        "oft_spatial_sham_noise_seed1",
+        "oft_spatial_sham_noise_seed2",
+        "oft_spatial_sham_jpeg_q94"
+      ],
+      "total_flips": 16,
+      "total_needed": 13,
+      "sham_mean": 5.333333333333333,
+      "steps_mean": 8.5,
+      "floor": 0,
+      "ratio": 0.6274509803921569,
+      "ratio_ci": [
+        0.2962962962962963,
+        1.0416666666666667
+      ],
+      "ratio_undefined_draws": 0,
+      "reading": "many",
+      "close_to_cutoff": true,
+      "ratio_with_render224": 0.5925925925925926,
+      "ratio_vs_october_rerun": 0.6274509803921569,
+      "share_in_pool": 0.75,
+      "pool_share_of_episodes": 0.058,
+      "same_pool": true,
+      "band_supported": true,
+      "noise1_vs_noise2_flips": 5,
+      "fallback": false
+    },
+    "writing_branch": "fragility",
+    "oft_agrees": true,
+    "cpu_control": {
+      "differ": 0,
+      "floor": 3,
+      "reading": "a",
+      "new": {
+        "k": 427,
+        "lost": 45,
+        "gained": 47,
+        "flips": 92,
+        "diff": 0.4,
+        "lo": -3.4,
+        "hi": 4.2,
+        "ub_loss": 2.8,
+        "p": 0.917040519652471,
+        "band": 3.759931914277172,
+        "inside_band": true,
+        "flips_per_task": [
+          8,
+          10,
+          8,
+          5,
+          13,
+          9,
+          3,
+          9,
+          13,
+          14
+        ]
+      },
+      "old": {
+        "k": 427,
+        "lost": 45,
+        "gained": 47,
+        "flips": 92,
+        "diff": 0.4,
+        "lo": -3.4,
+        "hi": 4.2,
+        "ub_loss": 2.8,
+        "p": 0.917040519652471,
+        "band": 3.759931914277172,
+        "inside_band": true,
+        "flips_per_task": [
+          8,
+          10,
+          8,
+          5,
+          13,
+          9,
+          3,
+          9,
+          13,
+          14
+        ]
+      },
+      "env_steps_differ": 0
+    },
+    "stack_check": {
+      "differ_reference": 0,
+      "differ_rerun": 0,
+      "reading": "a",
+      "same_step_as_october_rerun": 500
+    }
+  }
+}
